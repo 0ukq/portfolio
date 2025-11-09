@@ -1,0 +1,12 @@
+@import '@/assets/css/_config/_media.css';
+
+@media (--pc) {
+  .StackText {
+    display: grid;
+
+    > span {
+      grid-area: 1/1;
+      width: fit-content;
+    }
+  }
+}

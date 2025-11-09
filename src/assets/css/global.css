@@ -1,4 +1,17 @@
-@layer common, page;
+@layer common, component, page, override;
 
 @import './_config/_media.css' layer(common);
 @import './_config/_reset.css' layer(common);
+@import './_config/_variables.css' layer(common);
+@import './_config/_fonts.css' layer(common);
+@import './_config/_override.css' layer(override);
+
+@layer common {
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .clip {
+    overflow: clip;
+  }
+}

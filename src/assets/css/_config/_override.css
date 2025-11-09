@@ -1,0 +1,13 @@
+@import './_media.css';
+
+@media (--pc) {
+  .only-sp {
+    display: none;
+  }
+}
+
+@media (--sp) {
+  .only-pc {
+    display: none;
+  }
+}

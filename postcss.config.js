@@ -4,7 +4,7 @@ import postcssCustomMedia from 'postcss-custom-media';
 import functions from 'postcss-functions';
 
 const BASE_FONT_SIZE = 16;
-const PC_WIDTH = 1200;
+const PC_WIDTH = 1400;
 const MOBILE_WIDTH = 768;
 
 const config = {

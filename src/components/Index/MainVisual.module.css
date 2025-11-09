@@ -1,0 +1,59 @@
+@import '../../assets/css/_config/_media.css';
+
+@media (--pc) {
+  .MainVisual {
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    .inner {
+      width: 1200px;
+      margin-inline: auto;
+    }
+
+    .container {
+      display: grid;
+
+      .title,
+      .visual {
+        grid-area: 1/1;
+      }
+    }
+
+    .title {
+      position: relative;
+      display: grid;
+      font-weight: 500;
+      font-size: 290px;
+      place-content: start;
+      letter-spacing: -0.02em;
+      color: var(--col_light_black);
+      z-index: 1;
+
+      .item {
+        display: inline-block;
+        &:nth-child(1) {
+          translate: -45px 0;
+        }
+        &:nth-child(2) {
+          translate: 45px 0;
+        }
+      }
+    }
+
+    .visual {
+      width: 577px;
+      aspect-ratio: 577 / 680;
+      margin-inline-start: auto;
+      translate: 80px 60px;
+
+      img {
+        clip-path: path(
+          'M 466 543 C 382 587 251 614 208 609 C 121 596 55 550 31 513 C 3 470 -6.7167 284.241 4.2198 216.867 C 15.1563 149.492 32.4021 80.8935 92.2769 37.011 C 152.152 -6.8716 222.926 -3.6905 290.467 6.1677 C 358.024 16.047 483 14 514 61 C 552 114 569 303 565 327 C 562 344 546 501 466 543 L 466 543 Z'
+            /* 'M 41 184 C 50 157 75 88 102 69 C 134 45 189 4 239 5 C 328 3 383 26 417 39 C 436 46 491 72 517 98 C 562 138 579 321 561 384 C 547 422 544 522 504 563 C 471 601 357 637 308 636 C 250 634 94 618 67 586 C 34 547 8 420 9 373 C 11 332 28 226 41 184' */
+        );
+      }
+    }
+  }
+}

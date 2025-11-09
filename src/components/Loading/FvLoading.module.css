@@ -1,0 +1,42 @@
+@import '@/assets/css/_config/_media.css';
+
+@media (--pc) {
+  .FvLoading {
+    position: fixed;
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    color: var(--col_white);
+    background-color: var(--col_light_black);
+    left: 0;
+    top: 0;
+    z-index: var(--z_index_loading);
+
+    .container {
+      display: grid;
+      grid-template-columns: 45px max-content;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .lotties {
+      display: grid;
+
+      .lottie {
+        grid-area: 1/1;
+      }
+    }
+
+    .paragraphs {
+      display: grid;
+
+      .text {
+        font-size: 28px;
+        letter-spacing: 0.18em;
+        grid-area: 1/1;
+        line-height: 1;
+      }
+    }
+  }
+}

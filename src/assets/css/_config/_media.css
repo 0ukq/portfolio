@@ -1,4 +1,5 @@
-@custom-media --pc (min-width: 769px);
+@custom-media --pc (min-width: 1400px);
+@custom-media --tb (min-width: 769px) and (max-width: 1439px);
 @custom-media --sp (max-width: 768px);
 
 /* @custom-media --pc (min-width: 1025px);

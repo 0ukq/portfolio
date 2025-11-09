@@ -1,0 +1,6 @@
+:root {
+  --col_white: #fff;
+  --col_black: #000;
+  --col_light_black: #444341;
+  --z_index_loading: 1000;
+}

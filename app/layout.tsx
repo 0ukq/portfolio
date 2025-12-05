@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto, Big_Shoulders } from 'next/font/google';
 import './globals.css';
+import Lenis from './_components/Lenis/Lenis';
 
 export const bigShoulders = Big_Shoulders({
   variable: '--font-big-shoulders',
@@ -24,7 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robot.className}`}>{children}</body>
+      <body className={`${robot.className}`}>
+        <Lenis />
+        {children}
+      </body>
     </html>
   );
 }

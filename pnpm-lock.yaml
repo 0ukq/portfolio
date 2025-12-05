@@ -51,6 +51,9 @@ importers:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
+      '@csstools/postcss-global-data':
+        specifier: ^3.1.0
+        version: 3.1.0(postcss@8.5.6)
       '@types/node':
         specifier: ^20
         version: 20.19.25
@@ -165,6 +168,12 @@ packages:
     peerDependencies:
       '@csstools/css-parser-algorithms': ^3.0.5
       '@csstools/css-tokenizer': ^3.0.4
+
+  '@csstools/postcss-global-data@3.1.0':
+    resolution: {integrity: sha512-qfS0bUxBukuyxEyxTTZG+px2xwAQPf7Qk6B7lFdjWnovb/O6h0t3sxrVY81nJLh7z0KvEMhjxTURNtEmOrADpQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      postcss: ^8.4
 
   '@emnapi/core@1.7.1':
     resolution: {integrity: sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg==}
@@ -2022,6 +2031,10 @@ snapshots:
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
+
+  '@csstools/postcss-global-data@3.1.0(postcss@8.5.6)':
+    dependencies:
+      postcss: 8.5.6
 
   '@emnapi/core@1.7.1':
     dependencies:

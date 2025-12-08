@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto, Big_Shoulders } from 'next/font/google';
-import './globals.css';
-import Lenis from './_components/Lenis/Lenis';
+import Lenis from '@/components/Lenis/Lenis';
+import '@/styles/globals.css';
 
 export const bigShoulders = Big_Shoulders({
   variable: '--font-big-shoulders',

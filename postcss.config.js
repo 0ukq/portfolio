@@ -11,7 +11,7 @@ const MOBILE_WIDTH = 768;
 const config = {
   plugins: [
     postcssGlobalData({
-      files: ['./app/assets/css/_config/_media.css'],
+      files: ['./src/styles/media.css'],
     }),
     postcssCustomMedia(),
     autoprefixer,

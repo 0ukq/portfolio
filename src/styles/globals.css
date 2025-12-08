@@ -1,0 +1,12 @@
+@layer common, component, page, override;
+
+@import './media.css' layer(common);
+@import './reset.css' layer(common);
+@import './variables.css' layer(common);
+@import './override.css' layer(override);
+
+@layer common {
+  .clip {
+    overflow: clip;
+  }
+}

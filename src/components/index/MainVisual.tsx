@@ -8,10 +8,10 @@ import { useRef } from 'react';
 import { bigShoulders } from '@/lib/fonts';
 import { easeOutExpo } from '@/lib/custom-ease';
 import ContentInner from '../layout/ContentInner';
-import HeadingH1 from '../heading/HeadingH1';
 import StackItems from '../stack/StackItems';
 
 import styles from './MainVisual.module.css';
+import HeadingText, { HeadingTextVariant } from '../heading/HeadingText';
 
 type MainVisualProps = {
   timeline?: gsap.core.Timeline | null;
@@ -62,32 +62,32 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
       <div className={styles.frame}>
         <div>
           <ContentInner>
-            <div className={styles.headings}>
+            <HeadingText variant={HeadingTextVariant.HEADING1} className={styles.titles}>
               <StackItems
                 contentData="title"
-                before={<HeadingH1 text="TITLE" />}
-                after={<HeadingH1 text="TITLE" />}
+                before={'TITLE'}
+                after={'TITLE'}
                 beforeData="title-before"
                 afterData="title-after"
-                className={styles.title}
+                className={styles.item}
               />
               <StackItems
                 contentData="title"
-                before={<HeadingH1 text="TITLE TITLE TITLE" />}
-                after={<HeadingH1 text="TITLE TITLE TITLE" />}
+                before={'TITLE TITLE TITLE'}
+                after={'TITLE TITLE TITLE'}
                 beforeData="title-before"
                 afterData="title-after"
-                className={styles.title}
+                className={styles.item}
               />
               <StackItems
                 contentData="title"
-                before={<HeadingH1 text="TITLE TITLE" />}
-                after={<HeadingH1 text="TITLE TITLE" />}
+                before={'TITLE TITLE'}
+                after={'TITLE TITLE'}
                 beforeData="title-before"
                 afterData="title-after"
-                className={styles.title}
+                className={styles.item}
               />
-            </div>
+            </HeadingText>
           </ContentInner>
         </div>
         <div data-circle className={styles.circle} />

@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import Loading from './Loading';
 import PageContent from './PageContent';
 import MainVisual from './MainVisual';
+import HeadingText, { HeadingTextAlign } from '../heading/HeadingText';
 
 const Index: React.FC = () => {
   const [tl, setTl] = useState<gsap.core.Timeline | null>(null);
@@ -26,9 +27,24 @@ const Index: React.FC = () => {
 
   return (
     <>
-      {!isLoaded && <Loading timeline={tl} />}
+      {/* {!isLoaded && <Loading timeline={tl} />} */}
       <MainVisual timeline={tl} />
-      {isLoaded && <PageContent />}
+      {isLoaded && (
+        <>
+          <HeadingText>
+            <span>A CURIOUS</span>
+            <span>WEB DEVELOPER</span>
+          </HeadingText>
+          <HeadingText>WORK</HeadingText>
+          <HeadingText>TECH STACK</HeadingText>
+          <HeadingText align={HeadingTextAlign.CENTER}>
+            THANKS FOR CHECKING OUT
+            <br />
+            MY PORTFOLIO!
+          </HeadingText>
+          <PageContent />
+        </>
+      )}
     </>
   );
 };

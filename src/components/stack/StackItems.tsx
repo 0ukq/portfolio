@@ -19,7 +19,7 @@ const StackItems: React.FC<StackItemsProps> = ({
   className,
 }) => {
   return (
-    <div
+    <span
       {...(contentData ? { [`data-${contentData}`]: '' } : {})}
       className={clsx(styles.stackItems, 'clip', className || '')}
     >
@@ -29,7 +29,7 @@ const StackItems: React.FC<StackItemsProps> = ({
       <span {...(afterData ? { [`data-${afterData}`]: '' } : {})} className={styles.item}>
         {after}
       </span>
-    </div>
+    </span>
   );
 };
 export default StackItems;

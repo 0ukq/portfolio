@@ -1,0 +1,27 @@
+@layer component {
+  @media (--pc) {
+    .heading1 {
+      font-size: liq(160);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 100%;
+    }
+    .heading2 {
+      font-family: 'Big Shoulders Display';
+      font-size: liq(80);
+      font-style: normal;
+      font-weight: 800;
+      line-height: 100%;
+      letter-spacing: liq(8);
+      text-transform: uppercase;
+    }
+    .center {
+      text-align: center;
+    }
+    .right {
+      text-align: right;
+    }
+  }
+  @media (--sp) {
+  }
+}

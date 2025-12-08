@@ -1,12 +1,20 @@
 @layer common, component, page, override;
 
-@import './media.css' layer(common);
 @import './reset.css' layer(common);
 @import './variables.css' layer(common);
 @import './override.css' layer(override);
 
 @layer common {
+  body {
+    color: var(--col_main_gray);
+  }
   .clip {
     overflow: clip;
+  }
+
+  @media (--pc) {
+    body {
+      font-size: liq(16);
+    }
   }
 }

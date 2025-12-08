@@ -1,0 +1,10 @@
+@layer component {
+  .contentInner {
+    width: liq(1200);
+    margin-inline: auto;
+  }
+  @media (--pc) {
+  }
+  @media (--sp) {
+  }
+}

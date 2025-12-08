@@ -1,0 +1,31 @@
+@layer component {
+  @media (--pc) {
+    .loading {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      place-content: center;
+      color: var(--col_white);
+      background-color: var(--col_main_gray);
+      inset: 0;
+      z-index: var(--z_index_loading);
+    }
+    .content {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      align-items: center;
+      gap: 0 25px;
+    }
+
+    .text {
+      font-size: rem(28);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; /* 33.6px */
+      letter-spacing: 7px;
+    }
+  }
+  @media (--sp) {
+  }
+}

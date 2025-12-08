@@ -1,17 +1,8 @@
 import type { Metadata } from 'next';
-import { Roboto, Big_Shoulders } from 'next/font/google';
-import Lenis from '@/components/Lenis/Lenis';
+import Lenis from '@/components/lenis/Lenis';
+import { robot } from '@/lib/fonts';
+
 import '@/styles/globals.css';
-
-export const bigShoulders = Big_Shoulders({
-  variable: '--font-big-shoulders',
-  subsets: ['latin'],
-});
-
-const robot = Roboto({
-  variable: '--font-roboto',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'Create Next App',

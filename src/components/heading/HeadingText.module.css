@@ -6,6 +6,7 @@
       font-weight: 800;
       line-height: 100%;
     }
+
     .heading2 {
       font-family: 'Big Shoulders Display';
       font-size: liq(80);
@@ -15,11 +16,21 @@
       letter-spacing: liq(8);
       text-transform: uppercase;
     }
+
     .center {
       text-align: center;
     }
+
     .right {
       text-align: right;
+    }
+
+    .gray {
+      color: var(--col_sub_gray);
+    }
+
+    .white {
+      color: var(--col_white);
     }
   }
   @media (--sp) {

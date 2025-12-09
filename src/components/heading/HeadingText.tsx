@@ -17,11 +17,17 @@ export enum HeadingTextAlign {
   RIGHT = 'right',
 }
 
+export enum HeadingTextColor {
+  GRAY = 'gray',
+  WHITE = 'white',
+}
+
 type HeadingTextProps = {
   children?: React.ReactNode;
   variant?: HeadingTextVariant;
   font?: HeadingTextFont;
   align?: HeadingTextAlign;
+  color?: HeadingTextColor;
   className?: string;
 };
 
@@ -30,11 +36,13 @@ const HeadingText: React.FC<HeadingTextProps> = ({
   variant = HeadingTextVariant.HEADING2,
   font = HeadingTextFont.BIG_SHOULDERS,
   align,
+  color = HeadingTextColor.GRAY,
   className,
 }) => {
   const commonClass = clsx(
     font === HeadingTextFont.BIG_SHOULDERS ? bigShoulders.className : undefined,
     align ? styles[align] : undefined,
+    styles[color],
     className || ''
   );
 

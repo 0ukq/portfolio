@@ -1,0 +1,63 @@
+@layer component {
+  @media (--pc) {
+    .about {
+      padding: liq(150) 0;
+    }
+
+    .inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      width: liq(980);
+    }
+
+    .heading {
+      position: relative;
+      padding-left: liq(200);
+    }
+
+    .lottie {
+      position: absolute;
+      width: 100px;
+      aspect-ratio: 1/1;
+      left: liq(87);
+      top: liq(21);
+      filter: grayscale(1);
+    }
+
+    .title {
+      display: grid;
+      gap: 15px 0;
+
+      > span {
+        display: inline-block;
+        &:first-child {
+          padding-left: liq(45);
+        }
+      }
+    }
+
+    .paragraph {
+      margin-top: liq(120);
+
+      .text {
+        font-size: liq(34);
+        font-weight: 900;
+        line-height: 190%;
+        letter-spacing: liq(5.1);
+      }
+    }
+
+    .image {
+      position: absolute;
+      width: liq(518);
+      right: 0;
+      top: liq(95);
+      z-index: -1;
+    }
+  }
+  @media (--sp) {
+  }
+}

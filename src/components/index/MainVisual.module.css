@@ -1,11 +1,21 @@
 @layer component {
   @media (--pc) {
-    .frame {
+    .mainVisual {
       position: relative;
+
+      &:global(.is-loaded) {
+        height: 300vh;
+      }
+    }
+
+    .frame {
+      position: sticky;
       display: grid;
       place-content: center;
       width: 100vw;
       height: 100vh;
+      left: 0;
+      top: 0;
     }
 
     .titles {

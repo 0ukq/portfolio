@@ -11,6 +11,9 @@
   .clip {
     overflow: clip;
   }
+  .h-full {
+    height: 100vh;
+  }
 
   @media (--pc) {
     body {

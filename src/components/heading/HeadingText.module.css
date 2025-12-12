@@ -1,7 +1,7 @@
 @layer component {
   @media (--pc) {
     .heading1 {
-      font-size: liq(160);
+      font-size: liq(190);
       font-style: normal;
       font-weight: 800;
       line-height: 100%;

@@ -19,7 +19,7 @@ const Index: React.FC = () => {
 
   return (
     <>
-      {!isLoaded && <Loading timeline={tl} />}
+      {/* {!isLoaded && <Loading timeline={tl} />} */}
       <MainVisual timeline={tl} />
     </>
   );

@@ -31,12 +31,12 @@ const PageContent = () => {
           MY PORTFOLIO!
         </HeadingText>
       </section>
-      <section>
+      {/* <section>
         <p className={clsx('clip')}>index</p>
       </section>
       <section>
         <p className={bigShoulders.className}>big shoulders</p>
-      </section>
+      </section> */}
     </>
   );
 };

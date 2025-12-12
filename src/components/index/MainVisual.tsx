@@ -46,7 +46,7 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
         circleScrollTl.current
           .to('[data-circle]', {
             ...defaultOpt,
-            duration: 2,
+            // duration: 2.5,
             clipPath: 'circle(40% at 100% 0)',
           })
           .to('[data-scroll]', { ...defaultOpt, duration: 2, yPercent: 0 }, '<+0.4');
@@ -75,20 +75,30 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
 
         // スクロールアニメーション
         const scrollAnimation = () => {
-          ScrollTrigger.defaults({
-            trigger: gsapRef.current,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-            // markers: true,
-          });
+          // ScrollTrigger.defaults({
+          //   trigger: gsapRef.current,
+          //   start: 'top top',
+          //   end: 'bottom bottom',
+          //   scrub: true,
+          //   // markers: true,
+          // });
           gsap.to('[data-circle]', {
             clipPath: 'circle(145% at 100% 0)',
-            scrollTrigger: {},
+            scrollTrigger: {
+              trigger: gsapRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: true,
+            },
           });
           gsap.to('[data-scroll]', {
             yPercent: 100,
-            scrollTrigger: {},
+            scrollTrigger: {
+              trigger: gsapRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: true,
+            },
           });
         };
       }

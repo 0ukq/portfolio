@@ -20,130 +20,73 @@ const About: React.FC = () => {
   const gsapRef = useRef<HTMLElement>(null);
   const cloudsRef = useRef<LottieCloudsRef>(null);
   const headingTl = useRef<gsap.core.Timeline | null>(null);
-  // const headingTl = useRef<gsap.core.Timeline>(
-  //   gsap.timeline({
-  //     scrollTrigger: { trigger: '[data-heading]', start: 'top center', markers: true },
-  //   })
-  // );
   const titleText = ['A CURIOUS', 'WEB DEVELOPER'];
   const titleText01Chars = Array.from(titleText[0]);
   const titleText02Chars = Array.from(titleText[1]);
 
-  useGSAP(
-    () => {
-      if (gsapRef.current) {
-        console.log('done');
+  // useGSAP(
+  //   () => {
+  //     if (gsapRef.current) {
+  //       const splitTexts = gsap.utils.toArray<HTMLElement>('[data-split-text]');
+  //       const split01 = SplitText.create(splitTexts[0], {
+  //         type: 'chars',
+  //         tag: 'span',
+  //         reduceWhiteSpace: false,
+  //       });
+  //       const split02 = SplitText.create(splitTexts[1], {
+  //         type: 'chars',
+  //         tag: 'span',
+  //         reduceWhiteSpace: false,
+  //       });
 
-        const splitTexts = gsap.utils.toArray<HTMLElement>('[data-split-text]');
-        const split01 = SplitText.create(splitTexts[0], {
-          type: 'chars',
-          tag: 'span',
-          reduceWhiteSpace: false,
-        });
-        const split02 = SplitText.create(splitTexts[1], {
-          type: 'chars',
-          tag: 'span',
-          reduceWhiteSpace: false,
-        });
+  //       // 初期値設定
+  //       gsap.set(split01.chars, { xPercent: -110 });
+  //       gsap.set(split02.chars, { xPercent: -110 });
+  //       gsap.set('[data-lottie]', { scale: 0 });
+  //       gsap.set('[data-text]', { clipPath: 'inset(0% 100% 0% 0%)' });
 
-        // 初期値設定
-        gsap.set(split01.chars, { xPercent: -110 });
-        gsap.set(split02.chars, { xPercent: -110 });
-        gsap.set('[data-lottie]', { scale: 0 });
-        gsap.set('[data-text]', { clipPath: 'inset(0% 100% 0% 0%)' });
-        // gsap.set('[data-lottie]', { yPercent: 100 });
+  //       // テキストアニメーション
+  //       const splitTween: gsap.TweenVars = {
+  //         xPercent: 0,
+  //         duration: 2,
+  //         stagger: 0.05,
+  //         ease: easeOutQuint,
+  //       };
 
-        // テキストアニメーション
-        const splitTween: gsap.TweenVars = {
-          xPercent: 0,
-          duration: 2,
-          stagger: 0.05,
-          ease: easeOutQuint,
-        };
+  //       // タイトル・lottieアニメーション
+  //       headingTl.current = gsap.timeline({
+  //         // delay: 0.6,
+  //         scrollTrigger: {
+  //           trigger: '[data-heading]',
+  //           start: 'top bottom+=80',
+  //           // start: 'top 80%',
+  //           markers: true,
+  //         },
+  //       });
+  //       headingTl.current
+  //         .to('[data-lottie]', {
+  //           scale: 1,
+  //           duration: 2,
+  //           ease: easeOutCirc,
+  //           onStart: () => cloudsRef.current?.play(),
+  //         })
+  //         .to(split01.chars, splitTween, '<+0.1')
+  //         .to(split02.chars, splitTween, '<');
 
-        // headingTl.current
-        //   .to(split01.chars, splitTween)
-        //   .to(split02.chars, splitTween, '<')
-        //   .to(
-        //     '[data-lottie]',
-        //     {
-        //       scale: 1,
-        //       // yPercent: 0,
-        //       duration: 2,
-        //       ease: easeOutCirc,
-        //       onStart: () => cloudsRef.current?.play(),
-        //     },
-        //     '<+0.6'
-        //   );
-
-        // gsap.to('[data-lottie]', {
-        //   scale: 1,
-        //   ease: easeOutCirc,
-        //   onStart: () => cloudsRef.current?.play(),
-        //   scrollTrigger: {
-        //     trigger: '[data-heading]',
-        //     start: 'top center',
-        //   },
-        // });
-
-        // タイトル・lottieアニメーション
-        headingTl.current = gsap.timeline({
-          // delay: 0.6,
-          scrollTrigger: {
-            trigger: '[data-heading]',
-            start: 'top center',
-            // start: 'top 80%',
-            // markers: true,
-          },
-        });
-        headingTl.current
-          .to('[data-lottie]', {
-            scale: 1,
-            duration: 2,
-            ease: easeOutCirc,
-            onStart: () => cloudsRef.current?.play(),
-          })
-          .to(split01.chars, splitTween, '<+0.1')
-          .to(split02.chars, splitTween, '<');
-
-        // 段落テキストアニメーション
-        gsap.to('[data-text]', {
-          duration: 2.4,
-          ease: easeOutExpo,
-          clipPath: 'inset(0% 0% 0% 0%)',
-          scrollTrigger: {
-            trigger: '[data-text]',
-            start: 'top center',
-          },
-        });
-
-        // // パララックス
-        // ScrollTrigger.defaults({
-        //   start: 'top bottom',
-        //   end: 'top top',
-        //   scrub: 0.8,
-        //   markers: true,
-        // });
-
-        // gsap.to('[data-lottie]', {
-        //   yPercent: -80,
-        //   ease: 'none',
-        //   scrollTrigger: {
-        //     trigger: '[data-lottie]',
-        //   },
-        // });
-
-        // gsap.to('[data-image]', {
-        //   yPercent: -10,
-        //   delay: 0.4,
-        //   scrollTrigger: {
-        //     trigger: '[data-image]',
-        //   },
-        // });
-      }
-    },
-    { scope: gsapRef }
-  );
+  //       // 段落テキストアニメーション
+  //       gsap.to('[data-text]', {
+  //         duration: 2.4,
+  //         ease: easeOutExpo,
+  //         clipPath: 'inset(0% 0% 0% 0%)',
+  //         scrollTrigger: {
+  //           trigger: '[data-text]',
+  //           start: 'top center',
+  //         },
+  //       });
+  //     }
+  //   },
+  //   { scope: gsapRef }
+  // );
 
   return (
     <section ref={gsapRef} className={clsx(styles.about, 'bg-main-gray')}>

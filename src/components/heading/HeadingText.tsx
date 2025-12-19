@@ -52,5 +52,8 @@ const HeadingText: React.FC<HeadingTextProps> = ({
   if (variant === HeadingTextVariant.HEADING2) {
     return <h2 className={clsx(styles.heading2, commonClass)}>{children}</h2>;
   }
+  if (variant === HeadingTextVariant.HEADING3) {
+    return <h3 className={clsx(styles.heading3, commonClass)}>{children}</h3>;
+  }
 };
 export default HeadingText;

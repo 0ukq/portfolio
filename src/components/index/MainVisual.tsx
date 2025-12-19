@@ -16,6 +16,7 @@ import styles from './MainVisual.module.css';
 import PageContent from './PageContent';
 import About from './About';
 import Work from './Work';
+import TechStack from './TechStack';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -146,6 +147,7 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
       {/* アニメーション終了で表示 */}
       <About />
       <Work />
+      <TechStack />
       <PageContent />
       {/* {isLoaded && (
         <>

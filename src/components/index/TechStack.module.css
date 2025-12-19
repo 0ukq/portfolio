@@ -1,0 +1,61 @@
+@layer component {
+  @media (--pc) {
+    .techStack {
+      padding: liq(150) 0;
+    }
+    .title {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      z-index: 1;
+    }
+    .lottie {
+      position: absolute;
+      display: block;
+      width: liq(100);
+      aspect-ratio: 1/1;
+      filter: grayscale(1);
+      z-index: -1;
+      top: liq(-40);
+      left: liq(-66);
+    }
+    .logos {
+      display: grid;
+      grid-template-columns: repeat(5, max-content);
+      justify-content: center;
+      align-items: end;
+      gap: 0 liq(40);
+      margin-top: liq(80);
+      > li {
+        display: grid;
+        gap: 10px 0;
+        > svg {
+          filter: grayscale(1);
+        }
+        > p {
+          text-align: center;
+          font-weight: 300;
+          line-height: 100%;
+          letter-spacing: liq(1.4);
+        }
+      }
+    }
+    .other {
+      margin-top: liq(140);
+    }
+    .otherList {
+      display: grid;
+      grid-template-columns: repeat(6, max-content);
+      justify-content: center;
+      gap: liq(5) liq(15);
+      margin-top: liq(20);
+      > li {
+        font-weight: 300;
+        line-height: 160%;
+        letter-spacing: liq(2.1);
+      }
+    }
+  }
+  @media (--sp) {
+  }
+}

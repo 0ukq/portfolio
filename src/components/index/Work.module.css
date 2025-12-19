@@ -1,0 +1,43 @@
+@import '../../styles/test.css';
+@import '../../styles//splide-core.min.css';
+
+@layer component {
+  @media (--pc) {
+    .work {
+      overflow: hidden;
+      padding: liq(100) 0 liq(150);
+    }
+    .title {
+      position: relative;
+      padding: liq(50) 0 0 liq(50);
+      z-index: 1;
+    }
+    .lottie {
+      position: absolute;
+      width: liq(100);
+      aspect-ratio: 1/1;
+      filter: grayscale(1);
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .list {
+      display: flex;
+      gap: liq(50);
+      translate: liq(70) 0;
+      margin-top: liq(110);
+    }
+    /* .slider {
+      margin-top: liq(110);
+    } */
+    /* splide */
+    /* :global(.splide__track) {
+      overflow: visible;
+    }
+    :global(.splide__slide) {
+      margin-right: liq(50);
+    } */
+  }
+  @media (--sp) {
+  }
+}

@@ -2,6 +2,7 @@
 
 @import './reset.css' layer(common);
 @import './variables.css' layer(common);
+@import './splide-core.min.css' layer(common);
 @import './override.css' layer(override);
 
 @layer common {

@@ -4,12 +4,13 @@ import gsap from 'gsap';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
-import LottieRolling, { LottieRollingRef } from '../lotties/LottieRolling';
-import LottieSalute, { LottieSaluteRef } from '../lotties/LottieSalute';
 import StackItems from '../stack/StackItems';
 import { easeOutExpo } from '@/lib/custom-ease';
+import Rolling from '../../../public/lotties/rolling.json';
+import Salute from '../../../public/lotties/salute.json';
 
 import styles from './Loading.module.css';
+import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 
 type LoadingProps = {
   timeline?: gsap.core.Timeline | null;
@@ -17,8 +18,8 @@ type LoadingProps = {
 
 const Loading: React.FC<LoadingProps> = ({ timeline }) => {
   const gsapRef = useRef<HTMLDivElement>(null);
-  const rollingRef = useRef<LottieRollingRef>(null);
-  const saluteRef = useRef<LottieSaluteRef>(null);
+  const rollingRef = useRef<LottieRef>(null);
+  const saluteRef = useRef<LottieRef>(null);
 
   useGSAP(
     () => {
@@ -77,8 +78,8 @@ const Loading: React.FC<LoadingProps> = ({ timeline }) => {
     <div ref={gsapRef} className={clsx(styles.loading, 'clip')}>
       <div className={styles.content}>
         <StackItems
-          before={<LottieRolling ref={rollingRef} />}
-          after={<LottieSalute ref={saluteRef} />}
+          before={<BaseLottie lottieData={Rolling} ref={rollingRef} />}
+          after={<BaseLottie lottieData={Salute} ref={saluteRef} />}
           beforeData="rolling"
           afterData="salute"
           className={clsx(styles.emoji, 'stack-items')}

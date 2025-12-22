@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import HeadingText from '../heading/HeadingText';
 import ContentInner from '../layout/ContentInner';
-import LottieClouds, { LottieCloudsRef } from '../lotties/LottieClouds';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
@@ -11,14 +10,16 @@ import aboutImage01 from '../../../public/images/index/about_img01.jpg';
 import gsap from 'gsap';
 import { easeInExpo, easeOutCirc, easeOutExpo, easeOutQuint } from '@/lib/custom-ease';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Clouds from '../../../public/lotties/clouds.json';
 
 import styles from './About.module.css';
+import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const About: React.FC = () => {
   const gsapRef = useRef<HTMLElement>(null);
-  const cloudsRef = useRef<LottieCloudsRef>(null);
+  const cloudsRef = useRef<LottieRef>(null);
   const headingTl = useRef<gsap.core.Timeline | null>(null);
   const titleText = ['A CURIOUS', 'WEB DEVELOPER'];
   const titleText01Chars = Array.from(titleText[0]);
@@ -95,7 +96,8 @@ const About: React.FC = () => {
           <hgroup data-heading className={styles.heading}>
             <div className={clsx(styles.lottieWrap)}>
               <div data-lottie className={styles.lottie}>
-                <LottieClouds ref={cloudsRef} />
+<BaseLottie lottieData={Clouds} ref={cloudsRef} />
+                {/* <LottieClouds ref={cloudsRef} /> */}
               </div>
             </div>
             <HeadingText className={styles.title}>
@@ -125,7 +127,7 @@ const About: React.FC = () => {
               <span data-text>THAT DRIVES EVERYTHING I DO.</span>
             </p>
           </div>
-          <figure className={styles.image}>
+          {/* <figure className={styles.image}>
             <Image
               src={aboutImage01}
               alt="A CURIOUS WEB DEVELOPER"
@@ -133,7 +135,7 @@ const About: React.FC = () => {
               height={aboutImage01.height}
               data-image
             />
-          </figure>
+          </figure> */}
         </div>
       </ContentInner>
     </section>

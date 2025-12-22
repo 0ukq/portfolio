@@ -49,11 +49,6 @@
       justify-content: center;
       gap: liq(5) liq(15);
       margin-top: liq(20);
-      > li {
-        font-weight: 300;
-        line-height: 160%;
-        letter-spacing: liq(2.1);
-      }
     }
   }
   @media (--sp) {

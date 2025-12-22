@@ -7,6 +7,10 @@
 
 @layer common {
   body {
+    font-size: liq(14);
+    font-weight: 300;
+    line-height: 160%;
+    letter-spacing: liq(2.1);
     color: var(--col_main_gray);
   }
   .clip {

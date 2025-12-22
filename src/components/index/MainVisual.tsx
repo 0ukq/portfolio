@@ -17,6 +17,7 @@ import PageContent from './PageContent';
 import About from './About';
 import Work from './Work';
 import TechStack from './TechStack';
+import Closing from './Closing';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -148,7 +149,8 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
       <About />
       <Work />
       <TechStack />
-      <PageContent />
+      <Closing />
+      {/* <PageContent /> */}
       {/* {isLoaded && (
         <>
           <About />

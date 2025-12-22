@@ -1,0 +1,17 @@
+@layer component {
+  @media (--pc) {
+    .svgList {
+      display: none;
+    }
+    .footText {
+      display: flex;
+      gap: liq(20);
+      height: liq(271);
+      > svg {
+        height: 100%;
+      }
+    }
+  }
+  @media (--sp) {
+  }
+}

@@ -1,29 +1,39 @@
 import { easeOutExpo } from '@/lib/custom-ease';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useRef } from 'react';
 
 interface HideUpAnimateProps {
-  target: gsap.DOMTarget;
-  trigger: gsap.DOMTarget;
+  delay?: number;
   children: React.ReactNode;
 }
 
-const HideUpAnimate: React.FC<HideUpAnimateProps> = ({ target, trigger, children }) => {
-  useGSAP(() => {
-    gsap.set(target, { yPercent: 100 });
+const HideUpAnimate: React.FC<HideUpAnimateProps> = ({ delay = 0, children }) => {
+  const scopeRef = useRef<HTMLDivElement>(null);
 
-    gsap.to(target, {
-      duration: 2,
-      yPercent: 0,
-      ease: easeOutExpo,
-      scrollTrigger: {
-        trigger: trigger,
-        start: 'top bottom-=30%',
-        // markers: true,
-      },
-    });
-  });
+  useGSAP(
+    () => {
+      gsap.set('[data-hide-up-ele]', { yPercent: 100 });
 
-  return <div className="clip">{children}</div>;
+      gsap.to('[data-hide-up-ele]', {
+        delay: delay,
+        duration: 2,
+        yPercent: 0,
+        ease: easeOutExpo,
+        scrollTrigger: {
+          trigger: scopeRef.current,
+          start: 'top bottom-=30%',
+          // markers: true,
+        },
+      });
+    },
+    { scope: scopeRef }
+  );
+
+  return (
+    <div ref={scopeRef} className="clip">
+      <div data-hide-up-ele>{children}</div>
+    </div>
+  );
 };
 export default HideUpAnimate;

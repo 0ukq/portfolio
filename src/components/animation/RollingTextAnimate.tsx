@@ -3,33 +3,27 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { easeOutExpo } from '@/lib/custom-ease';
+import StackItems from '../stack/StackItems';
 
 gsap.registerPlugin(SplitText);
 
 interface RollingTextAnimateProps {
-  before: gsap.DOMTarget;
-  after: gsap.DOMTarget;
-  trigger: gsap.DOMTarget;
-  children: React.ReactNode;
+  delay?: number;
+  text: string;
 }
 
-const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
-  before,
-  after,
-  trigger,
-  children,
-}) => {
+const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({ delay = 0, text }) => {
   const scopeRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(
     () => {
       // テキスト分割
-      const beforeSplit = SplitText.create(before, {
+      const beforeSplit = SplitText.create('[data-rolling-before]', {
         type: 'chars',
         tag: 'span',
       });
-      const afterSplit = SplitText.create(after, {
+      const afterSplit = SplitText.create('[data-rolling-after]', {
         type: 'chars',
         tag: 'span',
       });
@@ -41,11 +35,11 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
       // アニメーション
       tl.current = gsap.timeline({
         scrollTrigger: {
-          trigger: trigger,
+          trigger: scopeRef.current,
           start: 'top bottom-=30%',
           // markers: true,
         },
-        defaults: { ease: easeOutExpo, duration: 2.2, stagger: 0.08 },
+        defaults: { ease: easeOutExpo, duration: 2.2, stagger: 0.08, delay: delay },
       });
 
       tl.current
@@ -63,6 +57,16 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
     { scope: scopeRef }
   );
 
-  return <div ref={scopeRef}>{children}</div>;
+  return (
+    <>
+      <StackItems
+        ref={scopeRef}
+        before={text}
+        beforeData="rolling-before"
+        after={text}
+        afterData="rolling-after"
+      />
+    </>
+  );
 };
 export default RollingTextAnimate;

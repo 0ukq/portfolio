@@ -77,10 +77,8 @@ const About: React.FC = () => {
         <div className={styles.container}>
           <hgroup data-heading className={styles.heading}>
             <div data-about-lottie className={clsx(styles.lottie, 'hover-lottie')}>
-              <HideUpAnimate target="[data-about-target]" trigger="[data-about-lottie]">
-                <div data-about-target>
-                  <BaseLottie lottieData={Clouds} ref={cloudsRef} />
-                </div>
+              <HideUpAnimate>
+                <BaseLottie lottieData={Clouds} ref={cloudsRef} />
               </HideUpAnimate>
             </div>
             <HeadingText className={styles.title}>

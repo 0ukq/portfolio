@@ -70,11 +70,9 @@ const Work: React.FC = () => {
         <section ref={gsapRef} className={styles.work}>
           <ContentInner>
             <hgroup className={styles.heading}>
-              <div data-lottie className={clsx(styles.lottie, 'hover-lottie')}>
-                <HideUpAnimate target="[data-target]" trigger="[data-lottie]">
-                  <div data-target>
-                    <BaseLottie lottieData={HeadShake} ref={lottieRef} />
-                  </div>
+              <div className={clsx(styles.lottie, 'hover-lottie')}>
+                <HideUpAnimate>
+                  <BaseLottie lottieData={HeadShake} ref={lottieRef} />
                 </HideUpAnimate>
               </div>
               <HeadingText data-heading align={HeadingTextAlign.RIGHT} className={styles.title}>

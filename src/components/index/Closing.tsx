@@ -46,86 +46,56 @@ const Closing: React.FC = () => {
       <ContentInner>
         <div className={styles.container}>
           <hgroup className={styles.title}>
-            <div className={clsx(styles.lottie, 'hover-lottie')} data-closing-lottie>
-              <HideUpAnimate trigger="[data-closing-lottie]" target="[data-closing-target]">
-                <div data-closing-target>
-                  <BaseLottie lottieData={WaveHand} ref={lottieRef} />
-                </div>
+            <div className={clsx(styles.lottie, 'hover-lottie')}>
+              <HideUpAnimate>
+                <BaseLottie lottieData={WaveHand} ref={lottieRef} />
               </HideUpAnimate>
             </div>
-            <RollingTextAnimate
-              before="[data-before-closing-title]"
-              after="[data-after-closing-title]"
-              trigger="[data-heading]"
-            >
-              <HeadingText className={styles.heading} data-heading>
-                <StackItems
-                  before="THANKS FOR CHECKING OUT"
-                  beforeData="before-closing-title"
-                  after="THANKS FOR CHECKING OUT"
-                  afterData="after-closing-title"
-                  className={styles.stackItems}
-                />
-                <StackItems
-                  before="MY PORTFOLIO!"
-                  beforeData="before-closing-title"
-                  after="MY PORTFOLIO!"
-                  afterData="after-closing-title"
-                  className={styles.stackItems}
-                />
-              </HeadingText>
-            </RollingTextAnimate>
+            <HeadingText className={styles.heading}>
+              <RollingTextAnimate text="THANKS FOR CHECKING OUT" />
+              <RollingTextAnimate text="MY PORTFOLIO!" delay={0.4} />
+            </HeadingText>
           </hgroup>
           <div className={styles.info}>
             <div className={styles.box}>
-              <RollingTextAnimate
-                before="[data-built-before-title]"
-                after="[data-built-after-title]"
-                trigger="[data-built-title]"
-              >
-                <HeadingText variant={HeadingTextVariant.HEADING3} data-built-title>
-                  <StackItems
-                    before="BUILT WITH"
-                    beforeData="built-before-title"
-                    after="BUILT WITH"
-                    afterData="built-after-title"
-                  />
-                </HeadingText>
-              </RollingTextAnimate>
+              <HeadingText variant={HeadingTextVariant.HEADING3} data-built-title>
+                <RollingTextAnimate text="BUILT WITH" />
+              </HeadingText>
               <ul className={styles.list}>
-                <li>Framework - Next.js</li>
-                <li>Animation - GSAP / Lottie</li>
-                <li>CMS - microCMS</li>
-                <li>Hosting - Vercel</li>
+                <li>
+                  <HideUpAnimate>Framework - Next.js</HideUpAnimate>
+                </li>
+                <li>
+                  <HideUpAnimate delay={0.2}>Animation - GSAP / Lottie</HideUpAnimate>
+                </li>
+                <li>
+                  <HideUpAnimate delay={0.4}>CMS - microCMS</HideUpAnimate>
+                </li>
+                <li>
+                  <HideUpAnimate delay={0.6}>Hosting - Vercel</HideUpAnimate>
+                </li>
               </ul>
             </div>
             <div className={styles.box}>
-              <RollingTextAnimate
-                before="[data-links-before-title]"
-                after="[data-links-after-title]"
-                trigger="[data-links-title]"
-              >
-                <HeadingText variant={HeadingTextVariant.HEADING3} data-links-title>
-                  <StackItems
-                    before="LINKS"
-                    beforeData="links-before-title"
-                    after="LINKS"
-                    afterData="links-after-title"
-                  />
-                </HeadingText>
-              </RollingTextAnimate>
+              <HeadingText variant={HeadingTextVariant.HEADING3}>
+                <RollingTextAnimate text="LINKS" />
+              </HeadingText>
               <ul className={styles.links}>
                 <li>
-                  <ExLink href="https://example.com">
-                    GitHub
-                    <ExternalLink strokeWidth={1.5} />
-                  </ExLink>
+                  <HideUpAnimate delay={0.2}>
+                    <ExLink href="https://example.com">
+                      GitHub
+                      <ExternalLink strokeWidth={1.5} />
+                    </ExLink>
+                  </HideUpAnimate>
                 </li>
                 <li>
-                  <ExLink href="https://example.com">
-                    Zenn
-                    <ExternalLink strokeWidth={1.5} />
-                  </ExLink>
+                  <HideUpAnimate delay={0.2}>
+                    <ExLink href="https://example.com">
+                      Zenn
+                      <ExternalLink strokeWidth={1.5} />
+                    </ExLink>
+                  </HideUpAnimate>
                 </li>
               </ul>
             </div>

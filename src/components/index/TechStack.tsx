@@ -31,27 +31,14 @@ const TechStack: React.FC = () => {
     <section ref={gsapRef} className={styles.techStack}>
       <ContentInner>
         <hgroup className={styles.heading}>
-          <div className={clsx(styles.lottie, 'hover-lottie')} data-ts-lottie>
-            <HideUpAnimate trigger="[data-ts-lottie]" target="[data-ts-target]">
-              <div data-ts-target>
-                <BaseLottie lottieData={ShakingFace} ref={lottieRef} />
-              </div>
+          <div className={clsx(styles.lottie, 'hover-lottie')}>
+            <HideUpAnimate>
+              <BaseLottie lottieData={ShakingFace} ref={lottieRef} />
             </HideUpAnimate>
           </div>
-          <RollingTextAnimate
-            before="[data-before-title-main]"
-            after="[data-after-title-main]"
-            trigger="[data-heading]"
-          >
-            <HeadingText align={HeadingTextAlign.CENTER} data-heading>
-              <StackItems
-                before={'TECH STACK'}
-                beforeData="before-title-main"
-                after={'TECH STACK'}
-                afterData="after-title-main"
-              />
-            </HeadingText>
-          </RollingTextAnimate>
+          <HeadingText align={HeadingTextAlign.CENTER}>
+            <RollingTextAnimate text="TECH STACK" />
+          </HeadingText>
         </hgroup>
         <ul className={styles.logos}>
           <li>
@@ -76,25 +63,13 @@ const TechStack: React.FC = () => {
           </li>
         </ul>
         <div className={styles.other}>
-          <RollingTextAnimate
-            before="[data-before-title-other]"
-            after="[data-after-title-other]"
-            trigger="[data-other-heading]"
+          <HeadingText
+            align={HeadingTextAlign.CENTER}
+            variant={HeadingTextVariant.HEADING3}
+            className={styles.otherTitle}
           >
-            <HeadingText
-              align={HeadingTextAlign.CENTER}
-              variant={HeadingTextVariant.HEADING3}
-              className={styles.otherTitle}
-              data-other-heading
-            >
-              <StackItems
-                before={'OTHER'}
-                beforeData="before-title-other"
-                after={'OTHER'}
-                afterData="after-title-other"
-              />
-            </HeadingText>
-          </RollingTextAnimate>
+            <RollingTextAnimate text="OTHER" />
+          </HeadingText>
           <ul className={styles.otherList}>
             <li>・TailWind CSS</li>
             <li>・GSAP</li>

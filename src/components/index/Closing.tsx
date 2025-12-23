@@ -59,26 +59,26 @@ const Closing: React.FC = () => {
           <div className={styles.info}>
             <div className={styles.box}>
               <HeadingText variant={HeadingTextVariant.HEADING3} data-built-title>
-                <RollingTextAnimate text="BUILT WITH" />
+                <HideUpAnimate delay={0.4}>BUILT WITH</HideUpAnimate>
               </HeadingText>
               <ul className={styles.list}>
                 <li>
-                  <HideUpAnimate>Framework - Next.js</HideUpAnimate>
+                  <HideUpAnimate delay={0.4}>Framework - Next.js</HideUpAnimate>
                 </li>
                 <li>
-                  <HideUpAnimate delay={0.2}>Animation - GSAP / Lottie</HideUpAnimate>
+                  <HideUpAnimate delay={0.4}>Animation - GSAP / Lottie</HideUpAnimate>
                 </li>
                 <li>
                   <HideUpAnimate delay={0.4}>CMS - microCMS</HideUpAnimate>
                 </li>
                 <li>
-                  <HideUpAnimate delay={0.6}>Hosting - Vercel</HideUpAnimate>
+                  <HideUpAnimate delay={0.4}>Hosting - Vercel</HideUpAnimate>
                 </li>
               </ul>
             </div>
             <div className={styles.box}>
               <HeadingText variant={HeadingTextVariant.HEADING3}>
-                <RollingTextAnimate text="LINKS" />
+                <HideUpAnimate delay={0.4}>LINKS</HideUpAnimate>
               </HeadingText>
               <ul className={styles.links}>
                 <li>

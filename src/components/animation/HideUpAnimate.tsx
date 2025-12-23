@@ -4,11 +4,12 @@ import gsap from 'gsap';
 import { useRef } from 'react';
 
 interface HideUpAnimateProps {
+  duration?: number;
   delay?: number;
   children: React.ReactNode;
 }
 
-const HideUpAnimate: React.FC<HideUpAnimateProps> = ({ delay = 0, children }) => {
+const HideUpAnimate: React.FC<HideUpAnimateProps> = ({ duration = 2, delay = 0, children }) => {
   const scopeRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -17,12 +18,13 @@ const HideUpAnimate: React.FC<HideUpAnimateProps> = ({ delay = 0, children }) =>
 
       gsap.to('[data-hide-up-ele]', {
         delay: delay,
-        duration: 2,
+        duration: duration,
         yPercent: 0,
         ease: easeOutExpo,
         scrollTrigger: {
           trigger: scopeRef.current,
           start: 'top bottom-=30%',
+          scrub: false,
           // markers: true,
         },
       });

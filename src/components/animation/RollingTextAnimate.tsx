@@ -8,11 +8,16 @@ import StackItems from '../stack/StackItems';
 gsap.registerPlugin(SplitText);
 
 interface RollingTextAnimateProps {
+  duration?: number;
   delay?: number;
   text: string;
 }
 
-const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({ delay = 0, text }) => {
+const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
+  duration = 2.2,
+  delay = 0,
+  text,
+}) => {
   const scopeRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
 
@@ -39,7 +44,7 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({ delay = 0, text
           start: 'top bottom-=30%',
           // markers: true,
         },
-        defaults: { ease: easeOutExpo, duration: 2.2, stagger: 0.08, delay: delay },
+        defaults: { ease: easeOutExpo, duration: duration, stagger: 0.08, delay: delay },
       });
 
       tl.current

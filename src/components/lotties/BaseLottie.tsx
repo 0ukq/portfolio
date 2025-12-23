@@ -4,6 +4,7 @@ import { useImperativeHandle } from 'react';
 export type LottieRef = {
   play: () => void;
   pause: () => void;
+  setSpeed: (speed: number) => void;
 };
 
 type BaseLottieProps = {
@@ -13,7 +14,7 @@ type BaseLottieProps = {
 };
 
 const BaseLottie: React.FC<BaseLottieProps> = ({ lottieData, options, ref }) => {
-  const { View, play, pause } = useLottie({
+  const { View, play, pause, setSpeed } = useLottie({
     animationData: lottieData,
     loop: true,
     autoplay: false,
@@ -24,6 +25,7 @@ const BaseLottie: React.FC<BaseLottieProps> = ({ lottieData, options, ref }) => 
   useImperativeHandle(ref, () => ({
     play: () => play(),
     pause: () => pause(),
+    setSpeed: (speed: number) => setSpeed(speed),
   }));
   return View;
 };

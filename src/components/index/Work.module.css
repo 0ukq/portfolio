@@ -5,20 +5,24 @@
   @media (--pc) {
     .work {
       overflow: hidden;
-      padding: liq(100) 0 liq(150);
+      padding: liq(200) 0;
     }
-    .title {
+    .heading {
       position: relative;
       padding: liq(50) 0 0 liq(50);
       z-index: 1;
+    }
+    .title {
+      span {
+        display: inline-block;
+      }
     }
     .lottie {
       position: absolute;
       width: liq(100);
       aspect-ratio: 1/1;
-      filter: grayscale(1);
-      top: 0;
-      left: 0;
+      top: liq(-90);
+      left: liq(80);
       z-index: -1;
     }
     .list {

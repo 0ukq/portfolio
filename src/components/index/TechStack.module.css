@@ -1,12 +1,13 @@
 @layer component {
   @media (--pc) {
     .techStack {
-      padding: liq(150) 0;
+      padding: liq(200) 0;
     }
-    .title {
+    .heading {
       position: relative;
-      display: inline-block;
+      display: block;
       width: fit-content;
+      margin-inline: auto;
       z-index: 1;
     }
     .lottie {
@@ -14,10 +15,9 @@
       display: block;
       width: liq(100);
       aspect-ratio: 1/1;
-      filter: grayscale(1);
       z-index: -1;
-      top: liq(-40);
-      left: liq(-66);
+      top: liq(-150);
+      left: liq(-266);
     }
     .logos {
       display: grid;
@@ -42,6 +42,10 @@
     }
     .other {
       margin-top: liq(140);
+    }
+    .otherTitle {
+      width: fit-content;
+      margin-inline: auto;
     }
     .otherList {
       display: grid;

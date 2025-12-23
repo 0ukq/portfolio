@@ -32,7 +32,7 @@
         font-weight: 300;
         line-height: 100%;
         letter-spacing: liq(1.5);
-        color: var(--col_light_gray);
+        /* color: var(--col_light_gray); */
       }
     }
   }

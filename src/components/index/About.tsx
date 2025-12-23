@@ -14,6 +14,7 @@ import Clouds from '../../../public/lotties/clouds.json';
 
 import styles from './About.module.css';
 import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
+import HideUpAnimate from '../animation/HideUpAnimate';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -25,80 +26,83 @@ const About: React.FC = () => {
   const titleText01Chars = Array.from(titleText[0]);
   const titleText02Chars = Array.from(titleText[1]);
 
-  // useGSAP(
-  //   () => {
-  //     if (gsapRef.current) {
-  //       const splitTexts = gsap.utils.toArray<HTMLElement>('[data-split-text]');
-  //       const split01 = SplitText.create(splitTexts[0], {
-  //         type: 'chars',
-  //         tag: 'span',
-  //         reduceWhiteSpace: false,
-  //       });
-  //       const split02 = SplitText.create(splitTexts[1], {
-  //         type: 'chars',
-  //         tag: 'span',
-  //         reduceWhiteSpace: false,
-  //       });
+  cloudsRef.current?.play();
 
-  //       // 初期値設定
-  //       gsap.set(split01.chars, { xPercent: -110 });
-  //       gsap.set(split02.chars, { xPercent: -110 });
-  //       gsap.set('[data-lottie]', { scale: 0 });
-  //       gsap.set('[data-text]', { clipPath: 'inset(0% 100% 0% 0%)' });
+  useGSAP(
+    () => {
+      if (gsapRef.current) {
+        const splitTexts = gsap.utils.toArray<HTMLElement>('[data-split-text]');
+        const split01 = SplitText.create(splitTexts[0], {
+          type: 'chars',
+          tag: 'span',
+          reduceWhiteSpace: false,
+        });
+        const split02 = SplitText.create(splitTexts[1], {
+          type: 'chars',
+          tag: 'span',
+          reduceWhiteSpace: false,
+        });
 
-  //       // テキストアニメーション
-  //       const splitTween: gsap.TweenVars = {
-  //         xPercent: 0,
-  //         duration: 2,
-  //         stagger: 0.05,
-  //         ease: easeOutQuint,
-  //       };
+        // 初期値設定
+        gsap.set(split01.chars, { xPercent: -110 });
+        gsap.set(split02.chars, { xPercent: -110 });
+        // gsap.set('[data-lottie]', { scale: 0 });
+        // gsap.set('[data-text]', { clipPath: 'inset(0% 100% 0% 0%)' });
 
-  //       // タイトル・lottieアニメーション
-  //       headingTl.current = gsap.timeline({
-  //         // delay: 0.6,
-  //         scrollTrigger: {
-  //           trigger: '[data-heading]',
-  //           start: 'top bottom+=80',
-  //           // start: 'top 80%',
-  //           markers: true,
-  //         },
-  //       });
-  //       headingTl.current
-  //         .to('[data-lottie]', {
-  //           scale: 1,
-  //           duration: 2,
-  //           ease: easeOutCirc,
-  //           onStart: () => cloudsRef.current?.play(),
-  //         })
-  //         .to(split01.chars, splitTween, '<+0.1')
-  //         .to(split02.chars, splitTween, '<');
+        // テキストアニメーション
+        const splitTween: gsap.TweenVars = {
+          xPercent: 0,
+          duration: 1.6,
+          stagger: 0.05,
+          ease: easeOutQuint,
+        };
 
-  //       // 段落テキストアニメーション
-  //       gsap.to('[data-text]', {
-  //         duration: 2.4,
-  //         ease: easeOutExpo,
-  //         clipPath: 'inset(0% 0% 0% 0%)',
-  //         scrollTrigger: {
-  //           trigger: '[data-text]',
-  //           start: 'top center',
-  //         },
-  //       });
-  //     }
-  //   },
-  //   { scope: gsapRef }
-  // );
+        // タイトル・lottieアニメーション
+        headingTl.current = gsap.timeline({
+          // delay: 0.6,
+          scrollTrigger: {
+            trigger: '[data-heading]',
+            start: 'top bottom-=30%',
+            // markers: true,
+          },
+        });
+        headingTl.current
+          // .to('[data-lottie]', {
+          //   scale: 1,
+          //   duration: 2,
+          //   ease: easeOutCirc,
+          //   onStart: () => cloudsRef.current?.play(),
+          // })
+          .to(split01.chars, splitTween, '<+0.1')
+          .to(split02.chars, splitTween, '<');
+
+        // 段落テキストアニメーション
+        // gsap.to('[data-text]', {
+        //   duration: 2.4,
+        //   ease: easeOutExpo,
+        //   clipPath: 'inset(0% 0% 0% 0%)',
+        //   scrollTrigger: {
+        //     trigger: '[data-text]',
+        //     start: 'top center',
+        //   },
+        // });
+      }
+    },
+    { scope: gsapRef }
+  );
 
   return (
-    <section ref={gsapRef} className={clsx(styles.about, 'bg-main-gray')}>
+    // <section ref={gsapRef} className={clsx(styles.about, 'bg-main-gray')}>
+    <section ref={gsapRef} className={styles.about}>
       <ContentInner className={styles.inner}>
         <div className={styles.container}>
           <hgroup data-heading className={styles.heading}>
-            <div className={clsx(styles.lottieWrap)}>
-              <div data-lottie className={styles.lottie}>
-<BaseLottie lottieData={Clouds} ref={cloudsRef} />
-                {/* <LottieClouds ref={cloudsRef} /> */}
-              </div>
+            <div data-about-lottie className={clsx(styles.lottie, 'hover-lottie')}>
+              <HideUpAnimate target="[data-about-target]" trigger="[data-about-lottie]">
+                <div data-about-target>
+                  <BaseLottie lottieData={Clouds} ref={cloudsRef} />
+                </div>
+              </HideUpAnimate>
             </div>
             <HeadingText className={styles.title}>
               <span data-split-text>
@@ -119,7 +123,7 @@ const About: React.FC = () => {
           </hgroup>
           <div className={styles.paragraph}>
             <p className={clsx(styles.text, bigShoulders.className)}>
-              <span data-text>AS A FRONT-END ENGINEER, I TAKE GENUINE JOY IN</span>
+              <span data-text>AS A FRONT-END DEVELOPER, I TAKE GENUINE JOY IN</span>
               <span data-text>BRINGING DESIGNS TO LIFE. MY GREATEST ASSET IS MY</span>
               <span data-text>CURIOSITY. I CONSTANTLY CHASE NEW TECHNOLOGIES</span>
               <span data-text>AS A DEVELOPER, WHILE ALSO DIGGING INTO OLDER</span>

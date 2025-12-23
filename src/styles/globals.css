@@ -28,5 +28,13 @@
     body {
       font-size: liq(16);
     }
+
+    .hover-lottie {
+      filter: grayscale(1);
+      transition: filter 0.6s ease;
+      &:hover {
+        filter: grayscale(0);
+      }
+    }
   }
 }

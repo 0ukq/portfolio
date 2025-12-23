@@ -2,7 +2,7 @@
   @media (--pc) {
     .about {
       position: relative;
-      padding: liq(150) 0;
+      padding: liq(200) 0;
       /* translate: 0 -50%; */
       /* padding-bottom: liq(150); */
       z-index: 1;
@@ -19,23 +19,15 @@
 
     .heading {
       position: relative;
-      padding-left: liq(200);
+      padding-left: liq(110);
     }
 
-    .lottieWrap {
+    .lottie {
       position: absolute;
-      left: liq(87);
-      top: liq(21);
-
-      > .lottie {
-        width: liq(100);
-        aspect-ratio: 1/1;
-        filter: grayscale(1);
-        transition: filter 0.6s ease;
-        &:hover {
-          filter: none;
-        }
-      }
+      width: liq(100);
+      aspect-ratio: 1/1;
+      right: liq(50);
+      top: liq(-140);
     }
 
     .title {

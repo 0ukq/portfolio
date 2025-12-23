@@ -29,7 +29,7 @@ type HeadingTextProps = {
   align?: HeadingTextAlign;
   color?: HeadingTextColor;
   className?: string;
-};
+} & React.ComponentProps<'h1' | 'h2' | 'h3'>;
 
 const HeadingText: React.FC<HeadingTextProps> = ({
   children,
@@ -38,6 +38,7 @@ const HeadingText: React.FC<HeadingTextProps> = ({
   align,
   color = HeadingTextColor.GRAY,
   className,
+  ...props
 }) => {
   const commonClass = clsx(
     font === HeadingTextFont.BIG_SHOULDERS ? bigShoulders.className : undefined,
@@ -47,13 +48,25 @@ const HeadingText: React.FC<HeadingTextProps> = ({
   );
 
   if (variant === HeadingTextVariant.HEADING1) {
-    return <h1 className={clsx(styles.heading1, commonClass)}>{children}</h1>;
+    return (
+      <h1 className={clsx(styles.heading1, commonClass)} {...props}>
+        {children}
+      </h1>
+    );
   }
   if (variant === HeadingTextVariant.HEADING2) {
-    return <h2 className={clsx(styles.heading2, commonClass)}>{children}</h2>;
+    return (
+      <h2 className={clsx(styles.heading2, commonClass)} {...props}>
+        {children}
+      </h2>
+    );
   }
   if (variant === HeadingTextVariant.HEADING3) {
-    return <h3 className={clsx(styles.heading3, commonClass)}>{children}</h3>;
+    return (
+      <h3 className={clsx(styles.heading3, commonClass)} {...props}>
+        {children}
+      </h3>
+    );
   }
 };
 export default HeadingText;

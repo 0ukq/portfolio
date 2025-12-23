@@ -1,28 +1,56 @@
-import clsx from 'clsx';
 import HeadingText, { HeadingTextAlign, HeadingTextVariant } from '../heading/HeadingText';
 import ContentInner from '../layout/ContentInner';
-import BaseLottie from '../lotties/BaseLottie';
+import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 import ShakingFace from '../../../public/lotties/shaking-face.json';
-
-import styles from './TechStack.module.css';
 import ReactVector from '../vector/ReactVector';
 import NextVector from '../vector/NextVector';
 import TsVector from '../vector/TsVector';
 import CssVector from '../vector/CssVector';
 import HtmlVector from '../vector/HtmlVector';
+import StackItems from '../stack/StackItems';
+import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { useRef } from 'react';
+import RollingTextAnimate from '../animation/RollingTextAnimate';
+
+import styles from './TechStack.module.css';
+import HideUpAnimate from '../animation/HideUpAnimate';
+import clsx from 'clsx';
+
+gsap.registerPlugin(SplitText);
 
 const TechStack: React.FC = () => {
+  const gsapRef = useRef<HTMLElement>(null);
+  const lottieRef = useRef<LottieRef>(null);
+
+  lottieRef.current?.play();
+
   return (
-    <section className={clsx(styles.techStack, 'bg-main-gray')}>
+    <section ref={gsapRef} className={styles.techStack}>
       <ContentInner>
-        <HeadingText align={HeadingTextAlign.CENTER}>
-          <span className={styles.title}>
-            <span className={styles.lottie}>
-              <BaseLottie lottieData={ShakingFace} />
-            </span>
-            TECH STACK
-          </span>
-        </HeadingText>
+        <hgroup className={styles.heading}>
+          <div className={clsx(styles.lottie, 'hover-lottie')} data-ts-lottie>
+            <HideUpAnimate trigger="[data-ts-lottie]" target="[data-ts-target]">
+              <div data-ts-target>
+                <BaseLottie lottieData={ShakingFace} ref={lottieRef} />
+              </div>
+            </HideUpAnimate>
+          </div>
+          <RollingTextAnimate
+            before="[data-before-title-main]"
+            after="[data-after-title-main]"
+            trigger="[data-heading]"
+          >
+            <HeadingText align={HeadingTextAlign.CENTER} data-heading>
+              <StackItems
+                before={'TECH STACK'}
+                beforeData="before-title-main"
+                after={'TECH STACK'}
+                afterData="after-title-main"
+              />
+            </HeadingText>
+          </RollingTextAnimate>
+        </hgroup>
         <ul className={styles.logos}>
           <li>
             <ReactVector />
@@ -46,9 +74,25 @@ const TechStack: React.FC = () => {
           </li>
         </ul>
         <div className={styles.other}>
-          <HeadingText align={HeadingTextAlign.CENTER} variant={HeadingTextVariant.HEADING3}>
-            OTHER
-          </HeadingText>
+          <RollingTextAnimate
+            before="[data-before-title-other]"
+            after="[data-after-title-other]"
+            trigger="[data-other-heading]"
+          >
+            <HeadingText
+              align={HeadingTextAlign.CENTER}
+              variant={HeadingTextVariant.HEADING3}
+              className={styles.otherTitle}
+              data-other-heading
+            >
+              <StackItems
+                before={'OTHER'}
+                beforeData="before-title-other"
+                after={'OTHER'}
+                afterData="after-title-other"
+              />
+            </HeadingText>
+          </RollingTextAnimate>
           <ul className={styles.otherList}>
             <li>・TailWind CSS</li>
             <li>・GSAP</li>

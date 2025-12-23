@@ -5,7 +5,10 @@ interface FootTextProps {
   className?: string;
 }
 
-const FootText: React.FC<FootTextProps> = ({ className }) => {
+const FootText: React.FC<FootTextProps & React.ComponentProps<'div'>> = ({
+  className,
+  ...props
+}) => {
   return (
     <>
       <svg className={styles.svgList}>
@@ -56,7 +59,7 @@ const FootText: React.FC<FootTextProps> = ({ className }) => {
         </symbol>
       </svg>
 
-      <div className={clsx(styles.footText, className || '')}>
+      <div className={clsx(styles.footText, 'clip', className || '')} {...props}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 132" fill="none">
           <use href="#textD" />
         </svg>

@@ -4,7 +4,7 @@ import ContentInner from '../layout/ContentInner';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { bigShoulders } from '@/lib/fonts';
 import aboutImage01 from '../../../public/images/index/about_img01.jpg';
 import gsap from 'gsap';
@@ -26,7 +26,9 @@ const About: React.FC = () => {
   const titleText01Chars = Array.from(titleText[0]);
   const titleText02Chars = Array.from(titleText[1]);
 
-  cloudsRef.current?.play();
+  useEffect(() => {
+    cloudsRef.current?.play();
+  }, []);
 
   useGSAP(
     () => {
@@ -46,8 +48,6 @@ const About: React.FC = () => {
         // 初期値設定
         gsap.set(split01.chars, { xPercent: -110 });
         gsap.set(split02.chars, { xPercent: -110 });
-        // gsap.set('[data-lottie]', { scale: 0 });
-        // gsap.set('[data-text]', { clipPath: 'inset(0% 100% 0% 0%)' });
 
         // テキストアニメーション
         const splitTween: gsap.TweenVars = {
@@ -59,33 +59,12 @@ const About: React.FC = () => {
 
         // タイトル・lottieアニメーション
         headingTl.current = gsap.timeline({
-          // delay: 0.6,
           scrollTrigger: {
             trigger: '[data-heading]',
             start: 'top bottom-=30%',
-            // markers: true,
           },
         });
-        headingTl.current
-          // .to('[data-lottie]', {
-          //   scale: 1,
-          //   duration: 2,
-          //   ease: easeOutCirc,
-          //   onStart: () => cloudsRef.current?.play(),
-          // })
-          .to(split01.chars, splitTween, '<+0.1')
-          .to(split02.chars, splitTween, '<');
-
-        // 段落テキストアニメーション
-        // gsap.to('[data-text]', {
-        //   duration: 2.4,
-        //   ease: easeOutExpo,
-        //   clipPath: 'inset(0% 0% 0% 0%)',
-        //   scrollTrigger: {
-        //     trigger: '[data-text]',
-        //     start: 'top center',
-        //   },
-        // });
+        headingTl.current.to(split01.chars, splitTween, '<+0.1').to(split02.chars, splitTween, '<');
       }
     },
     { scope: gsapRef }

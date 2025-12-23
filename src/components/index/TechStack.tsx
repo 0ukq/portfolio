@@ -10,7 +10,7 @@ import HtmlVector from '../vector/HtmlVector';
 import StackItems from '../stack/StackItems';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 import styles from './TechStack.module.css';
@@ -23,7 +23,9 @@ const TechStack: React.FC = () => {
   const gsapRef = useRef<HTMLElement>(null);
   const lottieRef = useRef<LottieRef>(null);
 
-  lottieRef.current?.play();
+  useEffect(() => {
+    lottieRef.current?.play();
+  }, []);
 
   return (
     <section ref={gsapRef} className={styles.techStack}>

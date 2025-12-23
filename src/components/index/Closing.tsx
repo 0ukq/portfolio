@@ -9,7 +9,7 @@ import { useGSAP } from '@gsap/react';
 import { ExternalLink } from 'lucide-react';
 import FootText from './FootText';
 import styles from './Closing.module.css';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import StackItems from '../stack/StackItems';
 import RollingTextAnimate from '../animation/RollingTextAnimate';
 import { easeOutExpo } from '@/lib/custom-ease';
@@ -19,13 +19,14 @@ import clsx from 'clsx';
 const Closing: React.FC = () => {
   const lottieRef = useRef<LottieRef>(null);
 
-  if (lottieRef.current) {
-    lottieRef.current.play();
-    lottieRef.current.setSpeed(0.5);
-  }
+  useEffect(() => {
+    lottieRef.current?.play();
+    lottieRef.current?.setSpeed(0.5);
+  }, []);
 
   useGSAP(() => {
     // 画面下テキストアニメーション
+    gsap.set('[data-foot-text] svg', { yPercent: -100, clearProps: 'transform' });
     gsap.set('[data-foot-text] svg', { yPercent: -100 });
 
     gsap.to('[data-foot-text] svg', {

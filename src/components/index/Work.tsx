@@ -11,7 +11,7 @@ import clsx from 'clsx';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { easeOutQuint } from '@/lib/custom-ease';
 import HideUpAnimate from '../animation/HideUpAnimate';
 
@@ -36,7 +36,9 @@ const Work: React.FC = () => {
   const titleText = 'WORK';
   const toArrayText = Array.from(titleText);
 
-  lottieRef.current?.play();
+  useEffect(() => {
+    lottieRef.current?.play();
+  }, []);
 
   useGSAP(
     () => {

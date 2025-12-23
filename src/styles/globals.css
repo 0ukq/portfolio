@@ -16,6 +16,11 @@
   .clip {
     overflow: clip;
   }
+  .fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .h-full {
     height: 100vh;
   }

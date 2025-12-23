@@ -52,8 +52,8 @@ const Closing: React.FC = () => {
               </HideUpAnimate>
             </div>
             <HeadingText className={styles.heading}>
-              <RollingTextAnimate text="THANKS FOR CHECKING OUT" />
-              <RollingTextAnimate text="MY PORTFOLIO!" delay={0.4} />
+              <RollingTextAnimate text="THANKS FOR CHECKING OUT" duration={1.4} />
+              <RollingTextAnimate text="MY PORTFOLIO!" delay={0.4} duration={1.4} />
             </HeadingText>
           </hgroup>
           <div className={styles.info}>

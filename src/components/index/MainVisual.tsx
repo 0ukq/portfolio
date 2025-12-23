@@ -2,7 +2,6 @@
 
 import gsap from 'gsap';
 import clsx from 'clsx';
-
 import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { bigShoulders } from '@/lib/fonts';
@@ -11,13 +10,14 @@ import ContentInner from '../layout/ContentInner';
 import StackItems from '../stack/StackItems';
 import HeadingText, { HeadingTextVariant } from '../heading/HeadingText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-import styles from './MainVisual.module.css';
 import PageContent from './PageContent';
 import About from './About';
 import Work from './Work';
 import TechStack from './TechStack';
 import Closing from './Closing';
+import Profile from './Profile';
+
+import styles from './MainVisual.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +33,7 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
 
   // useGSAP(
   //   () => {
-  //     ScrollTrigger.normalizeScroll(true);
+  //     // ScrollTrigger.normalizeScroll(true);
   //     if (timeline && gsapRef.current) {
   //       // 初期値設定
   //       gsap.set('[data-title]', { xPercent: -3, clipPath: 'inset(0 100% 0 0)' });
@@ -147,15 +147,16 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
 
       {/* アニメーション終了で表示 */}
       <About />
+      <Profile />
       <Work />
       <TechStack />
       <Closing />
-      {/* <PageContent /> */}
       {/* {isLoaded && (
         <>
           <About />
           <Work />
-          <PageContent />
+          <TechStack />
+          <Closing />
         </>
       )} */}
     </>

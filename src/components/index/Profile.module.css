@@ -1,0 +1,39 @@
+@layer component {
+  @media (--pc) {
+    .profile {
+      padding: liq(200) 0;
+    }
+    .block {
+      display: grid;
+      grid-template-columns: 1fr liq(440);
+      gap: 0 liq(70);
+    }
+    .content {
+      display: grid;
+      gap: liq(50);
+    }
+    .item {
+      display: grid;
+      grid-template-columns: liq(180) 1fr;
+      gap: liq(20);
+      padding: liq(42) liq(16);
+      &:not(:last-child) {
+        border-bottom: solid 1px;
+      }
+    }
+    .thumbnail {
+      display: grid;
+      > .image,
+      .background {
+        grid-area: 1/1;
+      }
+    }
+    .background {
+      width: 100%;
+      height: 100%;
+      background-color: var(--col_main_gray);
+    }
+  }
+  @media (--sp) {
+  }
+}

@@ -14,18 +14,18 @@ const Profile: React.FC = () => {
 
   useGSAP(
     () => {
-      gsap.set('[data-background]', { clipPath: 'inset(0% 0% 0% 0%)' });
+      gsap.set('[data-image]', { clipPath: 'inset( 0% 0% 100% 0%)', scale: 1.3 });
       gsap.set('[data-hide-text]', { display: 'inline-block' });
       gsap.set('[data-hide-text] > span', { display: 'inline-block', yPercent: 100 });
 
-      gsap.to('[data-background]', {
-        clipPath: 'inset(100% 0% 0% 0%)',
+      gsap.to('[data-image]', {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        scale: 1,
         scrollTrigger: {
           trigger: gsapRef.current,
           start: 'top top',
-          end: 'bottom-=14% bottom',
+          end: 'bottom-=10% bottom',
           scrub: 1.2,
-          markers: true,
         },
       });
       gsap.to('[data-hide-text] > span', {
@@ -33,9 +33,8 @@ const Profile: React.FC = () => {
         scrollTrigger: {
           trigger: gsapRef.current,
           start: 'top top',
-          end: 'bottom-=14% bottom',
+          end: 'bottom-=10% bottom',
           scrub: 1.2,
-          markers: true,
         },
       });
     },
@@ -104,15 +103,16 @@ const Profile: React.FC = () => {
                 </div>
               </dl>
             </div>
-            <figure className={styles.thumbnail}>
+            <figure className={clsx(styles.thumbnail, 'clip')}>
               <Image
                 src={AboutImg01}
                 alt="profile"
                 width={AboutImg01.width}
                 height={AboutImg01.height}
                 className={clsx(styles.image, 'fit')}
+                data-image
               />
-              <div className={styles.background} data-background />
+              {/* <div className={styles.background} data-background /> */}
             </figure>
           </div>
         </ContentInner>

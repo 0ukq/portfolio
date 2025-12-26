@@ -11,9 +11,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Clouds from '../../../public/lotties/clouds.json';
 import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 import HideUpAnimate from '../animation/HideUpAnimate';
-import StackItemsV2 from '../stack/StackItemsV2';
 
 import styles from './About.module.css';
+import StackItems from '../stack/StackItems';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -113,7 +113,7 @@ const About: React.FC = () => {
   );
 
   return (
-    <section ref={gsapRef} className={clsx(styles.about, 'bg-main-gray')}>
+    <section ref={gsapRef} className={styles.about}>
       <ContentInner className={styles.inner}>
         <div>
           <hgroup data-about-heading className={styles.heading}>
@@ -136,35 +136,41 @@ const About: React.FC = () => {
       </ContentInner>
       <div data-about-clip-trigger className={styles.paragraph}>
         <p className={clsx(styles.text, bigShoulders.className)}>
-          <StackItemsV2
+          <StackItems
+            before="AS A FRONT-END DEVELOPER,"
+            after="AS A FRONT-END DEVELOPER,"
             afterData="about-clip-after"
             beforeData="about-clip-before"
-            text={'AS A FRONT-END DEVELOPER,'}
           />
-          <StackItemsV2
+          <StackItems
+            before="I TAKE GENUINE JOY IN BRINGING DESIGNS TO LIFE."
+            after="I TAKE GENUINE JOY IN BRINGING DESIGNS TO LIFE."
             afterData="about-clip-after"
             beforeData="about-clip-before"
-            text={'I TAKE GENUINE JOY IN BRINGING DESIGNS TO LIFE.'}
           />
-          <StackItemsV2
+          <StackItems
+            before="MY GREATEST ASSET IS MY CURIOSITY."
+            after="MY GREATEST ASSET IS MY CURIOSITY."
             afterData="about-clip-after"
             beforeData="about-clip-before"
-            text={'MY GREATEST ASSET IS MY CURIOSITY.'}
           />
-          <StackItemsV2
+          <StackItems
+            before="I CONSTANTLY CHASE NEW TECHNOLOGIES AS A DEVELOPER,"
+            after="I CONSTANTLY CHASE NEW TECHNOLOGIES AS A DEVELOPER,"
             afterData="about-clip-after"
             beforeData="about-clip-before"
-            text={'I CONSTANTLY CHASE NEW TECHNOLOGIES AS A DEVELOPER,'}
           />
-          <StackItemsV2
+          <StackItems
+            before="WHILE ALSO DIGGING INTO OLDER ONES WHEN NEEDED."
+            after="WHILE ALSO DIGGING INTO OLDER ONES WHEN NEEDED."
             afterData="about-clip-after"
             beforeData="about-clip-before"
-            text={'WHILE ALSO DIGGING INTO OLDER ONES WHEN NEEDED.'}
           />
-          <StackItemsV2
+          <StackItems
+            before="THAT CURIOSITY IS THE FORCE THAT DRIVES EVERYTHING I DO."
+            after="THAT CURIOSITY IS THE FORCE THAT DRIVES EVERYTHING I DO."
             afterData="about-clip-after"
             beforeData="about-clip-before"
-            text={'THAT CURIOSITY IS THE FORCE THAT DRIVES EVERYTHING I DO.'}
           />
         </p>
       </div>

@@ -13,3 +13,4 @@ export const easeOutExpo = CustomEase.create('easeOutExpo', '0.16, 1, 0.3, 1'); 
 export const easeInExpo = CustomEase.create('easeInExpo', '0.7, 0, 0.84, 0'); // https://easings.net/ja#easeInExpo
 export const easeOutCirc = CustomEase.create('easeOutCirc', '0, 0.55, 0.45, 1'); // https://easings.net/ja#easeOutCirc
 export const easeOutBack = CustomEase.create('easeOutBack', '0.34, 1.56, 0.64, 1'); // https://easings.net/ja#easeOutBack
+export const easeOutCubic = CustomEase.create('easeOutCubic', '0.33, 1, 0.68, 1'); // https://easings.net/ja#easeOutCubic

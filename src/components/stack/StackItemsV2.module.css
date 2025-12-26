@@ -1,0 +1,14 @@
+@layer component {
+  @media (--pc) {
+    .StackItemsV2 {
+      display: grid;
+    }
+    .item {
+      display: inline-block;
+      width: fit-content;
+      grid-area: 1/1;
+    }
+  }
+  @media (--sp) {
+  }
+}

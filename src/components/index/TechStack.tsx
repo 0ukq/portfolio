@@ -24,7 +24,9 @@ const TechStack: React.FC = () => {
   const lottieRef = useRef<LottieRef>(null);
 
   useEffect(() => {
-    lottieRef.current?.play();
+    if (lottieRef.current) {
+      lottieRef.current.play();
+    }
   }, []);
 
   return (

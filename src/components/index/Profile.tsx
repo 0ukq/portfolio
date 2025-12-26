@@ -47,7 +47,6 @@ const Profile: React.FC = () => {
           stagger: 0.05,
           scrollTrigger: { ...defaultTrigger },
         });
-        console.log(split.chars);
       });
     },
     { scope: gsapRef }

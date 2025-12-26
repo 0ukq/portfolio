@@ -30,7 +30,7 @@
         display: grid;
         gap: 10px 0;
         > svg {
-          filter: grayscale(1);
+          /* filter: grayscale(1); */
         }
         > p {
           text-align: center;

@@ -33,7 +33,7 @@ const About: React.FC = () => {
   useGSAP(
     () => {
       if (gsapRef.current) {
-        const splitTexts = gsap.utils.toArray<HTMLElement>('[data-split-text]');
+        const splitTexts = gsap.utils.toArray<HTMLElement>('[data-about-split]');
         const split01 = SplitText.create(splitTexts[0], {
           type: 'chars',
           tag: 'span',
@@ -82,14 +82,14 @@ const About: React.FC = () => {
               </HideUpAnimate>
             </div>
             <HeadingText className={styles.title}>
-              <span data-split-text>
+              <span data-about-split>
                 {titleText01Chars.map((chars, index) => (
                   <span key={index} className="clip">
                     {chars === ' ' ? '\u00A0' : chars}
                   </span>
                 ))}
               </span>
-              <span data-split-text>
+              <span data-about-split>
                 {titleText02Chars.map((chars, index) => (
                   <span key={index} className="clip">
                     {chars === ' ' ? '\u00A0' : chars}

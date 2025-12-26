@@ -4,38 +4,50 @@ import AboutImg01 from '../../../public/images/index/about_img01.jpg';
 import Image from 'next/image';
 import clsx from 'clsx';
 import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 
 import styles from './Profile.module.css';
+
+gsap.registerPlugin(SplitText);
 
 const Profile: React.FC = () => {
   const gsapRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
-      gsap.set('[data-image]', { clipPath: 'inset( 0% 0% 100% 0%)', scale: 1.3 });
-      gsap.set('[data-hide-text]', { display: 'inline-block' });
-      gsap.set('[data-hide-text] > span', { display: 'inline-block', yPercent: 100 });
+      const texts: HTMLElement[] = Array.from(document.querySelectorAll('[data-profile-split]'));
+      const splits = texts.map(text => {
+        gsap.set(text, { display: 'inline-block' });
+        return SplitText.create(text, { type: 'chars', tag: 'span' });
+      });
+
+      gsap.set('[data-image]', { clipPath: 'inset( 0% 0% 100% 0%)', scale: 1.4 });
+
+      // scrollTrigger 共通設定
+      const defaultTrigger: ScrollTrigger.Vars = {
+        trigger: gsapRef.current,
+        start: 'top top',
+        end: 'bottom-=14% bottom',
+        scrub: 1.2,
+      };
 
       gsap.to('[data-image]', {
         clipPath: 'inset(0% 0% 0% 0%)',
         scale: 1,
-        scrollTrigger: {
-          trigger: gsapRef.current,
-          start: 'top top',
-          end: 'bottom-=10% bottom',
-          scrub: 1.2,
-        },
+        scrollTrigger: { ...defaultTrigger },
       });
-      gsap.to('[data-hide-text] > span', {
-        yPercent: 0,
-        scrollTrigger: {
-          trigger: gsapRef.current,
-          start: 'top top',
-          end: 'bottom-=10% bottom',
-          scrub: 1.2,
-        },
+
+      // テキストアニメーション
+      splits.forEach(split => {
+        gsap.set(split.chars, { display: 'inline-block', yPercent: 100 });
+        gsap.to(split.chars, {
+          yPercent: 0,
+          stagger: 0.05,
+          scrollTrigger: { ...defaultTrigger },
+        });
+        console.log(split.chars);
       });
     },
     { scope: gsapRef }
@@ -48,56 +60,56 @@ const Profile: React.FC = () => {
           <div className={styles.block}>
             <div className={styles.content}>
               <HeadingText>
-                <span className="clip" data-hide-text>
-                  <span>PROFILE</span>
+                <span data-profile-split className="clip">
+                  PROFILE
                 </span>
               </HeadingText>
               <dl className={styles.info}>
                 <div className={styles.item}>
                   <dt>
-                    <span className="clip" data-hide-text>
-                      <span>Age</span>
+                    <span data-profile-split className="clip">
+                      Age
                     </span>
                   </dt>
                   <dd>
-                    <span className="clip" data-hide-text>
-                      <span>20s</span>
+                    <span data-profile-split className="clip">
+                      20s
                     </span>
                   </dd>
                 </div>
                 <div className={styles.item}>
                   <dt>
-                    <span className="clip" data-hide-text>
-                      <span>Role</span>
+                    <span data-profile-split className="clip">
+                      Role
                     </span>
                   </dt>
                   <dd>
-                    <span className="clip" data-hide-text>
-                      <span>Frontend Developer</span>
+                    <span data-profile-split className="clip">
+                      Frontend Developer
                     </span>
                   </dd>
                 </div>
                 <div className={styles.item}>
                   <dt>
-                    <span className="clip" data-hide-text>
-                      <span>Experience</span>
+                    <span data-profile-split className="clip">
+                      Experience
                     </span>
                   </dt>
                   <dd>
-                    <span className="clip" data-hide-text>
-                      <span>6+ Years</span>
+                    <span data-profile-split className="clip">
+                      6+ Years
                     </span>
                   </dd>
                 </div>
                 <div className={styles.item}>
                   <dt>
-                    <span className="clip" data-hide-text>
-                      <span>Interests</span>
+                    <span data-profile-split className="clip">
+                      Interests
                     </span>
                   </dt>
                   <dd>
-                    <span className="clip" data-hide-text>
-                      <span>Road trips, Angling, and Strength training.</span>
+                    <span data-profile-split className="clip">
+                      Road trips, Angling, and Strength training.
                     </span>
                   </dd>
                 </div>

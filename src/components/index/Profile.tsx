@@ -123,7 +123,7 @@ const Profile: React.FC = () => {
                 className={clsx(styles.image, 'fit')}
                 data-image
               />
-              {/* <div className={styles.background} data-background /> */}
+              <div className={styles.background} data-background />
             </figure>
           </div>
         </ContentInner>

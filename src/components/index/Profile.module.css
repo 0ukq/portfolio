@@ -27,9 +27,6 @@
       grid-template-columns: liq(180) 1fr;
       gap: liq(20);
       padding: liq(42) liq(16);
-      /* &:not(:last-child) {
-        border-bottom: solid 1px;
-      } */
     }
     .thumbnail {
       display: grid;

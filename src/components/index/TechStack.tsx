@@ -72,7 +72,6 @@ const TechStack: React.FC = () => {
           scrollTrigger: {
             trigger: '[data-tech-stack-logos]',
             start: 'top bottom-=30%',
-            markers: true,
           },
         });
 

@@ -113,7 +113,7 @@ const About: React.FC = () => {
   );
 
   return (
-    <section ref={gsapRef} className={styles.about}>
+    <section ref={gsapRef} className={clsx(styles.about, "bg-main-gray")}>
       <ContentInner className={styles.inner}>
         <div>
           <hgroup data-about-heading className={styles.heading}>

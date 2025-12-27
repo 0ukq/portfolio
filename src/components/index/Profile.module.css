@@ -38,7 +38,7 @@
     .background {
       width: 100%;
       height: 100%;
-      background-color: var(--col_main_gray);
+      background-color: var(--col_white);
     }
   }
   @media (--sp) {

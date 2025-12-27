@@ -53,7 +53,7 @@ const Profile: React.FC = () => {
   );
 
   return (
-    <section ref={gsapRef} className={styles.profile}>
+    <section ref={gsapRef} className={clsx(styles.profile, 'bg-main-gray')}>
       <div className={styles.wrapper}>
         <ContentInner>
           <div className={styles.block}>

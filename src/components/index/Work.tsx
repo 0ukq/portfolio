@@ -66,8 +66,7 @@ const Work: React.FC = () => {
   return (
     <>
       {works.length > 0 && (
-        // <section className={clsx(styles.work, 'bg-main-gray')}>
-        <section ref={gsapRef} className={styles.work}>
+        <section className={clsx(styles.work, 'bg-main-gray')}>
           <ContentInner>
             <hgroup className={styles.heading}>
               <div className={clsx(styles.lottie, 'hover-lottie')}>

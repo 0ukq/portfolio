@@ -42,6 +42,8 @@ const TechStack: React.FC = () => {
         const reactPaths = gsapRef.current.querySelectorAll('[data-react-vector] path');
         const nextPaths = gsapRef.current.querySelectorAll('[data-next-vector] path');
         const tsPaths = gsapRef.current.querySelectorAll('[data-ts-vector] path');
+        const cssPaths = gsapRef.current.querySelectorAll('[data-css-vector] path');
+        const htmlPaths = gsapRef.current.querySelectorAll('[data-html-vector] path');
 
         // 共通の初期値
         const setVars: gsap.TweenVars = {
@@ -66,6 +68,8 @@ const TechStack: React.FC = () => {
         gsap.set(reactPaths, { ...setVars });
         gsap.set(nextPaths, { ...setVars });
         gsap.set(tsPaths, { ...setVars });
+        gsap.set(cssPaths, { ...setVars });
+        gsap.set(htmlPaths, { ...setVars });
 
         // tl設定
         tl.current = gsap.timeline({
@@ -81,11 +85,19 @@ const TechStack: React.FC = () => {
           .to(reactPaths, { ...drawVars })
           .to(nextPaths, { ...drawVars }, '<')
           .to(tsPaths, { ...drawVars }, '<')
+          .to(cssPaths, { ...drawVars }, '<')
+          .to(htmlPaths, { ...drawVars }, '<')
           .to(reactPaths, { fill: '#61DAFB', ...fillVars }, '>')
           .to(nextPaths, { fill: 'white', ...fillVars }, '<')
           .to(tsPaths[0], { fill: '#3178C6', ...fillVars }, '<')
           .to(tsPaths[1], { fill: '#3178C6', ...fillVars }, '<')
-          .to(tsPaths[2], { fill: 'white', ...fillVars }, '<');
+          .to(tsPaths[2], { fill: 'white', ...fillVars }, '<')
+          .to(cssPaths[0], { fill: '#663399', ...fillVars }, '<')
+          .to(cssPaths[1], { fill: 'white', ...fillVars }, '<')
+          .to(htmlPaths[0], { fill: '#E34F26', ...fillVars }, '<')
+          .to(htmlPaths[1], { fill: '#E34F26', ...fillVars }, '<')
+          .to(htmlPaths[2], { fill: '#EBEBEB', ...fillVars }, '<')
+          .to(htmlPaths[3], { fill: 'white', ...fillVars }, '<');
       }
     },
     { scope: gsapRef }

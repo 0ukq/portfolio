@@ -102,7 +102,7 @@ const About: React.FC = () => {
           yPercent: -120,
           scrollTrigger: {
             trigger: '[data-about-lottie]',
-            start: 'top bottom-=20%',
+            start: 'top bottom-=30%',
             end: 'bottom top',
             scrub: 1.2,
           },
@@ -113,7 +113,7 @@ const About: React.FC = () => {
   );
 
   return (
-    <section ref={gsapRef} className={clsx(styles.about, "bg-main-gray")}>
+    <section ref={gsapRef} className={clsx(styles.about, 'bg-main-gray')}>
       <ContentInner className={styles.inner}>
         <div>
           <hgroup data-about-heading className={styles.heading}>

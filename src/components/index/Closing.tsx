@@ -18,35 +18,63 @@ import clsx from 'clsx';
 
 const Closing: React.FC = () => {
   const lottieRef = useRef<LottieRef>(null);
+  const gsapRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     lottieRef.current?.play();
     lottieRef.current?.setSpeed(0.5);
   }, []);
 
-  useGSAP(() => {
-    // 画面下テキストアニメーション
-    gsap.set('[data-foot-text] svg', { yPercent: -100, clearProps: 'transform' });
-    gsap.set('[data-foot-text] svg', { yPercent: -100 });
+  useGSAP(
+    () => {
+      // スクロール
+      gsap.set(gsapRef.current, { yPercent: -10 });
+      gsap.to(gsapRef.current, {
+        yPercent: 0,
+        scrollTrigger: {
+          trigger: gsapRef.current,
+          start: 'top bottom',
+          end: 'bottom bottom',
+          scrub: 1.5,
+        },
+      });
 
-    gsap.to('[data-foot-text] svg', {
-      duration: 2,
-      yPercent: 0,
-      stagger: 0.08,
-      ease: easeOutExpo,
-      scrollTrigger: {
-        trigger: '[data-foot-text]',
-        start: 'center bottom',
-      },
-    });
-  });
+      // 画面下テキスト
+      gsap.set('[data-foot-text] svg', { yPercent: -100, clearProps: 'transform' });
+      gsap.set('[data-foot-text] svg', { yPercent: -100 });
+
+      gsap.to('[data-foot-text] svg', {
+        duration: 2,
+        yPercent: 0,
+        stagger: 0.08,
+        ease: easeOutExpo,
+        scrollTrigger: {
+          trigger: '[data-foot-text]',
+          start: 'center bottom',
+        },
+      });
+
+      // lottie
+      gsap.to('[data-closing-lottie]', {
+        yPercent: -120,
+        scrollTrigger: {
+          trigger: '[data-closing-lottie]',
+          start: 'top bottom-=30%',
+          end: 'bottom top',
+          scrub: 1.5,
+          markers: true,
+        },
+      });
+    },
+    { scope: gsapRef }
+  );
 
   return (
-    <section className={styles.closing}>
+    <section ref={gsapRef} className={styles.closing}>
       <ContentInner>
         <div className={styles.container}>
           <hgroup className={styles.title}>
-            <div className={clsx(styles.lottie, 'hover-lottie')}>
+            <div className={clsx(styles.lottie, 'hover-lottie')} data-closing-lottie>
               <HideUpAnimate>
                 <BaseLottie lottieData={WaveHand} ref={lottieRef} />
               </HideUpAnimate>

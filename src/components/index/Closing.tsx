@@ -62,7 +62,6 @@ const Closing: React.FC = () => {
           start: 'top bottom-=30%',
           end: 'bottom top',
           scrub: 1.5,
-          markers: true,
         },
       });
     },

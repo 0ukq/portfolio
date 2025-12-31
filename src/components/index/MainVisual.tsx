@@ -111,24 +111,24 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
               <HeadingText variant={HeadingTextVariant.HEADING1} className={styles.titles}>
                 <StackItems
                   contentData="title"
-                  before={'TITLE'}
-                  after={'TITLE'}
+                  before={'DAIKI'}
+                  after={'DAIKI'}
                   beforeData="title-before"
                   afterData="title-after"
                   className={styles.item}
                 />
                 <StackItems
                   contentData="title"
-                  before={'TITLE TITLE'}
-                  after={'TITLE TITLE'}
+                  before={'HIRANO'}
+                  after={'HIRANO'}
                   beforeData="title-before"
                   afterData="title-after"
                   className={styles.item}
                 />
                 <StackItems
                   contentData="title"
-                  before={'TITLE TITLE'}
-                  after={'TITLE TITLE'}
+                  before={'PORTFOLIO'}
+                  after={'PORTFOLIO'}
                   beforeData="title-before"
                   afterData="title-after"
                   className={styles.item}

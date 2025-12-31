@@ -20,15 +20,16 @@
 
     .titles {
       display: grid;
-      gap: liq(5);
+      gap: liq(15);
+      font-size: liq(240);
     }
     .item {
       width: fit-content;
       &:first-child {
-        padding-left: liq(15);
+        padding-left: liq(65);
       }
       &:nth-child(2) {
-        padding-left: liq(65);
+        padding-left: liq(120);
       }
     }
 

@@ -7,6 +7,7 @@ interface HideUpAnimateProps {
   trigger?: gsap.DOMTarget;
   duration?: number;
   delay?: number;
+  start?: string | number | ScrollTrigger.StartEndFunc | undefined;
   markers?: boolean;
   animateDisable?: boolean; // アニメーション無効化フラグ
   children: React.ReactNode;
@@ -16,6 +17,7 @@ const HideUpAnimate: React.FC<HideUpAnimateProps> = ({
   trigger,
   duration = 2,
   delay = 0,
+  start = 'top bottom-=30%',
   markers = false,
   animateDisable = false,
   children,
@@ -34,7 +36,7 @@ const HideUpAnimate: React.FC<HideUpAnimateProps> = ({
         ease: easeOutExpo,
         scrollTrigger: {
           trigger: trigger ? trigger : scopeRef.current,
-          start: 'top bottom-=30%',
+          start: start,
           scrub: false,
           markers: markers,
         },

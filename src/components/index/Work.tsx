@@ -12,7 +12,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useEffect, useRef } from 'react';
-import { easeOutQuint } from '@/lib/custom-ease';
+import { easeOutExpo, easeOutQuint } from '@/lib/custom-ease';
 import HideUpAnimate from '../animation/HideUpAnimate';
 
 gsap.registerPlugin(SplitText);
@@ -42,6 +42,7 @@ const Work: React.FC = () => {
 
   useGSAP(
     () => {
+      // タイトル
       const splitText = SplitText.create('[data-split-text]', {
         type: 'chars',
         tag: 'span',
@@ -51,13 +52,26 @@ const Work: React.FC = () => {
       gsap.to(splitText.chars, {
         scrollTrigger: {
           trigger: '[data-heading]',
-          start: 'top bottom-=30%',
+          start: 'top bottom-=10%',
           // markers: true,
         },
         xPercent: 0,
         duration: 1.6,
         stagger: 0.05,
         ease: easeOutQuint,
+      });
+
+      // サムネ
+      gsap.set('[data-work-card-image]', { scale: 1.1 });
+      gsap.to('[data-work-card-image]', {
+        scale: 1,
+        duration: 2.6,
+        ease: easeOutQuint,
+        scrollTrigger: {
+          trigger: '[data-work-card-image]',
+          start: 'top bottom-=20%',
+          // markers: true,
+        },
       });
     },
     { scope: gsapRef }
@@ -66,7 +80,7 @@ const Work: React.FC = () => {
   return (
     <>
       {works.length > 0 && (
-        <section className={clsx(styles.work, 'bg-main-gray')}>
+        <section ref={gsapRef} className={clsx(styles.work, 'bg-main-gray')}>
           <ContentInner>
             <hgroup className={styles.heading}>
               <div className={clsx(styles.lottie, 'hover-lottie')}>

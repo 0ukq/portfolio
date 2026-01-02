@@ -10,12 +10,18 @@ gsap.registerPlugin(SplitText);
 interface RollingTextAnimateProps {
   duration?: number;
   delay?: number;
+  start?: string | number | ScrollTrigger.StartEndFunc | undefined;
+  markers?: boolean;
+  animateDisable?: boolean; // アニメーション無効化フラグ
   text: string;
 }
 
 const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
   duration = 2.2,
   delay = 0,
+  start = 'top bottom-=30%',
+  markers = false,
+  animateDisable = false,
   text,
 }) => {
   const scopeRef = useRef<HTMLDivElement>(null);
@@ -23,6 +29,7 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
 
   useGSAP(
     () => {
+      if (animateDisable) return;
       // テキスト分割
       const beforeSplit = SplitText.create('[data-rolling-before]', {
         type: 'chars',
@@ -41,8 +48,8 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
       tl.current = gsap.timeline({
         scrollTrigger: {
           trigger: scopeRef.current,
-          start: 'top bottom-=30%',
-          // markers: true,
+          start: start,
+          markers: markers,
         },
         defaults: { ease: easeOutExpo, duration: duration, stagger: 0.08, delay: delay },
       });
@@ -61,6 +68,8 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
     },
     { scope: scopeRef }
   );
+
+  if (animateDisable) return <p>{text}</p>;
 
   return (
     <>

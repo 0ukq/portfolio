@@ -6,7 +6,9 @@
       gap: liq(25) 0;
     }
     .thumbnail {
+      display: block;
       position: relative;
+      border-radius: liq(8);
       &::before {
         content: '';
         position: absolute;
@@ -18,7 +20,6 @@
       }
       img {
         filter: grayscale(1);
-        border-radius: liq(8);
       }
     }
     .description {

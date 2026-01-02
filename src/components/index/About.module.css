@@ -2,9 +2,9 @@
   @media (--pc) {
     .about {
       position: relative;
-      padding: liq(200) 0;
+      /* padding: liq(200) 0; */
       /* translate: 0 -50%; */
-      /* padding-bottom: liq(150); */
+      padding-bottom: liq(200);
       z-index: 1;
     }
 

@@ -48,7 +48,8 @@ const About: React.FC = () => {
           ease: easeOutQuint,
           scrollTrigger: {
             trigger: '[data-about-heading]',
-            start: 'top bottom-=30%',
+            start: 'top-=140% bottom-=30%',
+            // markers: true,
           },
         });
 

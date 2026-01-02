@@ -7,10 +7,10 @@ import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
+import HideUpAnimate from '../animation/HideUpAnimate';
+import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 import styles from './Profile.module.css';
-import HideUpAnimate from '../animation/HideUpAnimate';
-import { easeOutExpo } from '@/lib/custom-ease';
 
 gsap.registerPlugin(SplitText);
 
@@ -68,7 +68,9 @@ const Profile: React.FC = () => {
           <div className={styles.block}>
             <div className={styles.content}>
               <HideUpAnimate>
-                <HeadingText>PROFILE</HeadingText>
+                <HeadingText>
+                  <RollingTextAnimate text="PROFILE" />
+                </HeadingText>
               </HideUpAnimate>
               <dl className={styles.info}>
                 <div className={styles.item}>

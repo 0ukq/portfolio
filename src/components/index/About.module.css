@@ -26,15 +26,6 @@
       top: liq(20);
     }
 
-    .title {
-      span {
-        display: inline-block;
-      }
-      > span:first-child {
-        padding-left: liq(45);
-      }
-    }
-
     .paragraph {
       padding: 0 liq(40);
       margin-top: liq(180);

@@ -13,8 +13,8 @@
       z-index: 1;
     }
     .title {
-      span {
-        display: inline-block;
+      :global(.align) {
+        justify-content: end;
       }
     }
     .lottie {

@@ -11,17 +11,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Clouds from '../../../public/lotties/clouds.json';
 import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 import HideUpAnimate from '../animation/HideUpAnimate';
+import StackItems from '../stack/StackItems';
+import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 import styles from './About.module.css';
-import StackItems from '../stack/StackItems';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const About: React.FC = () => {
   const gsapRef = useRef<HTMLElement>(null);
   const cloudsRef = useRef<LottieRef>(null);
-  const title = 'A CURIOUS WEB DEVELOPER';
-  const titleChars = Array.from(title);
 
   useEffect(() => {
     cloudsRef.current?.play();
@@ -33,7 +32,7 @@ const About: React.FC = () => {
         /**
          * タイトルアニメーション
          * */
-        const splitTitle = SplitText.create('[data-about-split-title]', {
+        const splitTitle = SplitText.create('[data-split-text]', {
           type: 'chars',
           tag: 'span',
           reduceWhiteSpace: false,
@@ -49,7 +48,6 @@ const About: React.FC = () => {
           scrollTrigger: {
             trigger: '[data-about-heading]',
             start: 'top-=140% bottom-=30%',
-            // markers: true,
           },
         });
 
@@ -124,13 +122,7 @@ const About: React.FC = () => {
               </HideUpAnimate>
             </div>
             <HeadingText className={styles.title}>
-              <span data-about-split-title>
-                {titleChars.map((chars, index) => (
-                  <span key={index} className="clip">
-                    {chars === ' ' ? '\u00A0' : chars}
-                  </span>
-                ))}
-              </span>
+              <RollingTextAnimate text="A CURIOUS WEB DEVELOPER" />
             </HeadingText>
           </hgroup>
         </div>

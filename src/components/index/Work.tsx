@@ -3,8 +3,6 @@ import ContentInner from '../layout/ContentInner';
 import HeadShake from '../../../public/lotties/head-shake.json';
 import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 // import { Options, Splide, SplideSlide } from '@splidejs/react-splide';
-
-import styles from './Work.module.css';
 import { workDataSample } from '@/lib/data';
 import WorkCard from '../card/WorkCard';
 import clsx from 'clsx';
@@ -12,8 +10,11 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useEffect, useRef } from 'react';
-import { easeOutExpo, easeOutQuint } from '@/lib/custom-ease';
+import { easeOutQuint } from '@/lib/custom-ease';
 import HideUpAnimate from '../animation/HideUpAnimate';
+import RollingTextAnimate from '../animation/RollingTextAnimate';
+
+import styles from './Work.module.css';
 
 gsap.registerPlugin(SplitText);
 
@@ -33,8 +34,6 @@ const Work: React.FC = () => {
   const works = workDataSample;
   const gsapRef = useRef<HTMLElement>(null);
   const lottieRef = useRef<LottieRef>(null);
-  const titleText = 'WORK';
-  const toArrayText = Array.from(titleText);
 
   useEffect(() => {
     lottieRef.current?.play();
@@ -89,13 +88,7 @@ const Work: React.FC = () => {
                 </HideUpAnimate>
               </div>
               <HeadingText data-heading align={HeadingTextAlign.RIGHT} className={styles.title}>
-                <span data-split-text>
-                  {toArrayText.map((char, index) => (
-                    <span key={index} className="clip">
-                      {char}
-                    </span>
-                  ))}
-                </span>
+                <RollingTextAnimate text="WORK" />
               </HeadingText>
             </hgroup>
 

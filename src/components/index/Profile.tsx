@@ -9,6 +9,8 @@ import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 
 import styles from './Profile.module.css';
+import HideUpAnimate from '../animation/HideUpAnimate';
+import { easeOutExpo } from '@/lib/custom-ease';
 
 gsap.registerPlugin(SplitText);
 
@@ -28,22 +30,29 @@ const Profile: React.FC = () => {
       // scrollTrigger 共通設定
       const defaultTrigger: ScrollTrigger.Vars = {
         trigger: gsapRef.current,
-        start: 'top top',
-        end: 'bottom-=14% bottom',
+        start: 'top-=3% top',
+        end: 'bottom-=12% bottom',
         scrub: 1.2,
       };
 
+      // 画像
       gsap.to('[data-image]', {
         clipPath: 'inset(0% 0% 0% 0%)',
         scale: 1,
-        scrollTrigger: { ...defaultTrigger },
+        scrollTrigger: {
+          ...defaultTrigger,
+          onLeave: () => {
+            console.log('Image left the viewport');
+          },
+        },
       });
 
       // テキストアニメーション
       splits.forEach(split => {
-        gsap.set(split.chars, { display: 'inline-block', yPercent: 100 });
+        gsap.set(split.chars, { display: 'inline-block', yPercent: 100, opacity: 0 });
         gsap.to(split.chars, {
           yPercent: 0,
+          opacity: 1,
           stagger: 0.05,
           scrollTrigger: { ...defaultTrigger },
         });
@@ -58,11 +67,9 @@ const Profile: React.FC = () => {
         <ContentInner>
           <div className={styles.block}>
             <div className={styles.content}>
-              <HeadingText>
-                <span data-profile-split className="clip">
-                  PROFILE
-                </span>
-              </HeadingText>
+              <HideUpAnimate>
+                <HeadingText>PROFILE</HeadingText>
+              </HideUpAnimate>
               <dl className={styles.info}>
                 <div className={styles.item}>
                   <dt>
@@ -114,7 +121,7 @@ const Profile: React.FC = () => {
                 </div>
               </dl>
             </div>
-            <figure className={clsx(styles.thumbnail, 'clip')}>
+            <figure className={clsx(styles.thumbnail, 'clip')} data-thumbnail>
               <Image
                 src={AboutImg01}
                 alt="profile"
@@ -123,7 +130,7 @@ const Profile: React.FC = () => {
                 className={clsx(styles.image, 'fit')}
                 data-image
               />
-              <div className={styles.background} data-background />
+              {/* <div className={styles.background} data-background /> */}
             </figure>
           </div>
         </ContentInner>

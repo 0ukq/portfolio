@@ -28,11 +28,14 @@
       margin-top: liq(80);
       > li {
         display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 2;
+        align-items: center;
         gap: 10px 0;
-        > svg {
-          /* filter: grayscale(1); */
+        svg {
+          filter: grayscale(1);
         }
-        > p {
+        p {
           text-align: center;
           font-weight: 300;
           line-height: 100%;

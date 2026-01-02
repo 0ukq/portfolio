@@ -119,23 +119,33 @@ const TechStack: React.FC = () => {
         <ul className={styles.logos} data-tech-stack-logos>
           <li>
             <ReactVector />
-            <p>3YEAR.</p>
+            <HideUpAnimate>
+              <p>3YEAR.</p>
+            </HideUpAnimate>
           </li>
           <li>
             <NextVector />
-            <p>2YEAR.</p>
+            <HideUpAnimate>
+              <p>2YEAR.</p>
+            </HideUpAnimate>
           </li>
           <li>
             <TsVector />
-            <p>5YEAR.</p>
+            <HideUpAnimate>
+              <p>5YEAR.</p>
+            </HideUpAnimate>
           </li>
           <li>
             <CssVector />
-            <p>5YEAR.</p>
+            <HideUpAnimate>
+              <p>5YEAR.</p>
+            </HideUpAnimate>
           </li>
           <li>
             <HtmlVector />
-            <p>5YEAR.</p>
+            <HideUpAnimate>
+              <p>5YEAR.</p>
+            </HideUpAnimate>
           </li>
         </ul>
         <div className={styles.other}>
@@ -147,18 +157,42 @@ const TechStack: React.FC = () => {
             <RollingTextAnimate text="OTHER" />
           </HeadingText>
           <ul className={styles.otherList}>
-            <li>・TailWind CSS</li>
-            <li>・GSAP</li>
-            <li>・React Router</li>
-            <li>・microCMS</li>
-            <li>・GitHub</li>
-            <li>・Figma</li>
-            <li>・Post CSS</li>
-            <li>・Three.js</li>
-            <li>・React Hook Form</li>
-            <li>・Vercel</li>
-            <li>・Axios</li>
-            <li>・Photoshop</li>
+            <li>
+              <HideUpAnimate>・TailWind CSS</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・GSAP</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・React Router</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・microCMS</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・GitHub</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・Figma</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・Post CSS</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・Three.js</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・React Hook Form</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・Vercel</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・Axios</HideUpAnimate>
+            </li>
+            <li>
+              <HideUpAnimate>・Photoshop</HideUpAnimate>
+            </li>
           </ul>
         </div>
       </ContentInner>

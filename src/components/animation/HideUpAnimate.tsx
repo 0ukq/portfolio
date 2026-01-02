@@ -4,16 +4,27 @@ import gsap from 'gsap';
 import { useRef } from 'react';
 
 interface HideUpAnimateProps {
+  trigger?: gsap.DOMTarget;
   duration?: number;
   delay?: number;
+  markers?: boolean;
+  animateDisable?: boolean; // アニメーション無効化フラグ
   children: React.ReactNode;
 }
 
-const HideUpAnimate: React.FC<HideUpAnimateProps> = ({ duration = 2, delay = 0, children }) => {
+const HideUpAnimate: React.FC<HideUpAnimateProps> = ({
+  trigger,
+  duration = 2,
+  delay = 0,
+  markers = false,
+  animateDisable = false,
+  children,
+}) => {
   const scopeRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
+      if (animateDisable) return;
       gsap.set('[data-hide-up-ele]', { yPercent: 100 });
 
       gsap.to('[data-hide-up-ele]', {
@@ -22,15 +33,17 @@ const HideUpAnimate: React.FC<HideUpAnimateProps> = ({ duration = 2, delay = 0, 
         yPercent: 0,
         ease: easeOutExpo,
         scrollTrigger: {
-          trigger: scopeRef.current,
+          trigger: trigger ? trigger : scopeRef.current,
           start: 'top bottom-=30%',
           scrub: false,
-          // markers: true,
+          markers: markers,
         },
       });
     },
     { scope: scopeRef }
   );
+
+  if (animateDisable) return children;
 
   return (
     <div ref={scopeRef} className="clip">

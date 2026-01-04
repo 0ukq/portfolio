@@ -1,42 +1,17 @@
-import { bigShoulders } from '@/lib/fonts';
-import clsx from 'clsx';
-import HeadingText, { HeadingTextAlign } from '../heading/HeadingText';
+import About from './About';
+import Profile from './Profile';
+import Work from './Work';
+import TechStack from './TechStack';
+import Closing from './Closing';
 
 const PageContent = () => {
   return (
     <>
-      <section className="h-full">
-        <HeadingText>
-          <span>A CURIOUS</span>
-          <span>WEB DEVELOPER</span>
-        </HeadingText>
-        <HeadingText>WORK</HeadingText>
-        <HeadingText>TECH STACK</HeadingText>
-        <HeadingText align={HeadingTextAlign.CENTER}>
-          THANKS FOR CHECKING OUT
-          <br />
-          MY PORTFOLIO!
-        </HeadingText>
-      </section>
-      <section className="h-full">
-        <HeadingText>
-          <span>A CURIOUS</span>
-          <span>WEB DEVELOPER</span>
-        </HeadingText>
-        <HeadingText>WORK</HeadingText>
-        <HeadingText>TECH STACK</HeadingText>
-        <HeadingText align={HeadingTextAlign.CENTER}>
-          THANKS FOR CHECKING OUT
-          <br />
-          MY PORTFOLIO!
-        </HeadingText>
-      </section>
-      {/* <section>
-        <p className={clsx('clip')}>index</p>
-      </section>
-      <section>
-        <p className={bigShoulders.className}>big shoulders</p>
-      </section> */}
+      <About />
+      <Profile />
+      <Work />
+      <TechStack />
+      <Closing />
     </>
   );
 };

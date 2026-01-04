@@ -146,19 +146,8 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
       </section>
 
       {/* アニメーション終了で表示 */}
-      <About />
-      <Profile />
-      <Work />
-      <TechStack />
-      <Closing />
-      {/* {isLoaded && (
-        <>
-          <About />
-          <Work />
-          <TechStack />
-          <Closing />
-        </>
-      )} */}
+      {/* <PageContent /> */}
+      {isLoaded && <PageContent />}
     </>
   );
 };

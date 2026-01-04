@@ -11,17 +11,15 @@ const TsVector: React.FC = () => {
       <g clipPath="url(#clip0_40_717)">
         <path
           d="M67.6758 0H7.32422C3.27916 0 0 3.27916 0 7.32422V67.6758C0 71.7208 3.27916 75 7.32422 75H67.6758C71.7208 75 75 71.7208 75 67.6758V7.32422C75 3.27916 71.7208 0 67.6758 0Z"
-          stroke="#3178C6"
+          stroke="#767676"
           strokeWidth="2"
           fill="none"
-          // fill="#3178C6"
         />
         <path
           d="M67.6758 0H7.32422C3.27916 0 0 3.27916 0 7.32422V67.6758C0 71.7208 3.27916 75 7.32422 75H67.6758C71.7208 75 75 71.7208 75 67.6758V7.32422C75 3.27916 71.7208 0 67.6758 0Z"
-          stroke="#3178C6"
+          stroke="#767676"
           strokeWidth="0.5"
           fill="none"
-          // fill="#3178C6"
         />
         <path
           fillRule="evenodd"
@@ -30,7 +28,6 @@ const TsVector: React.FC = () => {
           stroke="white"
           strokeWidth="0.5"
           fill="none"
-          // fill="white"
         />
       </g>
       <defs>

@@ -79,23 +79,21 @@ const TechStack: React.FC = () => {
           },
         });
 
-        console.log(tsPaths[0].getAttribute('stroke'));
-
         tl.current
           .to(reactPaths, { ...drawVars })
           .to(nextPaths, { ...drawVars }, '<')
           .to(tsPaths, { ...drawVars }, '<')
           .to(cssPaths, { ...drawVars }, '<')
           .to(htmlPaths, { ...drawVars }, '<')
-          .to(reactPaths, { fill: '#61DAFB', ...fillVars }, '>')
+          .to(reactPaths, { fill: 'white', ...fillVars }, '>')
           .to(nextPaths, { fill: 'white', ...fillVars }, '<')
-          .to(tsPaths[0], { fill: '#3178C6', ...fillVars }, '<')
-          .to(tsPaths[1], { fill: '#3178C6', ...fillVars }, '<')
+          .to(tsPaths[0], { fill: '#767676', ...fillVars }, '<')
+          .to(tsPaths[1], { fill: '#767676', ...fillVars }, '<')
           .to(tsPaths[2], { fill: 'white', ...fillVars }, '<')
-          .to(cssPaths[0], { fill: '#663399', ...fillVars }, '<')
+          .to(cssPaths[0], { fill: '#767676', ...fillVars }, '<')
           .to(cssPaths[1], { fill: 'white', ...fillVars }, '<')
-          .to(htmlPaths[0], { fill: '#E34F26', ...fillVars }, '<')
-          .to(htmlPaths[1], { fill: '#E34F26', ...fillVars }, '<')
+          .to(htmlPaths[0], { fill: '#767676', ...fillVars }, '<')
+          .to(htmlPaths[1], { fill: '#767676', ...fillVars }, '<')
           .to(htmlPaths[2], { fill: '#EBEBEB', ...fillVars }, '<')
           .to(htmlPaths[3], { fill: 'white', ...fillVars }, '<');
       }

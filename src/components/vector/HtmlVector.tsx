@@ -11,13 +11,13 @@ const HtmlVector: React.FC = () => {
       <g clipPath="url(#clip0_43_739)">
         <path
           d="M7.72432 75.4688L1.00134 0H74.9541L68.2311 75.4688L37.8957 84"
-          stroke="#E34F26"
+          stroke="#767676"
           strokeWidth="1"
           fill="none"
         />
         <path
           d="M38.0597 77.4375L62.492 70.7109L68.2311 6.07031H38.0597"
-          stroke="#E34F26"
+          stroke="#767676"
           strokeWidth="1"
           fill="none"
         />

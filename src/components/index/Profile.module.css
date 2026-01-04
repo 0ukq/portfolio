@@ -2,7 +2,7 @@
   @media (--pc) {
     .profile {
       position: relative;
-      height: 600vh;
+      height: 500vh;
       /* padding: liq(200) 0; */
     }
     .wrapper {

@@ -3,19 +3,13 @@
 import gsap from 'gsap';
 import clsx from 'clsx';
 import { useGSAP } from '@gsap/react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { bigShoulders } from '@/lib/fonts';
 import { easeOutExpo } from '@/lib/custom-ease';
 import ContentInner from '../layout/ContentInner';
 import StackItems from '../stack/StackItems';
 import HeadingText, { HeadingTextVariant } from '../heading/HeadingText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import PageContent from './PageContent';
-import About from './About';
-import Work from './Work';
-import TechStack from './TechStack';
-import Closing from './Closing';
-import Profile from './Profile';
 
 import styles from './MainVisual.module.css';
 
@@ -26,7 +20,6 @@ type MainVisualProps = {
 };
 
 const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
   const gsapRef = useRef<HTMLDivElement>(null);
   const circleScrollTl = useRef<gsap.core.Timeline>(gsap.timeline());
   const titleTl = useRef<gsap.core.Timeline>(gsap.timeline());
@@ -144,10 +137,6 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
           </div>
         </div>
       </section>
-
-      {/* アニメーション終了で表示 */}
-      {/* <PageContent /> */}
-      {isLoaded && <PageContent />}
     </>
   );
 };

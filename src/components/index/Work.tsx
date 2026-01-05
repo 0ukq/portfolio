@@ -61,7 +61,7 @@ const Work: React.FC = () => {
       });
 
       // サムネ
-      gsap.set('[data-work-card-image]', { scale: 1.1 });
+      gsap.set('[data-work-card-image]', { scale: 1.08 });
       gsap.to('[data-work-card-image]', {
         scale: 1,
         duration: 2.6,

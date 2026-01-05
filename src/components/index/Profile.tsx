@@ -59,35 +59,51 @@ const Profile: React.FC = () => {
               <HeadingText>PROFILE</HeadingText>
               <dl className={styles.info}>
                 <div className={styles.item}>
-                  <dt data-profile-split className="clip">
-                    Age
+                  <dt>
+                    <span data-profile-split className="clip">
+                      Age
+                    </span>
                   </dt>
-                  <dd data-profile-split className="clip">
-                    20s
+                  <dd>
+                    <span data-profile-split className="clip">
+                      20s
+                    </span>
                   </dd>
                 </div>
                 <div className={styles.item}>
-                  <dt data-profile-split className="clip">
-                    Role
+                  <dt>
+                    <span data-profile-split className="clip">
+                      Role
+                    </span>
                   </dt>
-                  <dd data-profile-split className="clip">
-                    Frontend Developer
+                  <dd>
+                    <span data-profile-split className="clip">
+                      Frontend Developer
+                    </span>
                   </dd>
                 </div>
                 <div className={styles.item}>
-                  <dt data-profile-split className="clip">
-                    Experience
+                  <dt>
+                    <span data-profile-split className="clip">
+                      Experience
+                    </span>
                   </dt>
-                  <dd data-profile-split className="clip">
-                    6+ Years
+                  <dd>
+                    <span data-profile-split className="clip">
+                      6+ Years
+                    </span>
                   </dd>
                 </div>
                 <div className={styles.item}>
-                  <dt data-profile-split className="clip">
-                    Interests
+                  <dt>
+                    <span data-profile-split className="clip">
+                      Interests
+                    </span>
                   </dt>
-                  <dd data-profile-split className="clip">
-                    Road trips, Angling, and Strength training.
+                  <dd>
+                    <span data-profile-split className="clip">
+                      Road trips, Angling, and Strength training.
+                    </span>
                   </dd>
                 </div>
               </dl>

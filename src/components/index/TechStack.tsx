@@ -54,7 +54,7 @@ const TechStack: React.FC = () => {
         // drawSVG
         const drawVars: gsap.TweenVars = {
           drawSVG: '100%',
-          duration: 2,
+          duration: 1.2,
           ease: easeOutCubic,
         };
 

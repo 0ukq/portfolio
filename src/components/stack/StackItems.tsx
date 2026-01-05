@@ -22,13 +22,19 @@ const StackItems: React.FC<StackItemsProps & React.ComponentProps<'span'>> = ({
   return (
     <span
       {...(contentData ? { [`data-${contentData}`]: '' } : {})}
-      className={clsx(styles.stackItems, 'clip align', className || '')}
+      className={clsx(styles.stackItems, 'stack-items clip align', className || '')}
       {...props}
     >
-      <span {...(beforeData ? { [`data-${beforeData}`]: '' } : {})} className={styles.item}>
+      <span
+        {...(beforeData ? { [`data-${beforeData}`]: '' } : {})}
+        className={clsx(styles.item, 'before-item')}
+      >
         {before}
       </span>
-      <span {...(afterData ? { [`data-${afterData}`]: '' } : {})} className={styles.item}>
+      <span
+        {...(afterData ? { [`data-${afterData}`]: '' } : {})}
+        className={clsx(styles.item, 'after-item')}
+      >
         {after}
       </span>
     </span>

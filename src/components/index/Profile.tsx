@@ -7,8 +7,6 @@ import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
-import HideUpAnimate from '../animation/HideUpAnimate';
-import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 import styles from './Profile.module.css';
 
@@ -19,19 +17,15 @@ const Profile: React.FC = () => {
 
   useGSAP(
     () => {
-      const texts: HTMLElement[] = Array.from(document.querySelectorAll('[data-profile-split]'));
-      const splits = texts.map(text => {
-        gsap.set(text, { display: 'inline-block' });
-        return SplitText.create(text, { type: 'chars', tag: 'span' });
-      });
-
-      gsap.set('[data-image]', { clipPath: 'inset( 0% 0% 100% 0%)', scale: 1.4 });
+      // 初期値設定
+      gsap.set('[data-image]', { clipPath: 'inset( 0% 0% 88% 0%)', scale: 1.4 });
+      gsap.set('[data-profile-split]', { clipPath: 'inset(0% 100% 0% 0%)' });
 
       // scrollTrigger 共通設定
       const defaultTrigger: ScrollTrigger.Vars = {
         trigger: gsapRef.current,
-        start: 'top-=3% top',
-        end: 'bottom-=12% bottom',
+        start: 'top top',
+        end: 'bottom-=10% bottom',
         scrub: 1.2,
       };
 
@@ -48,14 +42,9 @@ const Profile: React.FC = () => {
       });
 
       // テキストアニメーション
-      splits.forEach(split => {
-        gsap.set(split.chars, { display: 'inline-block', yPercent: 100, opacity: 0 });
-        gsap.to(split.chars, {
-          yPercent: 0,
-          opacity: 1,
-          stagger: 0.05,
-          scrollTrigger: { ...defaultTrigger },
-        });
+      gsap.to('[data-profile-split]', {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        scrollTrigger: { ...defaultTrigger },
       });
     },
     { scope: gsapRef }
@@ -67,58 +56,38 @@ const Profile: React.FC = () => {
         <ContentInner>
           <div className={styles.block}>
             <div className={styles.content}>
-              <HideUpAnimate>
-                <HeadingText>
-                  <RollingTextAnimate text="PROFILE" />
-                </HeadingText>
-              </HideUpAnimate>
+              <HeadingText>PROFILE</HeadingText>
               <dl className={styles.info}>
                 <div className={styles.item}>
-                  <dt>
-                    <span data-profile-split className="clip">
-                      Age
-                    </span>
+                  <dt data-profile-split className="clip">
+                    Age
                   </dt>
-                  <dd>
-                    <span data-profile-split className="clip">
-                      20s
-                    </span>
+                  <dd data-profile-split className="clip">
+                    20s
                   </dd>
                 </div>
                 <div className={styles.item}>
-                  <dt>
-                    <span data-profile-split className="clip">
-                      Role
-                    </span>
+                  <dt data-profile-split className="clip">
+                    Role
                   </dt>
-                  <dd>
-                    <span data-profile-split className="clip">
-                      Frontend Developer
-                    </span>
+                  <dd data-profile-split className="clip">
+                    Frontend Developer
                   </dd>
                 </div>
                 <div className={styles.item}>
-                  <dt>
-                    <span data-profile-split className="clip">
-                      Experience
-                    </span>
+                  <dt data-profile-split className="clip">
+                    Experience
                   </dt>
-                  <dd>
-                    <span data-profile-split className="clip">
-                      6+ Years
-                    </span>
+                  <dd data-profile-split className="clip">
+                    6+ Years
                   </dd>
                 </div>
                 <div className={styles.item}>
-                  <dt>
-                    <span data-profile-split className="clip">
-                      Interests
-                    </span>
+                  <dt data-profile-split className="clip">
+                    Interests
                   </dt>
-                  <dd>
-                    <span data-profile-split className="clip">
-                      Road trips, Angling, and Strength training.
-                    </span>
+                  <dd data-profile-split className="clip">
+                    Road trips, Angling, and Strength training.
                   </dd>
                 </div>
               </dl>
@@ -132,7 +101,6 @@ const Profile: React.FC = () => {
                 className={clsx(styles.image, 'fit')}
                 data-image
               />
-              {/* <div className={styles.background} data-background /> */}
             </figure>
           </div>
         </ContentInner>

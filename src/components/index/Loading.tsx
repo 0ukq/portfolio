@@ -1,25 +1,30 @@
 'use client';
 
 import gsap from 'gsap';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import StackItems from '../stack/StackItems';
 import { easeOutExpo } from '@/lib/custom-ease';
 import Rolling from '../../../public/lotties/rolling.json';
 import Salute from '../../../public/lotties/salute.json';
+import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 
 import styles from './Loading.module.css';
-import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 
 type LoadingProps = {
   timeline?: gsap.core.Timeline | null;
 };
 
 const Loading: React.FC<LoadingProps> = ({ timeline }) => {
+  const [domLoaded, setDomLoaded] = useState<boolean>(false);
   const gsapRef = useRef<HTMLDivElement>(null);
   const rollingRef = useRef<LottieRef>(null);
   const saluteRef = useRef<LottieRef>(null);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, [domLoaded]);
 
   useGSAP(
     () => {
@@ -33,9 +38,8 @@ const Loading: React.FC<LoadingProps> = ({ timeline }) => {
         gsap.set('[data-salute]', { xPercent: 100 });
 
         const defaultOpt: gsap.TweenVars = { duration: 1.8, ease: easeOutExpo };
-
         timeline
-          .to('[data-loading-text]', { yPercent: 0, delay: 0.8, ...defaultOpt })
+          .to('[data-loading-text]', { yPercent: 0, ...defaultOpt })
           .to(
             '[data-rolling]',
             {
@@ -59,9 +63,7 @@ const Loading: React.FC<LoadingProps> = ({ timeline }) => {
             {
               xPercent: 0,
               onStart: () => {
-                setTimeout(() => {
-                  saluteRef.current?.play();
-                }, 1000);
+                setTimeout(() => saluteRef.current?.play(), 1000);
               },
               ...defaultOpt,
             },
@@ -75,16 +77,16 @@ const Loading: React.FC<LoadingProps> = ({ timeline }) => {
   );
 
   return (
-    <div ref={gsapRef} className={clsx(styles.loading, 'clip')}>
+    <div ref={gsapRef} className={clsx(styles.loading, !domLoaded && styles.initialized, 'clip')}>
       <div className={styles.content}>
         <StackItems
           before={<BaseLottie lottieData={Rolling} ref={rollingRef} />}
           after={<BaseLottie lottieData={Salute} ref={saluteRef} />}
           beforeData="rolling"
           afterData="salute"
-          className={clsx(styles.emoji, 'stack-items')}
+          className={clsx(styles.lottie, 'stack-items')}
         />
-        <div>
+        <p className={styles.text}>
           <StackItems
             before={
               <StackItems
@@ -92,14 +94,13 @@ const Loading: React.FC<LoadingProps> = ({ timeline }) => {
                 beforeData="loading-text-before"
                 after="LOADING..."
                 afterData="loading-text-after"
-                className={styles.text}
               />
             }
-            after={<p className={styles.text}>COMPLETED!</p>}
+            after={<span>COMPLETED!</span>}
             beforeData="loading-text"
             afterData="completed-text"
           />
-        </div>
+        </p>
       </div>
     </div>
   );

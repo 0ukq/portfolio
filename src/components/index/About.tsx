@@ -46,7 +46,7 @@ const About: React.FC = () => {
           stagger: 0.05,
           ease: easeOutQuint,
           scrollTrigger: {
-            trigger: '[data-about-heading]',
+            trigger: '[data-heading]',
             start: 'top-=140% bottom-=30%',
           },
         });
@@ -55,11 +55,9 @@ const About: React.FC = () => {
          * テキストアニメーション
          * */
         const textBefore: HTMLElement[] = Array.from(
-          document.querySelectorAll('[data-about-clip-before]')
+          document.querySelectorAll('[data-text-before]')
         );
-        const textAfter: HTMLElement[] = Array.from(
-          document.querySelectorAll('[data-about-clip-after]')
-        );
+        const textAfter: HTMLElement[] = Array.from(document.querySelectorAll('[data-text-after]'));
 
         // プロパティ設定
         const textTween: gsap.TweenVars = {
@@ -71,7 +69,7 @@ const About: React.FC = () => {
 
         // scrollTrigger設定
         const textTrigger: ScrollTrigger.Vars = {
-          trigger: '[data-about-clip-trigger]',
+          trigger: '[data-text-trigger]',
           start: 'top bottom-=30%',
         };
 
@@ -97,10 +95,10 @@ const About: React.FC = () => {
         /**
          * lottie
          * */
-        gsap.to('[data-about-lottie]', {
+        gsap.to('[data-lottie]', {
           yPercent: -120,
           scrollTrigger: {
-            trigger: '[data-about-lottie]',
+            trigger: '[data-lottie]',
             start: 'top bottom-=30%',
             end: 'bottom top',
             scrub: 1.2,
@@ -115,8 +113,8 @@ const About: React.FC = () => {
     <section ref={gsapRef} className={clsx(styles.about, 'bg-main-gray')}>
       <ContentInner className={styles.inner}>
         <div>
-          <hgroup data-about-heading className={styles.heading}>
-            <div data-about-lottie className={clsx(styles.lottie, 'hover-lottie')}>
+          <hgroup data-heading className={styles.heading}>
+            <div data-lottie className={clsx(styles.lottie, 'hover-lottie')}>
               <HideUpAnimate>
                 <BaseLottie lottieData={Clouds} ref={cloudsRef} />
               </HideUpAnimate>
@@ -127,43 +125,43 @@ const About: React.FC = () => {
           </hgroup>
         </div>
       </ContentInner>
-      <div data-about-clip-trigger className={styles.paragraph}>
+      <div data-text-trigger className={styles.paragraph}>
         <p className={clsx(styles.text, bigShoulders.className)}>
           <StackItems
             before="AS A FRONT-END DEVELOPER,"
             after="AS A FRONT-END DEVELOPER,"
-            afterData="about-clip-after"
-            beforeData="about-clip-before"
+            afterData="text-after"
+            beforeData="text-before"
           />
           <StackItems
             before="I TAKE GENUINE JOY IN BRINGING DESIGNS TO LIFE."
             after="I TAKE GENUINE JOY IN BRINGING DESIGNS TO LIFE."
-            afterData="about-clip-after"
-            beforeData="about-clip-before"
+            afterData="text-after"
+            beforeData="text-before"
           />
           <StackItems
             before="MY GREATEST ASSET IS MY CURIOSITY."
             after="MY GREATEST ASSET IS MY CURIOSITY."
-            afterData="about-clip-after"
-            beforeData="about-clip-before"
+            afterData="text-after"
+            beforeData="text-before"
           />
           <StackItems
             before="I CONSTANTLY CHASE NEW TECHNOLOGIES AS A DEVELOPER,"
             after="I CONSTANTLY CHASE NEW TECHNOLOGIES AS A DEVELOPER,"
-            afterData="about-clip-after"
-            beforeData="about-clip-before"
+            afterData="text-after"
+            beforeData="text-before"
           />
           <StackItems
             before="WHILE ALSO DIGGING INTO OLDER ONES WHEN NEEDED."
             after="WHILE ALSO DIGGING INTO OLDER ONES WHEN NEEDED."
-            afterData="about-clip-after"
-            beforeData="about-clip-before"
+            afterData="text-after"
+            beforeData="text-before"
           />
           <StackItems
             before="THAT CURIOSITY IS THE FORCE THAT DRIVES EVERYTHING I DO."
             after="THAT CURIOSITY IS THE FORCE THAT DRIVES EVERYTHING I DO."
-            afterData="about-clip-after"
-            beforeData="about-clip-before"
+            afterData="text-after"
+            beforeData="text-before"
           />
         </p>
       </div>

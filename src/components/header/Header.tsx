@@ -2,14 +2,15 @@ import clsx from 'clsx';
 import ExLink from '../link/ExLink';
 import StackItems from '../stack/StackItems';
 import { bigShoulders } from '@/lib/fonts';
-import styles from './Header.module.css';
 import ContentInner from '../layout/ContentInner';
+
+import styles from './Header.module.css';
 
 const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <ContentInner>
-        <ExLink href="/" className={clsx(styles.logo, bigShoulders.className)}>
+        <ExLink href="/" className={clsx(styles.logo, bigShoulders.className)} data-header-logo>
           <StackItems
             before="Daiki Hirano"
             beforeData="logo-before"

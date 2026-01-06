@@ -9,7 +9,20 @@
       display: inline-block;
       font-size: liq(20);
       font-weight: 300;
+      line-height: 100%;
+      &:hover {
+        :global(.before-item) {
+          translate: 0 -100%;
+        }
+        :global(.after-item) {
+          translate: 0 0;
+        }
+      }
 
+      :global(.before-item),
+      :global(.after-item) {
+        transition: translate 1.4s var(--ease_out_quint);
+      }
       :global(.after-item) {
         translate: 0 100%;
       }

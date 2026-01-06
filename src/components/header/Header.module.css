@@ -1,0 +1,20 @@
+@layer component {
+  @media (--pc) {
+    .header {
+      position: sticky;
+      inset: 0;
+      padding: liq(80) 0;
+    }
+    .logo {
+      display: inline-block;
+      font-size: liq(20);
+      font-weight: 300;
+
+      :global(.after-item) {
+        translate: 0 100%;
+      }
+    }
+  }
+  @media (--sp) {
+  }
+}

@@ -1,0 +1,21 @@
+@layer component {
+  @media (--pc) {
+    .nextPage {
+      margin: liq(200) 0 liq(130);
+    }
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: liq(20);
+      .text {
+        font-size: liq(200);
+        font-weight: 800;
+        line-height: 100%; /* 180px */
+        letter-spacing: liq(18);
+      }
+    }
+  }
+  @media (--sp) {
+  }
+}

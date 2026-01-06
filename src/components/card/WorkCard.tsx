@@ -16,10 +16,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ data }) => {
     <>
       {data && (
         <>
-          <Link
-            href={`/work/${data.id}`}
-            className={clsx(styles.link, styles['link--hover-animation'])}
-          >
+          <Link href={`/${data.id}`} className={clsx(styles.link, styles['link--hover-animation'])}>
             <div className={styles.thumbnail}>
               <figure className={clsx(styles.image, 'clip')}>
                 <Image

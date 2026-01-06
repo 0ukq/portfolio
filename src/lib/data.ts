@@ -1,4 +1,5 @@
 import WorkSampleImg from '../../public/images/index/work_img_sample.jpg';
+import SampleWorkShot from '../../public/images/work/work_sample.jpg';
 import { StaticImageData } from 'next/image';
 
 export interface WorkData {
@@ -11,6 +12,12 @@ export interface WorkData {
   title: string;
   position: string;
   link: string;
+  stack: string[];
+  screenShots: {
+    src: StaticImageData;
+    width: number;
+    height: number;
+  }[];
 }
 
 export const workDataSample: WorkData[] = [
@@ -24,6 +31,24 @@ export const workDataSample: WorkData[] = [
     title: 'ITEM NAME',
     position: 'FRONTEND',
     link: 'https://example.com/',
+    stack: ['React', 'TypeScript', 'Next.js'],
+    screenShots: [
+      {
+        src: SampleWorkShot,
+        width: SampleWorkShot.width,
+        height: SampleWorkShot.height,
+      },
+      {
+        src: SampleWorkShot,
+        width: SampleWorkShot.width,
+        height: SampleWorkShot.height,
+      },
+      {
+        src: SampleWorkShot,
+        width: SampleWorkShot.width,
+        height: SampleWorkShot.height,
+      },
+    ],
   },
   {
     id: '2',
@@ -35,6 +60,14 @@ export const workDataSample: WorkData[] = [
     title: 'ITEM NAME',
     position: 'FRONTEND',
     link: 'https://example.com/',
+    stack: ['React', 'TypeScript', 'Next.js'],
+    screenShots: [
+      {
+        src: SampleWorkShot,
+        width: SampleWorkShot.width,
+        height: SampleWorkShot.height,
+      },
+    ],
   },
   {
     id: '3',
@@ -46,6 +79,14 @@ export const workDataSample: WorkData[] = [
     title: 'ITEM NAME',
     position: 'FRONTEND',
     link: 'https://example.com/',
+    stack: ['React', 'TypeScript', 'Next.js'],
+    screenShots: [
+      {
+        src: SampleWorkShot,
+        width: SampleWorkShot.width,
+        height: SampleWorkShot.height,
+      },
+    ],
   },
   {
     id: '4',
@@ -57,6 +98,14 @@ export const workDataSample: WorkData[] = [
     title: 'ITEM NAME',
     position: 'FRONTEND',
     link: 'https://example.com/',
+    stack: ['React', 'TypeScript', 'Next.js'],
+    screenShots: [
+      {
+        src: SampleWorkShot,
+        width: SampleWorkShot.width,
+        height: SampleWorkShot.height,
+      },
+    ],
   },
   {
     id: '5',
@@ -68,5 +117,13 @@ export const workDataSample: WorkData[] = [
     title: 'ITEM NAME',
     position: 'FRONTEND',
     link: 'https://example.com/',
+    stack: ['React', 'TypeScript', 'Next.js'],
+    screenShots: [
+      {
+        src: SampleWorkShot,
+        width: SampleWorkShot.width,
+        height: SampleWorkShot.height,
+      },
+    ],
   },
 ];

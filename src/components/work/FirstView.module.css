@@ -1,0 +1,41 @@
+@layer component {
+  @media (--pc) {
+    .fv {
+      padding-top: liq(200);
+    }
+    .detail {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr liq(800);
+      gap: 0 liq(50);
+      margin-top: liq(140);
+    }
+    .content {
+      display: grid;
+      gap: liq(100) 0;
+    }
+    .description {
+      display: grid;
+      gap: liq(30) 0;
+
+      > .item {
+        display: grid;
+        grid-template-columns: liq(85) 1fr;
+        gap: 0 liq(10);
+
+        .link {
+          display: flex;
+          align-items: center;
+          gap: liq(8);
+          > svg {
+            width: liq(18);
+            aspect-ratio: 1/1;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+  @media (--sp) {
+  }
+}

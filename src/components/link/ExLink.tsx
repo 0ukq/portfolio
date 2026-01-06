@@ -6,18 +6,23 @@ interface ExLinkProps {
   className?: string;
 }
 
-const ExLink: React.FC<ExLinkProps> = ({ href, children, className }) => {
+const ExLink: React.FC<ExLinkProps & React.RefAttributes<HTMLAnchorElement>> = ({
+  href,
+  children,
+  className,
+  ...props
+}) => {
   const isExternal =
     href.startsWith('http://') || href.startsWith('https://') || /\.[a-zA-Z0-9]{2,}$/.test(href);
 
   return (
     <>
       {isExternal ? (
-        <a href={href} target="_blank" className={className || ''}>
+        <a href={href} target="_blank" className={className || ''} {...props}>
           {children}
         </a>
       ) : (
-        <Link href={href} className={className || ''}>
+        <Link href={href} className={className || ''} {...props}>
           {children}
         </Link>
       )}

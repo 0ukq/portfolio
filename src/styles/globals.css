@@ -28,6 +28,9 @@
     color: var(--col_white);
     background-color: var(--col_main_gray);
   }
+  .trim {
+    text-box: trim-both cap alphabetic;
+  }
 
   @media (--pc) {
     body {

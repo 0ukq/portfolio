@@ -1,7 +1,16 @@
 @layer component {
   @media (--pc) {
     .fv {
-      padding-top: liq(200);
+      padding-top: liq(100);
+
+      span {
+        display: inline-block;
+      }
+
+      /* アニメーション用に初期化 */
+      &.initialized {
+        visibility: hidden;
+      }
     }
     .detail {
       display: grid;
@@ -13,6 +22,15 @@
     .content {
       display: grid;
       gap: liq(100) 0;
+    }
+    .thumbnail {
+      display: grid;
+      width: 100%;
+      aspect-ratio: 80 / 57;
+      overflow: hidden;
+      > * {
+        grid-area: 1/1;
+      }
     }
     .description {
       display: grid;

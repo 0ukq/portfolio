@@ -4,11 +4,15 @@
       margin-top: liq(140);
     }
     .inner {
-      max-width: liq(1000);
+      max-width: liq(1100);
     }
     .list {
       display: grid;
       gap: liq(130);
+    }
+    .image {
+      width: 100%;
+      aspect-ratio: 11 / 6;
     }
   }
   @media (--sp) {

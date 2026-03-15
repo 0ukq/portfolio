@@ -24,76 +24,74 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
   const circleScrollTl = useRef<gsap.core.Timeline>(gsap.timeline());
   const titleTl = useRef<gsap.core.Timeline>(gsap.timeline());
 
-  // useGSAP(
-  //   () => {
-  //     // ScrollTrigger.normalizeScroll(true);
-  //     if (timeline && gsapRef.current) {
-  //       // 初期値設定
-  //       gsap.set('[data-title]', { xPercent: -3, clipPath: 'inset(0 100% 0 0)' });
-  //       gsap.set('[data-title-before]', { opacity: 0.2 });
-  //       gsap.set('[data-title-after]', { clipPath: 'inset(0 100% 0 0)' });
-  //       gsap.set('[data-scroll]', { yPercent: 100 });
-  //       gsap.set('[data-circle]', { clipPath: 'circle(0% at 100% 0)' });
+  useGSAP(
+    () => {
+      if (timeline && gsapRef.current) {
+        // 初期値設定
+        gsap.set('[data-title]', { xPercent: -3, clipPath: 'inset(0 100% 0 0)' });
+        gsap.set('[data-title-before]', { opacity: 0.2 });
+        gsap.set('[data-title-after]', { clipPath: 'inset(0 100% 0 0)' });
+        gsap.set('[data-scroll]', { yPercent: 100 });
+        gsap.set('[data-circle]', { clipPath: 'circle(0% at 100% 0)' });
 
-  //       // アニメーション
-  //       const defaultOpt: gsap.TweenVars = { duration: 2.4, ease: easeOutExpo };
+        // アニメーション
+        const defaultOpt: gsap.TweenVars = { duration: 2.4, ease: easeOutExpo };
 
-  //       // 円 / スクロールテキスト
-  //       circleScrollTl.current
-  //         .to('[data-circle]', {
-  //           ...defaultOpt,
-  //           // duration: 2.5,
-  //           clipPath: 'circle(40% at 100% 0)',
-  //         })
-  //         .to('[data-scroll]', { ...defaultOpt, duration: 2, yPercent: 0 }, '<+0.4');
+        // 円 / スクロールテキスト
+        circleScrollTl.current
+          .to('[data-circle]', {
+            ...defaultOpt,
+            // duration: 2.5,
+            clipPath: 'circle(40% at 100% 0)',
+          })
+          .to('[data-scroll]', { ...defaultOpt, duration: 2, yPercent: 0 }, '<+0.4');
 
-  //       // タイトル
-  //       titleTl.current
-  //         .to('[data-title]', { ...defaultOpt, xPercent: 0 })
-  //         .to('[data-title]', { ...defaultOpt, clipPath: 'inset(0% 0% 0% 0%)' }, '<')
-  //         .to(
-  //           '[data-title-after]',
-  //           {
-  //             ...defaultOpt,
-  //             clipPath: 'inset(0% 0% 0% 0%)',
-  //             onComplete: () => {
-  //               // timeline完了後
-  //               gsapRef.current?.classList.add('is-loaded');
-  //               scrollAnimation();
-  //               setIsLoaded(true);
-  //             },
-  //           },
-  //           '<+0.2'
-  //         );
+        // タイトル
+        titleTl.current
+          .to('[data-title]', { ...defaultOpt, xPercent: 0 })
+          .to('[data-title]', { ...defaultOpt, clipPath: 'inset(0% 0% 0% 0%)' }, '<')
+          .to(
+            '[data-title-after]',
+            {
+              ...defaultOpt,
+              clipPath: 'inset(0% 0% 0% 0%)',
+              onComplete: () => {
+                // timeline完了後
+                gsapRef.current?.classList.add('is-loaded');
+                scrollAnimation();
+              },
+            },
+            '<+0.2'
+          );
 
-  //       // 親のタイムラインに追加
-  //       timeline.add(circleScrollTl.current, '<+0.3').add(titleTl.current, '<');
+        // 親のタイムラインに追加
+        timeline.add(circleScrollTl.current, '<+0.3').add(titleTl.current, '<');
 
-  //       // スクロールアニメーション
-  //       const scrollAnimation = () => {
-  //         gsap.to('[data-circle]', {
-  //           clipPath: 'circle(145% at 100% 0)',
-  //           scrollTrigger: {
-  //             trigger: gsapRef.current,
-  //             start: 'top top',
-  //             end: 'bottom bottom',
-  //             scrub: true,
-  //           },
-  //         });
-  //         gsap.to('[data-scroll]', {
-  //           yPercent: 100,
-  //           scrollTrigger: {
-  //             trigger: gsapRef.current,
-  //             start: 'top top',
-  //             end: 'bottom bottom',
-  //             scrub: true,
-  //           },
-  //         });
-  //       };
-  //     }
-  //   },
-  //   { scope: gsapRef, dependencies: [timeline] }
-  // );
+        // スクロールアニメーション
+        const scrollAnimation = () => {
+          gsap.to('[data-circle]', {
+            clipPath: 'circle(145% at 100% 0)',
+            scrollTrigger: {
+              trigger: gsapRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: true,
+            },
+          });
+          gsap.to('[data-scroll]', {
+            yPercent: 100,
+            scrollTrigger: {
+              trigger: gsapRef.current,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: true,
+            },
+          });
+        };
+      }
+    },
+    { scope: gsapRef, dependencies: [timeline] }
+  );
 
   return (
     <>

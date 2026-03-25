@@ -1,9 +1,9 @@
 @layer component {
   @media (--pc) {
     .link {
-      width: liq(840);
+      width: rem(840);
       display: grid;
-      gap: liq(25) 0;
+      gap: rem(25) 0;
 
       &--hover-animation {
         &:hover {
@@ -30,7 +30,7 @@
       .image {
         position: relative;
         display: block;
-        border-radius: liq(8);
+        border-radius: rem(8);
         &::before {
           content: '';
           position: absolute;
@@ -49,7 +49,7 @@
         }
       }
       .title {
-        font-size: liq(36);
+        font-size: rem(36);
         scale: 1.2;
         filter: blur(10px);
         opacity: 0;
@@ -69,14 +69,14 @@
     .description {
       display: grid;
       grid-template-columns: repeat(2, auto);
-      gap: liq(20);
+      gap: rem(20);
       justify-content: space-between;
       align-items: start;
       p {
-        font-size: liq(18);
+        font-size: rem(18);
         font-weight: 300;
         line-height: 100%;
-        letter-spacing: liq(1.5);
+        letter-spacing: rem(1.5);
       }
     }
   }

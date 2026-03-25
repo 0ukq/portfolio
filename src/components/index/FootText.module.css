@@ -5,8 +5,8 @@
     }
     .footText {
       display: flex;
-      gap: liq(20);
-      height: liq(271);
+      gap: 1.388888889vw;
+      height: 18.82vw;
       > svg {
         height: 100%;
       }

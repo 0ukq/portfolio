@@ -20,16 +20,16 @@
 
     .titles {
       display: grid;
-      gap: liq(15);
-      font-size: liq(240);
+      gap: rem(15);
+      font-size: rem(280);
     }
     .item {
       width: fit-content;
       &:first-child {
-        padding-left: liq(65);
+        padding-left: rem(65);
       }
       &:nth-child(2) {
-        padding-left: liq(120);
+        padding-left: rem(120);
       }
     }
 
@@ -43,17 +43,17 @@
 
     .scrollWrap {
       position: absolute;
-      right: liq(120);
-      top: liq(150);
+      right: rem(120);
+      top: rem(150);
     }
 
     .scroll {
       color: var(--col_white);
-      font-size: liq(24);
+      font-size: rem(24);
       font-style: normal;
       font-weight: 700;
       line-height: 100%;
-      letter-spacing: liq(6);
+      letter-spacing: rem(6);
     }
   }
   @media (--sp) {

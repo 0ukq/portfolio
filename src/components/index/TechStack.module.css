@@ -1,7 +1,7 @@
 @layer component {
   @media (--pc) {
     .techStack {
-      padding: liq(200) 0;
+      padding: rem(200) 0;
     }
     .heading {
       position: relative;
@@ -13,35 +13,35 @@
     .lottie {
       position: absolute;
       display: block;
-      width: liq(100);
+      width: rem(100);
       aspect-ratio: 1/1;
       z-index: -1;
-      top: liq(-150);
-      left: liq(-266);
+      top: rem(-150);
+      left: rem(-266);
     }
     .logos {
       display: grid;
-      grid-template-columns: repeat(5, max-content);
+      grid-auto-flow: column;
       justify-content: center;
       align-items: end;
-      gap: 0 liq(40);
-      margin-top: liq(80);
+      gap: 0 rem(40);
+      margin-top: rem(80);
       > li {
         display: grid;
         grid-template-rows: subgrid;
         grid-row: span 2;
         align-items: center;
-        gap: 10px 0;
+        gap: rem(18) 0;
         p {
           text-align: center;
           font-weight: 300;
           line-height: 100%;
-          letter-spacing: liq(1.4);
+          letter-spacing: rem(1.4);
         }
       }
     }
     .other {
-      margin-top: liq(140);
+      margin-top: rem(140);
     }
     .otherTitle {
       width: fit-content;
@@ -51,8 +51,8 @@
       display: grid;
       grid-template-columns: repeat(6, max-content);
       justify-content: center;
-      gap: liq(5) liq(15);
-      margin-top: liq(20);
+      gap: rem(5) rem(15);
+      margin-top: rem(20);
     }
   }
   @media (--sp) {

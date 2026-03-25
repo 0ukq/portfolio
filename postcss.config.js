@@ -23,9 +23,9 @@ const config = {
         rem(num) {
           return `${num / BASE_FONT_SIZE}rem`;
         },
-        liq(num) {
-          return `${(num / PC_WIDTH) * 100}vw`;
-        },
+        // liq(num) {
+        //   return `${(num / PC_WIDTH) * 100}vw`;
+        // },
         // tb(num) {
         //   return `${(num / PC_WIDTH) * 100}vw`;
         // },

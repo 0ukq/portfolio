@@ -15,18 +15,25 @@
     }
     .block {
       display: grid;
-      grid-template-columns: 1fr liq(440);
-      gap: 0 liq(70);
+      grid-template-columns: 1fr rem(440);
+      gap: 0 rem(70);
     }
     .content {
       display: grid;
-      gap: liq(50);
+      gap: rem(50);
     }
     .item {
       display: grid;
-      grid-template-columns: liq(180) 1fr;
-      gap: liq(20);
-      padding: liq(42) liq(16);
+      grid-template-columns: rem(180) 1fr;
+      gap: rem(20);
+      padding: rem(42) rem(16);
+      > dt {
+        font-size: rem(24);
+        font-weight: 400;
+      }
+      > dd {
+        font-size: rem(20);
+      }
     }
     .thumbnail {
       display: grid;

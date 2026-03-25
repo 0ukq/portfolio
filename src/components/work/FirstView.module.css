@@ -1,7 +1,7 @@
 @layer component {
   @media (--pc) {
     .fv {
-      padding-top: liq(100);
+      padding-top: rem(100);
 
       span {
         display: inline-block;
@@ -15,13 +15,13 @@
     .detail {
       display: grid;
       align-items: center;
-      grid-template-columns: 1fr liq(800);
-      gap: 0 liq(50);
-      margin-top: liq(140);
+      grid-template-columns: 1fr rem(800);
+      gap: 0 rem(50);
+      margin-top: rem(140);
     }
     .content {
       display: grid;
-      gap: liq(100) 0;
+      gap: rem(100) 0;
     }
     .thumbnail {
       display: grid;
@@ -34,19 +34,19 @@
     }
     .description {
       display: grid;
-      gap: liq(30) 0;
+      gap: rem(30) 0;
 
       > .item {
         display: grid;
-        grid-template-columns: liq(85) 1fr;
-        gap: 0 liq(10);
+        grid-template-columns: rem(85) 1fr;
+        gap: 0 rem(10);
 
         .link {
           display: flex;
           align-items: center;
-          gap: liq(8);
+          gap: rem(8);
           > svg {
-            width: liq(18);
+            width: rem(18);
             aspect-ratio: 1/1;
             flex-shrink: 0;
           }

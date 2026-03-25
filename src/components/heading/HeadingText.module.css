@@ -1,26 +1,26 @@
 @layer component {
   @media (--pc) {
     .heading1 {
-      font-size: liq(190);
+      font-size: rem(190);
       font-style: normal;
       font-weight: 600;
       line-height: 100%;
     }
 
     .heading2 {
-      font-size: liq(62);
+      font-size: rem(68);
       font-style: normal;
       font-weight: 800;
       line-height: 100%;
-      letter-spacing: liq(8);
+      letter-spacing: rem(8);
       text-transform: uppercase;
     }
 
     .heading3 {
-      font-size: liq(32);
+      font-size: rem(32);
       font-weight: 800;
       line-height: 100%;
-      letter-spacing: liq(3.6);
+      letter-spacing: rem(3.6);
     }
 
     .center {

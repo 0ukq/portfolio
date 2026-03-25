@@ -4,7 +4,7 @@
       position: relative;
       /* padding: liq(200) 0; */
       /* translate: 0 -50%; */
-      padding-bottom: liq(200);
+      padding-bottom: rem(200);
       z-index: 1;
     }
 
@@ -15,26 +15,28 @@
 
     .heading {
       position: relative;
-      padding-left: liq(110);
+      padding-left: rem(110);
     }
 
     .lottie {
       position: absolute;
-      width: liq(100);
+      width: rem(100);
       aspect-ratio: 1/1;
-      left: liq(75);
-      top: liq(20);
+      left: rem(75);
+      top: rem(20);
     }
 
     .paragraph {
-      padding: 0 liq(40);
-      margin-top: liq(180);
+      width: rem(1300);
+
+      margin-top: rem(180);
+      margin-inline: auto;
 
       .text {
-        font-size: liq(38);
+        font-size: rem(38);
         font-weight: 400;
         line-height: 220%;
-        letter-spacing: liq(10);
+        letter-spacing: rem(10);
       }
     }
   }

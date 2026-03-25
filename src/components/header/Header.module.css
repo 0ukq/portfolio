@@ -3,11 +3,11 @@
     .header {
       position: sticky;
       inset: 0;
-      padding: liq(80) 0;
+      padding: rem(80) 0;
     }
     .logo {
       display: inline-block;
-      font-size: liq(20);
+      font-size: rem(20);
       font-weight: 300;
       line-height: 100%;
       &:hover {

@@ -6,11 +6,15 @@
 @import './override.css' layer(override);
 
 @layer common {
+  html {
+    font-size: 16px;
+  }
+
   body {
-    font-size: liq(14);
+    /* font-size: liq(14); */
     font-weight: 300;
     line-height: 160%;
-    letter-spacing: liq(2.1);
+    letter-spacing: rem(2.6);
     color: var(--col_main_gray);
   }
   .clip {
@@ -21,9 +25,6 @@
     height: 100%;
     object-fit: cover;
   }
-  .h-full {
-    height: 100vh;
-  }
   .bg-main-gray {
     color: var(--col_white);
     background-color: var(--col_main_gray);
@@ -33,10 +34,6 @@
   }
 
   @media (--pc) {
-    body {
-      font-size: liq(16);
-    }
-
     .hover-lottie {
       filter: grayscale(1);
       transition: filter 0.6s ease;

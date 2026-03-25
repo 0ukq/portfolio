@@ -1,18 +1,18 @@
 @layer component {
   @media (--pc) {
     .nextPage {
-      margin: liq(200) 0 liq(130);
+      margin: rem(200) 0 rem(130);
     }
     .link {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: liq(20);
+      gap: rem(20);
       .text {
-        font-size: liq(200);
+        font-size: rem(200);
         font-weight: 800;
         line-height: 100%; /* 180px */
-        letter-spacing: liq(18);
+        letter-spacing: rem(18);
       }
     }
   }

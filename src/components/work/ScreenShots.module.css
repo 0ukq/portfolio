@@ -1,14 +1,14 @@
 @layer component {
   @media (--pc) {
     .screenShots {
-      margin-top: liq(140);
+      margin-top: rem(140);
     }
     .inner {
-      max-width: liq(1100);
+      max-width: rem(1100);
     }
     .list {
       display: grid;
-      gap: liq(130);
+      gap: rem(130);
     }
     .image {
       width: 100%;

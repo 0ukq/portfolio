@@ -5,9 +5,11 @@ import { useEffect, useRef } from 'react';
 import { LenisRef, ReactLenis } from 'lenis/react';
 import 'lenis/dist/lenis.css';
 import { LenisOptions } from 'lenis';
+import { usePathname } from 'next/navigation';
 
 export default function Lenis() {
   const lenisRef = useRef<LenisRef>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const update = (time: number) => {
@@ -17,6 +19,13 @@ export default function Lenis() {
 
     return () => gsap.ticker.remove(update);
   }, []);
+
+  // ページ遷移時にスクロール位置をリセット
+  useEffect(() => {
+    if (lenisRef.current?.lenis) {
+      lenisRef.current.lenis.scrollTo(0, { immediate: true });
+    }
+  }, [pathname]);
 
   function easeOutExpo(x: number): number {
     return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);

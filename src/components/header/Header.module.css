@@ -4,6 +4,7 @@
       position: sticky;
       inset: 0;
       padding: rem(80) 0;
+      z-index: var(--z_index_header);
     }
     .logo {
       display: inline-block;

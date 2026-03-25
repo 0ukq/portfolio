@@ -44,7 +44,6 @@ const FirstView: React.FC<FirstViewProps> = ({ data }) => {
 
       // tl設定
       tl.current = gsap.timeline({
-        // paused: true
         delay: 0.6,
       });
 
@@ -83,16 +82,13 @@ const FirstView: React.FC<FirstViewProps> = ({ data }) => {
   return (
     <section ref={gsapRef} className={clsx(styles.fv, styles.initialized)}>
       <ContentInner>
-        <HeadingText
-          variant={HeadingTextVariant.HEADING1}
-          className={clsx(styles.title, 'clip trim')}
-        >
+        <HeadingText variant={HeadingTextVariant.HEADING1} className={clsx(styles.title, 'clip')}>
           <span data-title>WORK</span>
         </HeadingText>
         <div className={styles.detail}>
           <div className={styles.content}>
             <HeadingText>
-              <span data-hide-item className="clip trim">
+              <span data-hide-item className="clip">
                 <span>{data.title}</span>
               </span>
             </HeadingText>

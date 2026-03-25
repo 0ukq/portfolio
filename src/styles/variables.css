@@ -4,5 +4,6 @@
   --col_main_gray: #444341;
   --col_light_gray: #ddd;
   --z_index_loading: 1000;
+  --z_index_header: 100;
   --ease_out_quint: cubic-bezier(0.22, 1, 0.36, 1);
 }

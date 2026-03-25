@@ -15,13 +15,13 @@
     .detail {
       display: grid;
       align-items: center;
-      grid-template-columns: 1fr rem(800);
-      gap: 0 rem(50);
+      grid-template-columns: 1fr rem(750);
+      gap: 0 rem(40);
       margin-top: rem(140);
     }
     .content {
       display: grid;
-      gap: rem(100) 0;
+      gap: rem(60) 0;
     }
     .thumbnail {
       display: grid;

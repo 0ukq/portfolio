@@ -38,16 +38,25 @@ const ScreenShots: React.FC<ScreenShotsProps> = ({ data }) => {
         gsap.set(shot, { clipPath: 'inset(15%)' });
         gsap.set(img, { filter: 'grayscale(1)' });
 
-        gsap.to(shot, {
-          clipPath: 'inset(0%)',
-          ...defaultTween,
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: shot,
             start: 'top bottom-=15%',
             // markers: true,
-            onEnter: () => gsap.to(img, { ...defaultTween, filter: 'grayscale(0)', delay: 0.4 }),
           },
         });
+
+        tl.to(shot, {
+          clipPath: 'inset(0%)',
+          ...defaultTween,
+        }).to(
+          img,
+          {
+            filter: 'grayscale(0)',
+            ...defaultTween,
+          },
+          '<+0.4'
+        );
       });
     },
     { scope: gsapRef }

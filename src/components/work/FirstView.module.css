@@ -1,59 +1,55 @@
 @layer component {
-  @media (--pc) {
-    .fv {
-      padding-top: rem(100);
+  .fv {
+    padding-top: rem(100);
 
-      span {
-        display: inline-block;
-      }
+    span {
+      display: inline-block;
+    }
 
-      /* アニメーション用に初期化 */
-      &.initialized {
-        visibility: hidden;
-      }
+    /* アニメーション用に初期化 */
+    &.initialized {
+      visibility: hidden;
     }
-    .detail {
-      display: grid;
-      align-items: center;
-      grid-template-columns: 1fr rem(750);
-      gap: 0 rem(40);
-      margin-top: rem(140);
+  }
+  .detail {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr rem(750);
+    gap: 0 rem(40);
+    margin-top: rem(140);
+  }
+  .content {
+    display: grid;
+    gap: rem(60) 0;
+  }
+  .thumbnail {
+    display: grid;
+    width: 100%;
+    aspect-ratio: 80 / 57;
+    overflow: hidden;
+    > * {
+      grid-area: 1/1;
     }
-    .content {
-      display: grid;
-      gap: rem(60) 0;
-    }
-    .thumbnail {
-      display: grid;
-      width: 100%;
-      aspect-ratio: 80 / 57;
-      overflow: hidden;
-      > * {
-        grid-area: 1/1;
-      }
-    }
-    .description {
-      display: grid;
-      gap: rem(30) 0;
+  }
+  .description {
+    display: grid;
+    gap: rem(30) 0;
 
-      > .item {
-        display: grid;
-        grid-template-columns: rem(85) 1fr;
-        gap: 0 rem(10);
+    > .item {
+      display: grid;
+      grid-template-columns: rem(85) 1fr;
+      gap: 0 rem(10);
 
-        .link {
-          display: flex;
-          align-items: center;
-          gap: rem(8);
-          > svg {
-            width: rem(18);
-            aspect-ratio: 1/1;
-            flex-shrink: 0;
-          }
+      .link {
+        display: flex;
+        align-items: center;
+        gap: rem(8);
+        > svg {
+          width: rem(18);
+          aspect-ratio: 1/1;
+          flex-shrink: 0;
         }
       }
     }
-  }
-  @media (--sp) {
   }
 }

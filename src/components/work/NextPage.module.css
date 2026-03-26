@@ -1,21 +1,17 @@
 @layer component {
-  @media (--pc) {
-    .nextPage {
-      margin: rem(200) 0 rem(130);
-    }
-    .link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: rem(20);
-      .text {
-        font-size: rem(200);
-        font-weight: 800;
-        line-height: 100%; /* 180px */
-        letter-spacing: rem(18);
-      }
-    }
+  .nextPage {
+    margin: rem(200) 0 rem(130);
   }
-  @media (--sp) {
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(20);
+    .text {
+      font-size: rem(200);
+      font-weight: 800;
+      line-height: 100%; /* 180px */
+      letter-spacing: rem(18);
+    }
   }
 }

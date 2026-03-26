@@ -1,85 +1,81 @@
 @layer component {
-  @media (--pc) {
-    .link {
-      width: rem(840);
-      display: grid;
-      gap: rem(25) 0;
+  .link {
+    width: rem(840);
+    display: grid;
+    gap: rem(25) 0;
 
-      &--hover-animation {
-        &:hover {
-          .thumbnail .image {
-            &::before {
-              scale: 1 1;
-              transform-origin: left center;
-            }
-          }
-          .title {
-            scale: 1;
-            filter: blur(0);
-            opacity: 1;
-            transition-timing-function: ease;
+    &--hover-animation {
+      &:hover {
+        .thumbnail .image {
+          &::before {
+            scale: 1 1;
+            transform-origin: left center;
           }
         }
-      }
-    }
-    .thumbnail {
-      display: grid;
-      justify-content: center;
-      align-items: center;
-
-      .image {
-        position: relative;
-        display: block;
-        border-radius: rem(8);
-        &::before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          inset: 0;
-          background: rgb(68 67 65 / 70%);
-          z-index: 1;
-          scale: 0 1;
-          transform-origin: right center;
-          transition: scale 1s var(--ease_out_quint);
+        .title {
+          scale: 1;
+          filter: blur(0);
+          opacity: 1;
+          transition-timing-function: ease;
         }
-
-        img {
-          filter: grayscale(1);
-        }
-      }
-      .title {
-        font-size: rem(36);
-        scale: 1.2;
-        filter: blur(10px);
-        opacity: 0;
-        z-index: 1;
-        transition:
-          filter,
-          scale,
-          opacity,
-          1.2s var(--ease_out_quint);
-      }
-
-      .image,
-      .title {
-        grid-area: 1/1;
-      }
-    }
-    .description {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      gap: rem(20);
-      justify-content: space-between;
-      align-items: start;
-      p {
-        font-size: rem(18);
-        font-weight: 300;
-        line-height: 100%;
-        letter-spacing: rem(1.5);
       }
     }
   }
-  @media (--sp) {
+  .thumbnail {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    .image {
+      position: relative;
+      display: block;
+      border-radius: rem(8);
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        background: rgb(68 67 65 / 70%);
+        z-index: 1;
+        scale: 0 1;
+        transform-origin: right center;
+        transition: scale 1s var(--ease_out_quint);
+      }
+
+      img {
+        filter: grayscale(1);
+      }
+    }
+    .title {
+      font-size: rem(36);
+      scale: 1.2;
+      filter: blur(10px);
+      opacity: 0;
+      z-index: 1;
+      transition:
+        filter,
+        scale,
+        opacity,
+        1.2s var(--ease_out_quint);
+    }
+
+    .image,
+    .title {
+      grid-area: 1/1;
+    }
+  }
+  .description {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: rem(20);
+    justify-content: space-between;
+    align-items: start;
+    p {
+      font-size: rem(18);
+      font-weight: 300;
+      line-height: 100%;
+      letter-spacing: rem(1.5);
+    }
   }
 }

@@ -5,13 +5,28 @@
 @import './splide-core.min.css' layer(common);
 @import './override.css' layer(override);
 
-@layer common {
+html {
+  font-size: 13px;
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 1441px) {
   html {
     font-size: 16px;
   }
+}
+@media screen and (min-width: 1800px) {
+  html {
+    font-size: 18px;
+  }
+}
 
+@layer common {
   body {
-    /* font-size: liq(14); */
     font-weight: 300;
     line-height: 160%;
     letter-spacing: rem(2.6);
@@ -33,13 +48,11 @@
     text-box: trim-both cap alphabetic;
   }
 
-  @media (--pc) {
-    .hover-lottie {
-      filter: grayscale(1);
-      transition: filter 0.6s ease;
-      &:hover {
-        filter: grayscale(0);
-      }
+  .hover-lottie {
+    filter: grayscale(1);
+    transition: filter 0.6s ease;
+    &:hover {
+      filter: grayscale(0);
     }
   }
 }

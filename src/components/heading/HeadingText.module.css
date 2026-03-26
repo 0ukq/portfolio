@@ -1,44 +1,40 @@
 @layer component {
-  @media (--pc) {
-    .heading1 {
-      font-size: rem(190);
-      font-style: normal;
-      font-weight: 600;
-      line-height: 100%;
-    }
-
-    .heading2 {
-      font-size: rem(68);
-      font-style: normal;
-      font-weight: 800;
-      line-height: 100%;
-      letter-spacing: rem(8);
-      text-transform: uppercase;
-    }
-
-    .heading3 {
-      font-size: rem(32);
-      font-weight: 800;
-      line-height: 100%;
-      letter-spacing: rem(3.6);
-    }
-
-    .center {
-      text-align: center;
-    }
-
-    .right {
-      text-align: right;
-    }
-
-    .gray {
-      color: var(--col_sub_gray);
-    }
-
-    .white {
-      color: var(--col_white);
-    }
+  .heading1 {
+    font-size: rem(190);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
   }
-  @media (--sp) {
+
+  .heading2 {
+    font-size: rem(68);
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: rem(8);
+    text-transform: uppercase;
+  }
+
+  .heading3 {
+    font-size: rem(32);
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: rem(3.6);
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .gray {
+    color: var(--col_sub_gray);
+  }
+
+  .white {
+    color: var(--col_white);
   }
 }

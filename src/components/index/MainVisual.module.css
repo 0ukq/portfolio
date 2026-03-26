@@ -1,61 +1,57 @@
 @layer component {
-  @media (--pc) {
-    .mainVisual {
-      position: relative;
+  .mainVisual {
+    position: relative;
 
-      &:global(.is-loaded) {
-        height: 300vh;
-      }
-    }
-
-    .frame {
-      position: sticky;
-      display: grid;
-      place-content: center;
-      width: 100vw;
-      height: 100vh;
-      left: 0;
-      top: 0;
-    }
-
-    .titles {
-      display: grid;
-      gap: rem(15);
-      font-size: rem(280);
-    }
-    .item {
-      width: fit-content;
-      &:first-child {
-        padding-left: rem(65);
-      }
-      &:nth-child(2) {
-        padding-left: rem(120);
-      }
-    }
-
-    .circle {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      clip-path: circle(40% at 100% 0);
-      background-color: var(--col_main_gray);
-    }
-
-    .scrollWrap {
-      position: absolute;
-      right: rem(120);
-      top: rem(150);
-    }
-
-    .scroll {
-      color: var(--col_white);
-      font-size: rem(24);
-      font-style: normal;
-      font-weight: 700;
-      line-height: 100%;
-      letter-spacing: rem(6);
+    &:global(.is-loaded) {
+      height: 300vh;
     }
   }
-  @media (--sp) {
+
+  .frame {
+    position: sticky;
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+  }
+
+  .titles {
+    display: grid;
+    gap: rem(15);
+    font-size: rem(280);
+  }
+  .item {
+    width: fit-content;
+    &:first-child {
+      padding-left: rem(65);
+    }
+    &:nth-child(2) {
+      padding-left: rem(120);
+    }
+  }
+
+  .circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(40% at 100% 0);
+    background-color: var(--col_main_gray);
+  }
+
+  .scrollWrap {
+    position: absolute;
+    right: rem(120);
+    top: rem(150);
+  }
+
+  .scroll {
+    color: var(--col_white);
+    font-size: rem(24);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: rem(6);
   }
 }

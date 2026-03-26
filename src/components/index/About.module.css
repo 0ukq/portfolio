@@ -1,45 +1,41 @@
 @layer component {
-  @media (--pc) {
-    .about {
-      position: relative;
-      /* padding: liq(200) 0; */
-      /* translate: 0 -50%; */
-      padding-bottom: rem(200);
-      z-index: 1;
-    }
-
-    .inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .heading {
-      position: relative;
-      padding-left: rem(110);
-    }
-
-    .lottie {
-      position: absolute;
-      width: rem(100);
-      aspect-ratio: 1/1;
-      left: rem(75);
-      top: rem(20);
-    }
-
-    .paragraph {
-      width: rem(1300);
-
-      margin-top: rem(180);
-      margin-inline: auto;
-
-      .text {
-        font-size: rem(38);
-        font-weight: 400;
-        line-height: 220%;
-        letter-spacing: rem(10);
-      }
-    }
+  .about {
+    position: relative;
+    /* padding: liq(200) 0; */
+    /* translate: 0 -50%; */
+    padding-bottom: rem(200);
+    z-index: 1;
   }
-  @media (--sp) {
+
+  .inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .heading {
+    position: relative;
+    padding-left: rem(110);
+  }
+
+  .lottie {
+    position: absolute;
+    width: rem(100);
+    aspect-ratio: 1/1;
+    left: rem(75);
+    top: rem(20);
+  }
+
+  .paragraph {
+    width: rem(1300);
+
+    margin-top: rem(180);
+    margin-inline: auto;
+
+    .text {
+      font-size: rem(38);
+      font-weight: 400;
+      line-height: 220%;
+      letter-spacing: rem(10);
+    }
   }
 }

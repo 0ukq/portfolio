@@ -1,7 +1,3 @@
-@media (--pc) {
-  .heightFull {
-    height: 100vh;
-  }
-}
-@media (--sp) {
+.heightFull {
+  height: 100vh;
 }

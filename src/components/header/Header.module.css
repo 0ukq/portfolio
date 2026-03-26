@@ -1,34 +1,30 @@
 @layer component {
-  @media (--pc) {
-    .header {
-      position: sticky;
-      inset: 0;
-      padding: rem(80) 0;
-      z-index: var(--z_index_header);
-    }
-    .logo {
-      display: inline-block;
-      font-size: rem(20);
-      font-weight: 300;
-      line-height: 100%;
-      &:hover {
-        :global(.before-item) {
-          translate: 0 -100%;
-        }
-        :global(.after-item) {
-          translate: 0 0;
-        }
-      }
-
-      :global(.before-item),
-      :global(.after-item) {
-        transition: translate 1.4s var(--ease_out_quint);
-      }
-      :global(.after-item) {
-        translate: 0 100%;
-      }
-    }
+  .header {
+    position: sticky;
+    inset: 0;
+    padding: rem(80) 0;
+    z-index: var(--z_index_header);
   }
-  @media (--sp) {
+  .logo {
+    display: inline-block;
+    font-size: rem(20);
+    font-weight: 300;
+    line-height: 100%;
+    &:hover {
+      :global(.before-item) {
+        translate: 0 -100%;
+      }
+      :global(.after-item) {
+        translate: 0 0;
+      }
+    }
+
+    :global(.before-item),
+    :global(.after-item) {
+      transition: translate 1.4s var(--ease_out_quint);
+    }
+    :global(.after-item) {
+      translate: 0 100%;
+    }
   }
 }

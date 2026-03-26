@@ -1,10 +1,6 @@
 @layer component {
-  @media (--pc) {
-    .contentInner {
-      width: rem(1200);
-      margin-inline: auto;
-    }
-  }
-  @media (--sp) {
+  .contentInner {
+    width: rem(1200);
+    margin-inline: auto;
   }
 }

@@ -50,30 +50,30 @@ const FirstView: React.FC<FirstViewProps> = ({ data }) => {
       // タイトル
       tl.current.to(splitTitle.chars, {
         yPercent: 0,
-        duration: 1.5,
-        stagger: 0.15,
+        duration: 1.2,
+        stagger: 0.08,
         ease: easeOutQuint,
       });
 
       // サムネ
       const thumbnailTween: gsap.TweenVars = {
         clipPath: 'inset(0% 0% 0% 0%)',
-        duration: 1.4,
+        duration: 1.2,
         ease: easeOutQuint,
       };
       tl.current
-        .to(thumbnails[0], { ...thumbnailTween }, '<+0.8')
-        .to(thumbnails[1], { ...thumbnailTween, duration: 2 }, '<+0.5');
+        .to(thumbnails[0], { ...thumbnailTween }, '=-0.6')
+        .to(thumbnails[1], { ...thumbnailTween, duration: 1.4 }, '<+0.4');
 
       // 詳細テキスト
       tl.current.to(
         '[data-hide-item] span',
         {
           yPercent: 0,
-          duration: 2.2,
+          duration: 1.4,
           ease: easeOutQuint,
         },
-        '<+0.2'
+        '<+0.6'
       );
     },
     { scope: gsapRef }
@@ -82,16 +82,19 @@ const FirstView: React.FC<FirstViewProps> = ({ data }) => {
   return (
     <section ref={gsapRef} className={clsx(styles.fv, styles.initialized)}>
       <ContentInner>
-        <HeadingText variant={HeadingTextVariant.HEADING1} className={clsx(styles.title, 'clip')}>
-          <span data-title>WORK</span>
+        <HeadingText
+          variant={HeadingTextVariant.HEADING1}
+          className={clsx(styles.title, 'clip trim')}
+        >
+          <span data-title>{data.title}</span>
         </HeadingText>
         <div className={styles.detail}>
           <div className={styles.content}>
-            <HeadingText>
+            {/* <HeadingText>
               <span data-hide-item className="clip">
                 <span>{data.title}</span>
               </span>
-            </HeadingText>
+            </HeadingText> */}
             <dl className={styles.description}>
               <div className={styles.item}>
                 <dt>

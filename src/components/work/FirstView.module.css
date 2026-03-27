@@ -1,6 +1,6 @@
 @layer component {
   .fv {
-    padding-top: rem(100);
+    padding-top: rem(40);
 
     span {
       display: inline-block;
@@ -16,7 +16,7 @@
     align-items: center;
     grid-template-columns: 1fr rem(750);
     gap: 0 rem(40);
-    margin-top: rem(140);
+    margin-top: rem(100);
   }
   .content {
     display: grid;

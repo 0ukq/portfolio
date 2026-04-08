@@ -1,7 +1,10 @@
 import HeadingText from '../heading/HeadingText';
 import ContentInner from '../layout/ContentInner';
-import AboutImg01 from '../../../public/images/index/about_img01.jpg';
 import Image from 'next/image';
+import SampleImg01 from '../../../public/images/index/profile_sample_img01.jpg';
+import SampleImg02 from '../../../public/images/index/profile_sample_img02.jpg';
+import SampleImg03 from '../../../public/images/index/profile_sample_img03.jpg';
+import SampleImg04 from '../../../public/images/index/profile_sample_img04.jpg';
 import clsx from 'clsx';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
@@ -18,7 +21,13 @@ const Profile: React.FC = () => {
   useGSAP(
     () => {
       // 初期値設定
-      gsap.set('[data-image]', { clipPath: 'inset( 0% 0% 88% 0%)', scale: 1.4 });
+      const thumbnails: HTMLElement[] = gsap.utils.toArray('[data-thumbnail]');
+      thumbnails.forEach((thumbnail, i) => {
+        if (i === 0) return;
+        const img = thumbnail.querySelector('img');
+        gsap.set(thumbnail, { clipPath: 'inset( 100% 0% 0%)' }); // figure
+        gsap.set(img, { scale: 1.1 }); // img
+      });
       gsap.set('[data-profile-split]', { clipPath: 'inset(0% 100% 0% 0%)' });
 
       // scrollTrigger 共通設定
@@ -30,15 +39,14 @@ const Profile: React.FC = () => {
       };
 
       // 画像
-      gsap.to('[data-image]', {
-        clipPath: 'inset(0% 0% 0% 0%)',
-        scale: 1,
-        scrollTrigger: {
-          ...defaultTrigger,
-          onLeave: () => {
-            console.log('Image left the viewport');
-          },
-        },
+      const thumbnailTl = gsap.timeline({
+        scrollTrigger: { ...defaultTrigger },
+      });
+      thumbnails.forEach((thumbnail, i) => {
+        if (i === 0) return;
+        const img = thumbnail.querySelector('img');
+        thumbnailTl.to(thumbnail, { clipPath: 'inset(0% 0% 0% 0%)' });
+        thumbnailTl.to(img, { yPercent: -5, scale: 1 }, '<');
       });
 
       // テキストアニメーション
@@ -108,16 +116,48 @@ const Profile: React.FC = () => {
                 </div>
               </dl>
             </div>
-            <figure className={clsx(styles.thumbnail, 'clip')} data-thumbnail>
-              <Image
-                src={AboutImg01}
-                alt="profile"
-                width={AboutImg01.width}
-                height={AboutImg01.height}
-                className={clsx(styles.image, 'fit')}
-                data-image
-              />
-            </figure>
+            <div className={clsx(styles.thumbnails)} data-thumbnails>
+              <figure className={clsx(styles.thumbnail, 'clip')} data-thumbnail>
+                <Image
+                  src={SampleImg01}
+                  alt="profile"
+                  width={SampleImg01.width}
+                  height={SampleImg01.height}
+                  className={clsx(styles.image, 'fit')}
+                  data-image
+                />
+              </figure>
+              <figure className={clsx(styles.thumbnail, 'clip')} data-thumbnail>
+                <Image
+                  src={SampleImg02}
+                  alt="profile"
+                  width={SampleImg02.width}
+                  height={SampleImg02.height}
+                  className={clsx(styles.image, 'fit')}
+                  data-image
+                />
+              </figure>
+              <figure className={clsx(styles.thumbnail, 'clip')} data-thumbnail>
+                <Image
+                  src={SampleImg03}
+                  alt="profile"
+                  width={SampleImg03.width}
+                  height={SampleImg03.height}
+                  className={clsx(styles.image, 'fit')}
+                  data-image
+                />
+              </figure>
+              <figure className={clsx(styles.thumbnail, 'clip')} data-thumbnail>
+                <Image
+                  src={SampleImg04}
+                  alt="profile"
+                  width={SampleImg04.width}
+                  height={SampleImg04.height}
+                  className={clsx(styles.image, 'fit')}
+                  data-image
+                />
+              </figure>
+            </div>
           </div>
         </ContentInner>
       </div>

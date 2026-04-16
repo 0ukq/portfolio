@@ -1,6 +1,6 @@
 import About from './About';
 import Profile from './Profile';
-import Work from './Work';
+// import Work from './Work';
 import TechStack from './TechStack';
 import Closing from './Closing';
 
@@ -9,7 +9,7 @@ const PageContent = () => {
     <>
       <About />
       <Profile />
-      <Work />
+      {/* <Work /> */}
       <TechStack />
       <Closing />
     </>

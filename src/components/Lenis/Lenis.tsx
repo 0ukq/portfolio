@@ -3,7 +3,6 @@
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import { LenisRef, ReactLenis } from 'lenis/react';
-import 'lenis/dist/lenis.css';
 import { LenisOptions } from 'lenis';
 import { usePathname } from 'next/navigation';
 

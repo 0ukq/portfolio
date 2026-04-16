@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Lenis from '@/components/lenis/Lenis';
+import Lenis from '@/components/Lenis/Lenis';
 import { robot } from '@/lib/fonts';
 
 import '@/styles/globals.css';

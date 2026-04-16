@@ -1,7 +1,7 @@
 @layer component {
   .profile {
     position: relative;
-    height: 500vh;
+    height: 700vh;
     /* padding: liq(200) 0; */
   }
   .wrapper {

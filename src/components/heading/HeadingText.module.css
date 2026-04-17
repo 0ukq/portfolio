@@ -1,40 +1,38 @@
-@layer component {
-  .heading1 {
-    font-size: rem(190);
-    font-style: normal;
-    font-weight: 600;
-    line-height: 100%;
-  }
+.heading1 {
+  font-size: rem(190);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
 
-  .heading2 {
-    font-size: rem(68);
-    font-style: normal;
-    font-weight: 800;
-    line-height: 100%;
-    letter-spacing: rem(8);
-    text-transform: uppercase;
-  }
+.heading2 {
+  font-size: rem(68);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 100%;
+  letter-spacing: rem(8);
+  text-transform: uppercase;
+}
 
-  .heading3 {
-    font-size: rem(32);
-    font-weight: 800;
-    line-height: 100%;
-    letter-spacing: rem(3.6);
-  }
+.heading3 {
+  font-size: rem(32);
+  font-weight: 800;
+  line-height: 100%;
+  letter-spacing: rem(3.6);
+}
 
-  .center {
-    text-align: center;
-  }
+.center {
+  text-align: center;
+}
 
-  .right {
-    text-align: right;
-  }
+.right {
+  text-align: right;
+}
 
-  .gray {
-    color: var(--col_sub_gray);
-  }
+.gray {
+  color: var(--col_sub_gray);
+}
 
-  .white {
-    color: var(--col_white);
-  }
+.white {
+  color: var(--col_white);
 }

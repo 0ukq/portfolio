@@ -1,56 +1,54 @@
-@layer component {
-  .techStack {
-    padding: rem(200) 0;
-  }
-  .heading {
-    position: relative;
-    display: block;
-    width: fit-content;
-    margin-inline: auto;
-    z-index: 1;
-  }
-  .lottie {
-    position: absolute;
-    display: block;
-    width: rem(100);
-    aspect-ratio: 1/1;
-    z-index: -1;
-    top: rem(-150);
-    left: rem(-266);
-  }
-  .logos {
+.techStack {
+  padding: rem(200) 0;
+}
+.heading {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  z-index: 1;
+}
+.lottie {
+  position: absolute;
+  display: block;
+  width: rem(100);
+  aspect-ratio: 1/1;
+  z-index: -1;
+  top: rem(-150);
+  left: rem(-266);
+}
+.logos {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: end;
+  gap: 0 rem(40);
+  margin-top: rem(80);
+  > li {
     display: grid;
-    grid-auto-flow: column;
-    justify-content: center;
-    align-items: end;
-    gap: 0 rem(40);
-    margin-top: rem(80);
-    > li {
-      display: grid;
-      grid-template-rows: subgrid;
-      grid-row: span 2;
-      align-items: center;
-      gap: rem(18) 0;
-      p {
-        text-align: center;
-        font-weight: 300;
-        line-height: 100%;
-        letter-spacing: rem(1.4);
-      }
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    align-items: center;
+    gap: rem(18) 0;
+    p {
+      text-align: center;
+      font-weight: 300;
+      line-height: 100%;
+      letter-spacing: rem(1.4);
     }
   }
-  .other {
-    margin-top: rem(140);
-  }
-  .otherTitle {
-    width: fit-content;
-    margin-inline: auto;
-  }
-  .otherList {
-    display: grid;
-    grid-template-columns: repeat(6, max-content);
-    justify-content: center;
-    gap: rem(5) rem(15);
-    margin-top: rem(20);
-  }
+}
+.other {
+  margin-top: rem(140);
+}
+.otherTitle {
+  width: fit-content;
+  margin-inline: auto;
+}
+.otherList {
+  display: grid;
+  grid-template-columns: repeat(6, max-content);
+  justify-content: center;
+  gap: rem(5) rem(15);
+  margin-top: rem(20);
 }

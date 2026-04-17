@@ -1,43 +1,38 @@
-@import '../../styles/test.css';
-@import '../../styles//splide-core.min.css';
-
-@layer component {
-  .work {
-    overflow: hidden;
-    padding: rem(200) 0;
+.work {
+  overflow: hidden;
+  padding: rem(200) 0;
+}
+.heading {
+  position: relative;
+  padding: rem(50) 0 0 rem(50);
+  z-index: 1;
+}
+.title {
+  :global(.align) {
+    justify-content: end;
   }
-  .heading {
-    position: relative;
-    padding: rem(50) 0 0 rem(50);
-    z-index: 1;
-  }
-  .title {
-    :global(.align) {
-      justify-content: end;
-    }
-  }
-  .lottie {
-    position: absolute;
-    width: rem(100);
-    aspect-ratio: 1/1;
-    top: rem(-90);
-    left: rem(80);
-    z-index: -1;
-  }
-  .list {
-    display: flex;
-    gap: rem(50);
-    translate: rem(70) 0;
-    margin-top: rem(110);
-  }
-  /* .slider {
+}
+.lottie {
+  position: absolute;
+  width: rem(100);
+  aspect-ratio: 1/1;
+  top: rem(-90);
+  left: rem(80);
+  z-index: -1;
+}
+.list {
+  display: flex;
+  gap: rem(50);
+  translate: rem(70) 0;
+  margin-top: rem(110);
+}
+/* .slider {
     margin-top: liq(110);
   } */
-  /* splide */
-  /* :global(.splide__track) {
+/* splide */
+/* :global(.splide__track) {
     overflow: visible;
   }
   :global(.splide__slide) {
     margin-right: liq(50);
   } */
-}

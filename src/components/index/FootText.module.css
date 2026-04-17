@@ -1,13 +1,11 @@
-@layer component {
-  .svgList {
-    display: none;
-  }
-  .footText {
-    display: flex;
-    gap: 1.388888889vw;
-    height: 18.82vw;
-    > svg {
-      height: 100%;
-    }
+.svgList {
+  display: none;
+}
+.footText {
+  display: flex;
+  gap: 1.388888889vw;
+  height: 18.82vw;
+  > svg {
+    height: 100%;
   }
 }

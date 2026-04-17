@@ -1,16 +1,14 @@
-@layer component {
-  .screenShots {
-    margin-top: rem(200);
-  }
-  .inner {
-    max-width: rem(1100);
-  }
-  .list {
-    display: grid;
-    gap: rem(150);
-  }
-  .image {
-    width: 100%;
-    aspect-ratio: 11 / 6;
-  }
+.screenShots {
+  margin-top: rem(200);
+}
+.inner {
+  max-width: rem(1100);
+}
+.list {
+  display: grid;
+  gap: rem(150);
+}
+.image {
+  width: 100%;
+  aspect-ratio: 11 / 6;
 }

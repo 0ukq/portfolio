@@ -1,6 +1,4 @@
-@layer component {
-  .contentInner {
-    width: rem(1200);
-    margin-inline: auto;
-  }
+.contentInner {
+  width: rem(1200);
+  margin-inline: auto;
 }

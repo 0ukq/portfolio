@@ -1,6 +1,5 @@
 import HeadingText, { HeadingTextAlign, HeadingTextVariant } from '../heading/HeadingText';
 import ContentInner from '../layout/ContentInner';
-import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 import ShakingFace from '../../../public/lotties/shaking-face.json';
 import ReactVector from '../vector/ReactVector';
 import NextVector from '../vector/NextVector';
@@ -12,7 +11,7 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import RollingTextAnimate from '../animation/RollingTextAnimate';
 import HideUpAnimate from '../animation/HideUpAnimate';
 import clsx from 'clsx';
@@ -21,19 +20,13 @@ import styles from './TechStack.module.css';
 import MotionPathPlugin from 'gsap/MotionPathPlugin';
 import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
 import { easeOutCubic } from '@/lib/custom-ease';
+import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
 
 gsap.registerPlugin(SplitText, DrawSVGPlugin, MotionPathPlugin, MorphSVGPlugin, ScrollTrigger);
 
 const TechStack: React.FC = () => {
   const gsapRef = useRef<HTMLElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
-  const lottieRef = useRef<LottieRef>(null);
-
-  useEffect(() => {
-    if (lottieRef.current) {
-      lottieRef.current.play();
-    }
-  }, []);
 
   useGSAP(
     () => {
@@ -107,7 +100,7 @@ const TechStack: React.FC = () => {
         <hgroup className={styles.heading}>
           <div className={clsx(styles.lottie, 'hover-lottie')}>
             <HideUpAnimate>
-              <BaseLottie lottieData={ShakingFace} ref={lottieRef} />
+              <ScrollInteractivityLottie lottieData={ShakingFace} />
             </HideUpAnimate>
           </div>
           <HeadingText align={HeadingTextAlign.CENTER}>

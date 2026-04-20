@@ -3,28 +3,23 @@ import HeadingText from '../heading/HeadingText';
 import ContentInner from '../layout/ContentInner';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { bigShoulders } from '@/lib/fonts';
 import gsap from 'gsap';
 import { easeOutCubic, easeOutQuint } from '@/lib/custom-ease';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Clouds from '../../../public/lotties/clouds.json';
-import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 import HideUpAnimate from '../animation/HideUpAnimate';
 import StackItems from '../stack/StackItems';
 import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 import styles from './About.module.css';
+import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const About: React.FC = () => {
   const gsapRef = useRef<HTMLElement>(null);
-  const cloudsRef = useRef<LottieRef>(null);
-
-  useEffect(() => {
-    cloudsRef.current?.play();
-  }, []);
 
   useGSAP(
     () => {
@@ -116,7 +111,7 @@ const About: React.FC = () => {
           <hgroup data-heading className={styles.heading}>
             <div data-lottie className={clsx(styles.lottie, 'hover-lottie')}>
               <HideUpAnimate>
-                <BaseLottie lottieData={Clouds} ref={cloudsRef} />
+                <ScrollInteractivityLottie lottieData={Clouds} />
               </HideUpAnimate>
             </div>
             <HeadingText className={styles.title}>

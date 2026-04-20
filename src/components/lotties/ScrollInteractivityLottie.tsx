@@ -17,7 +17,7 @@ const ScrollInteractivityLottie: React.FC<ScrollInteractivityLottieProps> = ({ l
     actions: [
       {
         type: 'seek',
-        visibility: [0.2, 1],
+        visibility: [0.4, 1],
         frames: [0, 60],
       },
     ],

@@ -40,7 +40,7 @@ const Profile: React.FC = () => {
 
       // 画像
       const thumbnailTl = gsap.timeline({
-        scrollTrigger: { ...defaultTrigger },
+        scrollTrigger: { ...defaultTrigger, start: 'top+=5% top' },
       });
       thumbnails.forEach((thumbnail, i) => {
         if (i === 0) return;

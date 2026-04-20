@@ -1,5 +1,4 @@
 import HeadingText, { HeadingTextVariant } from '../heading/HeadingText';
-import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 import WaveHand from '../../../public/lotties/wave-hand.json';
 import ContentInner from '../layout/ContentInner';
 import ExLink from '../link/ExLink';
@@ -9,21 +8,15 @@ import { useGSAP } from '@gsap/react';
 import { ExternalLink } from 'lucide-react';
 import FootText from './FootText';
 import styles from './Closing.module.css';
-import { useEffect, useRef } from 'react';
-import StackItems from '../stack/StackItems';
+import { useRef } from 'react';
 import RollingTextAnimate from '../animation/RollingTextAnimate';
 import { easeOutExpo } from '@/lib/custom-ease';
 import HideUpAnimate from '../animation/HideUpAnimate';
 import clsx from 'clsx';
+import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
 
 const Closing: React.FC = () => {
-  const lottieRef = useRef<LottieRef>(null);
   const gsapRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    lottieRef.current?.play();
-    lottieRef.current?.setSpeed(0.5);
-  }, []);
 
   useGSAP(
     () => {
@@ -75,7 +68,7 @@ const Closing: React.FC = () => {
           <hgroup className={styles.title}>
             <div className={clsx(styles.lottie, 'hover-lottie')} data-closing-lottie>
               <HideUpAnimate>
-                <BaseLottie lottieData={WaveHand} ref={lottieRef} />
+                <ScrollInteractivityLottie lottieData={WaveHand} />
               </HideUpAnimate>
             </div>
             <HeadingText className={styles.heading}>

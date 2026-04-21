@@ -1,5 +1,5 @@
 import PageLayout from '@/components/layout/PageLayout';
-import { workDataSample } from '@/lib/data';
+import { workDataSample } from '@/libs/data';
 import FirstView from '@/components/work/FirstView';
 import ScreenShots from '@/components/work/ScreenShots';
 import NextPage from '@/components/work/NextPage';

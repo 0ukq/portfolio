@@ -1,6 +1,6 @@
 'use client';
 
-import { WorkData } from '@/lib/data';
+import { WorkData } from '@/libs/data';
 import Image from 'next/image';
 import clsx from 'clsx';
 import ContentInner from '../layout/ContentInner';
@@ -10,7 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 
 import styles from './ScreenShots.module.css';
-import { easeOutQuint } from '@/lib/custom-ease';
+import { easeOutQuint } from '@/libs/custom-ease';
 
 gsap.registerPlugin(ScrollTrigger);
 

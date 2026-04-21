@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import StackItems from '../stack/StackItems';
-import { easeOutExpo } from '@/lib/custom-ease';
+import { easeOutExpo } from '@/libs/custom-ease';
 import Rolling from '../../../public/lotties/rolling.json';
 import Salute from '../../../public/lotties/salute.json';
 import BaseLottie, { LottieRef } from '../lotties/BaseLottie';

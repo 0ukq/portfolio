@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { WorkData } from '@/lib/data';
+import { WorkData } from '@/libs/data';
 import clsx from 'clsx';
 import Link from 'next/link';
 import HideUpAnimate from '../animation/HideUpAnimate';

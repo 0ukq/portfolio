@@ -1,9 +1,9 @@
-import { WorkData } from '@/lib/data';
+import { WorkData } from '@/libs/data';
 import Image from 'next/image';
 import IconLinkArrow from '../../../public/images/common/icon_link_arrow.svg';
 import ContentInner from '../layout/ContentInner';
 import ExLink from '../link/ExLink';
-import { bigShoulders } from '@/lib/fonts';
+import { bigShoulders } from '@/libs/fonts';
 import clsx from 'clsx';
 
 import styles from './NextPage.module.css';

@@ -3,14 +3,14 @@ import ContentInner from '../layout/ContentInner';
 import HeadShake from '../../../public/lotties/head-shake.json';
 import BaseLottie, { LottieRef } from '../lotties/BaseLottie';
 // import { Options, Splide, SplideSlide } from '@splidejs/react-splide';
-import { workDataSample } from '@/lib/data';
+import { workDataSample } from '@/libs/data';
 import WorkCard from '../card/WorkCard';
 import clsx from 'clsx';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useEffect, useRef } from 'react';
-import { easeOutQuint } from '@/lib/custom-ease';
+import { easeOutQuint } from '@/libs/custom-ease';
 import HideUpAnimate from '../animation/HideUpAnimate';
 import RollingTextAnimate from '../animation/RollingTextAnimate';
 

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import ExLink from '../link/ExLink';
 import StackItems from '../stack/StackItems';
-import { bigShoulders } from '@/lib/fonts';
+import { bigShoulders } from '@/libs/fonts';
 import ContentInner from '../layout/ContentInner';
 
 import styles from './Header.module.css';

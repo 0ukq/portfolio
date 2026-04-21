@@ -10,7 +10,7 @@ import FootText from './FootText';
 import styles from './Closing.module.css';
 import { useRef } from 'react';
 import RollingTextAnimate from '../animation/RollingTextAnimate';
-import { easeOutExpo } from '@/lib/custom-ease';
+import { easeOutExpo } from '@/libs/custom-ease';
 import HideUpAnimate from '../animation/HideUpAnimate';
 import clsx from 'clsx';
 import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';

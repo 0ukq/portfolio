@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import { easeOutExpo } from '@/lib/custom-ease';
+import { easeOutExpo } from '@/libs/custom-ease';
 import StackItems from '../stack/StackItems';
 
 gsap.registerPlugin(SplitText);

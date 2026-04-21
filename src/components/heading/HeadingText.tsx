@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import styles from './HeadingText.module.css';
-import { bigShoulders } from '@/lib/fonts';
+import { bigShoulders } from '@/libs/fonts';
 
 export enum HeadingTextVariant {
   HEADING1,

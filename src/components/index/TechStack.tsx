@@ -19,7 +19,7 @@ import clsx from 'clsx';
 import styles from './TechStack.module.css';
 import MotionPathPlugin from 'gsap/MotionPathPlugin';
 import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
-import { easeOutCubic } from '@/lib/custom-ease';
+import { easeOutCubic } from '@/libs/custom-ease';
 import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
 
 gsap.registerPlugin(SplitText, DrawSVGPlugin, MotionPathPlugin, MorphSVGPlugin, ScrollTrigger);

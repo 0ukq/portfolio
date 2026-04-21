@@ -1,6 +1,6 @@
 'use client';
 
-import { WorkData } from '@/lib/data';
+import { WorkData } from '@/libs/data';
 import HeadingText, { HeadingTextVariant } from '../heading/HeadingText';
 import ContentInner from '../layout/ContentInner';
 import ExLink from '../link/ExLink';
@@ -13,7 +13,7 @@ import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import { easeOutQuint } from '@/lib/custom-ease';
+import { easeOutQuint } from '@/libs/custom-ease';
 
 import { CustomEase } from 'gsap/CustomEase';
 gsap.registerPlugin(SplitText, CustomEase);

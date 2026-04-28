@@ -1,63 +1,31 @@
+'use client';
+
 import clsx from 'clsx';
-import HeadingText from '../heading/HeadingText';
-import ContentInner from '../layout/ContentInner';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { useRef } from 'react';
-import { bigShoulders } from '@/lib/fonts';
 import gsap from 'gsap';
-import { easeOutCubic, easeOutQuint } from '@/lib/custom-ease';
+import { easeOutCubic } from '@/lib/custom-ease';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Clouds from '../../../public/lotties/clouds.json';
-import HideUpAnimate from '../animation/HideUpAnimate';
-import StackItems from '../stack/StackItems';
-import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 import styles from './About.module.css';
-import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
+
+interface AboutProps {
+  children?: React.ReactNode;
+}
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-const About: React.FC = () => {
+const About: React.FC<AboutProps> = ({ children }) => {
   const gsapRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
       if (gsapRef.current) {
-        /**
-         * タイトルアニメーション
-         * */
-        const splitTitle = SplitText.create('[data-split-text]', {
-          type: 'chars',
-          tag: 'span',
-          reduceWhiteSpace: false,
-        });
-
-        gsap.set(splitTitle.chars, { xPercent: -110 });
-
-        gsap.to(splitTitle.chars, {
-          xPercent: 0,
-          duration: 1,
-          stagger: 0.05,
-          ease: easeOutQuint,
-          scrollTrigger: {
-            trigger: '[data-heading]',
-            start: 'top-=140% bottom-=30%',
-          },
-        });
-
-        /**
-         * テキストアニメーション
-         * */
-        const textBefore: HTMLElement[] = Array.from(
-          document.querySelectorAll('[data-text-before]')
-        );
-        const textAfter: HTMLElement[] = Array.from(document.querySelectorAll('[data-text-after]'));
-
         // プロパティ設定
         const textTween: gsap.TweenVars = {
           clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 2,
+          duration: 3,
           stagger: 0.4,
           ease: easeOutCubic,
         };
@@ -66,30 +34,20 @@ const About: React.FC = () => {
         const textTrigger: ScrollTrigger.Vars = {
           trigger: '[data-text-trigger]',
           start: 'top bottom-=30%',
+          markers: true,
         };
 
-        // 初期値設定
-        textBefore.forEach(before =>
-          gsap.set(before, { opacity: 0.2, clipPath: 'inset(0 100% 0 0)' })
-        );
-        textAfter.forEach(after => {
-          gsap.set(after, { clipPath: 'inset(0 100% 0 0)' });
-        });
-
-        // 実行
-        gsap.to(textBefore, {
-          ...textTween,
-          scrollTrigger: textTrigger,
-        });
-        gsap.to(textAfter, {
+        gsap.to('[data-paragraphs] [data-before-text]', {
           ...textTween,
           delay: 0.1,
           scrollTrigger: textTrigger,
         });
+        gsap.to('[data-paragraphs] [data-after-text]', {
+          ...textTween,
+          scrollTrigger: textTrigger,
+        });
 
-        /**
-         * lottie
-         * */
+        // lottie
         gsap.to('[data-lottie]', {
           yPercent: -120,
           scrollTrigger: {
@@ -106,60 +64,7 @@ const About: React.FC = () => {
 
   return (
     <section ref={gsapRef} className={clsx(styles.about, 'bg-main-gray')}>
-      <ContentInner className={styles.inner}>
-        <div>
-          <hgroup data-heading className={styles.heading}>
-            <div data-lottie className={clsx(styles.lottie, 'hover-lottie')}>
-              <HideUpAnimate>
-                <ScrollInteractivityLottie lottieData={Clouds} />
-              </HideUpAnimate>
-            </div>
-            <HeadingText className={styles.title}>
-              <RollingTextAnimate text="A CURIOUS WEB DEVELOPER" />
-            </HeadingText>
-          </hgroup>
-        </div>
-      </ContentInner>
-      <div data-text-trigger className={styles.paragraph}>
-        <p className={clsx(styles.text, bigShoulders.className)}>
-          <StackItems
-            before="AS A FRONT-END DEVELOPER,"
-            after="AS A FRONT-END DEVELOPER,"
-            afterData="text-after"
-            beforeData="text-before"
-          />
-          <StackItems
-            before="I TAKE GENUINE JOY IN BRINGING DESIGNS TO LIFE."
-            after="I TAKE GENUINE JOY IN BRINGING DESIGNS TO LIFE."
-            afterData="text-after"
-            beforeData="text-before"
-          />
-          <StackItems
-            before="MY GREATEST ASSET IS MY CURIOSITY."
-            after="MY GREATEST ASSET IS MY CURIOSITY."
-            afterData="text-after"
-            beforeData="text-before"
-          />
-          <StackItems
-            before="I CONSTANTLY CHASE NEW TECHNOLOGIES AS A DEVELOPER,"
-            after="I CONSTANTLY CHASE NEW TECHNOLOGIES AS A DEVELOPER,"
-            afterData="text-after"
-            beforeData="text-before"
-          />
-          <StackItems
-            before="WHILE ALSO DIGGING INTO OLDER ONES WHEN NEEDED."
-            after="WHILE ALSO DIGGING INTO OLDER ONES WHEN NEEDED."
-            afterData="text-after"
-            beforeData="text-before"
-          />
-          <StackItems
-            before="THAT CURIOSITY IS THE FORCE THAT DRIVES EVERYTHING I DO."
-            after="THAT CURIOSITY IS THE FORCE THAT DRIVES EVERYTHING I DO."
-            afterData="text-after"
-            beforeData="text-before"
-          />
-        </p>
-      </div>
+      {children}
     </section>
   );
 };

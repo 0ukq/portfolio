@@ -21,10 +21,10 @@ const LoadingContents: React.FC = () => {
       </div>
 
       <div className="clip">
-        <div className={clsx('stack-items', styles.paragraphs)} data-paragraphs>
+        <p className={clsx('stack-items', styles.paragraphs)} data-paragraphs>
           <StackText text="LOADING..." className={clsx(styles.loading, styles.text, 'item')} />
-          <p className={clsx(styles.completed, styles.text, 'item')}>COMPLETED!</p>
-        </div>
+          <span className={clsx(styles.completed, styles.text, 'item')}>COMPLETED!</span>
+        </p>
       </div>
     </div>
   );

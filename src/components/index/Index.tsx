@@ -7,6 +7,8 @@ import Loading from './Loading';
 import MainVisual from './MainVisual';
 import PageContent from './PageContent';
 import FirstView from './FirstView';
+import AboutContents from './AboutContents';
+import About from './About';
 
 const Index: React.FC = () => {
   // const [tl, setTl] = useState<gsap.core.Timeline | null>(null);
@@ -22,6 +24,9 @@ const Index: React.FC = () => {
   return (
     <>
       <FirstView />
+      <About>
+        <AboutContents />
+      </About>
       {/* <PageContent /> */}
       {/* <Loading timeline={tl} /> */}
       {/* {!isLoaded && <Loading timeline={tl} />} */}

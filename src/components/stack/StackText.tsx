@@ -5,16 +5,20 @@ interface StackTextProps {
   className?: string;
 }
 
-const StackText: React.FC<StackTextProps> = ({ text, className }) => {
+const StackText: React.FC<StackTextProps & React.ComponentProps<'span'>> = ({
+  text,
+  className,
+  ...props
+}) => {
   return (
-    <p className={clsx('stack-items', 'stack-text', className)}>
+    <span className={clsx('stack-items', 'stack-text', className)} {...props}>
       <span data-before-text className="item stack-text-before">
         {text}
       </span>
       <span data-after-text className="item stack-text-after">
         {text}
       </span>
-    </p>
+    </span>
   );
 };
 export default StackText;

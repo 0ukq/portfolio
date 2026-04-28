@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { easeOutExpo } from '@/lib/custom-ease';
 import StackItems from '../stack/StackItems';
+import StackText from '../stack/StackText';
 
 gsap.registerPlugin(SplitText);
 
@@ -33,11 +34,11 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
     () => {
       if (animateDisable) return;
       // テキスト分割
-      const beforeSplit = SplitText.create('[data-rolling-before]', {
+      const beforeSplit = SplitText.create('[data-before-text]', {
         type: 'chars',
         tag: 'span',
       });
-      const afterSplit = SplitText.create('[data-rolling-after]', {
+      const afterSplit = SplitText.create('[data-after-text]', {
         type: 'chars',
         tag: 'span',
       });
@@ -73,16 +74,6 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
 
   if (animateDisable) return <p>{text}</p>;
 
-  return (
-    <>
-      <StackItems
-        ref={scopeRef}
-        before={text}
-        beforeData="rolling-before"
-        after={text}
-        afterData="rolling-after"
-      />
-    </>
-  );
+  return <StackText ref={scopeRef} text={text} className="clip" />;
 };
 export default RollingTextAnimate;

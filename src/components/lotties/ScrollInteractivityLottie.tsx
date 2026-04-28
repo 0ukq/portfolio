@@ -1,3 +1,5 @@
+'use client';
+
 import { useLottie, useLottieInteractivity } from 'lottie-react';
 
 interface ScrollInteractivityLottieProps {

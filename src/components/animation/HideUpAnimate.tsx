@@ -1,3 +1,5 @@
+'use client';
+
 import { easeOutExpo } from '@/lib/custom-ease';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';

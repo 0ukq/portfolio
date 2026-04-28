@@ -1,0 +1,44 @@
+.contents {
+  display: grid;
+  grid-template-columns: rem(50) 1fr;
+  align-items: center;
+  gap: 0 rem(25);
+
+  &.is-animation {
+    .paragraphs {
+      translate: 0 100%;
+    }
+    .lottie {
+      translate: 100% 0;
+    }
+    .loading {
+      :global(.stack-text-before) {
+        clip-path: inset(0 100% 0 0);
+      }
+      :global(.stack-text-after) {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.lottie {
+  filter: grayscale(1);
+}
+
+.salute {
+  translate: 100% 0;
+}
+
+.completed {
+  position: relative;
+  translate: 0 100%;
+}
+
+.text {
+  font-size: rem(28);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: rem(7);
+}

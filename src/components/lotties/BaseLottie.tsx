@@ -1,3 +1,5 @@
+'use client';
+
 import { LottieOptions, useLottie } from 'lottie-react';
 import { useImperativeHandle } from 'react';
 
@@ -17,7 +19,7 @@ const BaseLottie: React.FC<BaseLottieProps> = ({ lottieData, options, ref }) => 
   const { View, play, pause, setSpeed } = useLottie({
     animationData: lottieData,
     loop: true,
-    autoplay: false,
+    autoplay: ref ? false : true,
     ...options,
   });
 

@@ -1,0 +1,8 @@
+.firstViewTimeline {
+  height: 100vh;
+  overflow: hidden;
+  &.is-loaded {
+    height: auto;
+    overflow: unset;
+  }
+}

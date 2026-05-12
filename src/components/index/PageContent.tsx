@@ -10,7 +10,7 @@ const PageContent = () => {
       <About />
       {/* <Profile /> */}
       {/* <Work /> */}
-      <TechStack />
+      {/* <TechStack /> */}
       <Closing />
     </>
   );

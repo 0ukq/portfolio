@@ -8,7 +8,7 @@ const PageContent = () => {
   return (
     <>
       <About />
-      <Profile />
+      {/* <Profile /> */}
       {/* <Work /> */}
       <TechStack />
       <Closing />

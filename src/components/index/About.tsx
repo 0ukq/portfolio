@@ -34,7 +34,6 @@ const About: React.FC<AboutProps> = ({ children }) => {
         const textTrigger: ScrollTrigger.Vars = {
           trigger: '[data-text-trigger]',
           start: 'top bottom-=30%',
-          markers: true,
         };
 
         gsap.to('[data-paragraphs] [data-before-text]', {

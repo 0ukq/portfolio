@@ -40,6 +40,7 @@ body {
 .stack-items {
   display: grid;
   > .item {
+    width: fit-content;
     grid-area: 1/1;
   }
 }

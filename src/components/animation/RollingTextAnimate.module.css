@@ -1,0 +1,9 @@
+.rolling-text {
+  :global(.item) {
+    span {
+      display: inline-block;
+      white-space: pre;
+      will-change: transform;
+    }
+  }
+}

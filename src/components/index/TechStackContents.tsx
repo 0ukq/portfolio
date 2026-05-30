@@ -6,10 +6,10 @@ import NextVector from '../vector/NextVector';
 import TsVector from '../vector/TsVector';
 import CssVector from '../vector/CssVector';
 import HtmlVector from '../vector/HtmlVector';
-import RollingTextAnimate from '../animation/RollingTextAnimate';
 import HideUpAnimate from '../animation/HideUpAnimate';
 import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
 import clsx from 'clsx';
+import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 import styles from './TechStackContents.module.css';
 

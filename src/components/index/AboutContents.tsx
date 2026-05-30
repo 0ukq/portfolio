@@ -1,5 +1,4 @@
 import HideUpAnimate from '../animation/HideUpAnimate';
-import RollingTextAnimate from '../animation/RollingTextAnimate';
 import HeadingText from '../heading/HeadingText';
 import ContentInner from '../layout/ContentInner';
 import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
@@ -9,6 +8,7 @@ import styles from './AboutContents.module.css';
 import clsx from 'clsx';
 import { bigShoulders } from '@/lib/fonts';
 import StackText from '../stack/StackText';
+import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 const AboutContents: React.FC = () => {
   return (

@@ -4,12 +4,12 @@ import ContentInner from '../layout/ContentInner';
 import ExLink from '../link/ExLink';
 import { ExternalLink } from 'lucide-react';
 import FootText from './FootText';
-import RollingTextAnimate from '../animation/RollingTextAnimate';
 import HideUpAnimate from '../animation/HideUpAnimate';
 import ScrollInteractivityLottie from '../lotties/ScrollInteractivityLottie';
 import clsx from 'clsx';
 
 import styles from './ClosingContents.module.css';
+import RollingTextAnimate from '../animation/RollingTextAnimate';
 
 const ClosingContents: React.FC = () => {
   return (

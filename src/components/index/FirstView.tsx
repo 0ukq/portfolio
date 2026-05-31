@@ -7,9 +7,9 @@ import MainVisualContents from './MainVisualContents';
 const FirstView: React.FC = () => {
   return (
     <FirstViewTimeline>
-      {/* <Loading>
+      <Loading>
         <LoadingContents />
-      </Loading> */}
+      </Loading>
       <MainVisual>
         <MainVisualContents />
       </MainVisual>

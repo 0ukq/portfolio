@@ -29,6 +29,10 @@ body {
   letter-spacing: rem(2.6);
   color: var(--col_main_gray);
 }
+body.scroll-locked {
+  overflow: hidden;
+  height: 100vh;
+}
 .clip {
   overflow: clip;
 }

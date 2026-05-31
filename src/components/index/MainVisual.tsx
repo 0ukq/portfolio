@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { FirstViewTlContext } from './FirstViewTimeline';
 import { useContext, useRef } from 'react';
+import { useLenis } from 'lenis/react';
 import { easeOutExpo } from '@/lib/custom-ease';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -20,6 +21,7 @@ const MainVisual: React.FC<MainVisualProps> = ({ children }) => {
   const mainTl = useContext(FirstViewTlContext); // 親のタイムライン
   const titleTl = useRef<gsap.core.Timeline>(gsap.timeline()); // タイトルタイムライン
   const circleScrollTl = useRef<gsap.core.Timeline>(gsap.timeline()); // 円とスクロールテキストのタイムライン
+  const lenis = useLenis();
 
   useGSAP(
     () => {
@@ -51,8 +53,15 @@ const MainVisual: React.FC<MainVisualProps> = ({ children }) => {
         // 親のタイムラインに追加
         mainTl.add(circleScrollTl.current, '<+0.3').add(titleTl.current, '<');
 
-        mainTl.then(() => {
+        // タイムライン完了後の処理を追加
+        mainTl.call(() => {
           scrollAnimation();
+          requestAnimationFrame(() => {
+            // スクロールロックを解除
+            document.body.classList.remove('scroll-locked');
+            lenis?.start();
+            ScrollTrigger.refresh();
+          });
         });
 
         // スクロールアニメーション
@@ -78,7 +87,7 @@ const MainVisual: React.FC<MainVisualProps> = ({ children }) => {
         };
       }
     },
-    { scope: gsapRef, dependencies: [mainTl] }
+    { scope: gsapRef, dependencies: [mainTl, lenis] }
   );
 
   return (

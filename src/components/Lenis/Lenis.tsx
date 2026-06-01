@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 import { LenisRef, ReactLenis } from 'lenis/react';
 import { LenisOptions } from 'lenis';
 import { usePathname } from 'next/navigation';
+import ScrollReset from './ScrollReset';
 
 type LenisProps = {
   children: React.ReactNode;
@@ -43,6 +44,7 @@ export default function Lenis({ children }: LenisProps) {
 
   return (
     <ReactLenis root options={options} ref={lenisRef}>
+      <ScrollReset />
       {children}
     </ReactLenis>
   );

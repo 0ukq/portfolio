@@ -27,7 +27,7 @@ const Profile: React.FC<ProfileProps> = ({ children }) => {
         trigger: gsapRef.current,
         start: 'top top',
         end: 'bottom-=10% bottom',
-        scrub: 1.2,
+        scrub: 1,
       };
 
       // 画像
@@ -37,7 +37,11 @@ const Profile: React.FC<ProfileProps> = ({ children }) => {
       thumbnails.forEach((thumbnail, i) => {
         if (i === 0) return;
         const img = thumbnail.querySelector('img');
-        thumbnailTl.to(thumbnail, { clipPath: 'inset(0% 0% 0% 0%)' });
+        thumbnailTl.fromTo(
+          thumbnail,
+          { clipPath: 'inset(100% 0% 0% 0%)' },
+          { clipPath: 'inset(0% 0% 0% 0%)' }
+        );
         thumbnailTl.to(img, { yPercent: -5, scale: 1 }, '<');
       });
 

@@ -12,9 +12,6 @@
     }
     .thumbnails {
       .thumbnail {
-        &:not(:first-child) {
-          clip-path: inset(100% 0% 0%);
-        }
         .image {
           scale: 1.1;
         }
@@ -56,6 +53,7 @@
     .image {
       height: auto;
       filter: grayscale(1);
+      will-change: transform;
     }
   }
 }

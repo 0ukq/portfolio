@@ -1,11 +1,12 @@
+'use client';
+
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { SplitText } from 'gsap/SplitText';
 import { easeOutExpo } from '@/lib/custom-ease';
-import StackItems from '../stack/StackItems';
-
-gsap.registerPlugin(SplitText);
+import StackText from '../stack/StackText';
+import styles from './RollingTextAnimate.module.css';
+import clsx from 'clsx';
 
 interface RollingTextAnimateProps {
   duration?: number;
@@ -30,19 +31,10 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
   useGSAP(
     () => {
       if (animateDisable) return;
-      // テキスト分割
-      const beforeSplit = SplitText.create('[data-rolling-before]', {
-        type: 'chars',
-        tag: 'span',
-      });
-      const afterSplit = SplitText.create('[data-rolling-after]', {
-        type: 'chars',
-        tag: 'span',
-      });
 
       // 初期値設定
-      gsap.set(beforeSplit.chars, { display: 'inline-block', yPercent: 100 });
-      gsap.set(afterSplit.chars, { display: 'inline-block', yPercent: 100 });
+      gsap.set('[data-before-text] span', { yPercent: 100 });
+      gsap.set('[data-after-text] span', { yPercent: 100 });
 
       // アニメーション
       tl.current = gsap.timeline({
@@ -55,11 +47,11 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
       });
 
       tl.current
-        .to(beforeSplit.chars, {
+        .to('[data-before-text] span', {
           yPercent: -100,
         })
         .to(
-          afterSplit.chars,
+          '[data-after-text] span',
           {
             yPercent: 0,
           },
@@ -72,15 +64,7 @@ const RollingTextAnimate: React.FC<RollingTextAnimateProps> = ({
   if (animateDisable) return <p>{text}</p>;
 
   return (
-    <>
-      <StackItems
-        ref={scopeRef}
-        before={text}
-        beforeData="rolling-before"
-        after={text}
-        afterData="rolling-after"
-      />
-    </>
+    <StackText ref={scopeRef} text={[...text]} className={clsx(styles['rolling-text'], 'clip')} />
   );
 };
 export default RollingTextAnimate;

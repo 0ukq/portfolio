@@ -29,6 +29,10 @@ body {
   letter-spacing: rem(2.6);
   color: var(--col_main_gray);
 }
+body.scroll-locked {
+  overflow: hidden;
+  height: 100vh;
+}
 .clip {
   overflow: clip;
 }
@@ -36,6 +40,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.stack-items {
+  display: grid;
+  > .item {
+    width: fit-content;
+    grid-area: 1/1;
+  }
 }
 .bg-main-gray {
   color: var(--col_white);

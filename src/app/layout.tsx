@@ -16,9 +16,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robot.className}`}>
-        <Lenis />
-        {children}
+      <body className={`${robot.className} scroll-locked`}>
+        <Lenis>{children}</Lenis>
       </body>
     </html>
   );

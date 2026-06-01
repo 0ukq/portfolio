@@ -23,6 +23,7 @@
 
 .center {
   text-align: center;
+  place-items: center;
 }
 
 .right {

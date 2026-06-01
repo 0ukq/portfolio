@@ -1,14 +1,11 @@
 'use client';
 
 import gsap from 'gsap';
-import clsx from 'clsx';
 import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
-import { bigShoulders } from '@/lib/fonts';
+import { FirstViewTlContext } from './FirstViewTimeline';
+import { useContext, useRef } from 'react';
+import { useLenis } from 'lenis/react';
 import { easeOutExpo } from '@/lib/custom-ease';
-import ContentInner from '../layout/ContentInner';
-import StackItems from '../stack/StackItems';
-import HeadingText, { HeadingTextVariant } from '../heading/HeadingText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import styles from './MainVisual.module.css';
@@ -16,56 +13,56 @@ import styles from './MainVisual.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 type MainVisualProps = {
-  timeline?: gsap.core.Timeline | null;
+  children: React.ReactNode;
 };
 
-const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
+const MainVisual: React.FC<MainVisualProps> = ({ children }) => {
   const gsapRef = useRef<HTMLDivElement>(null);
-  const circleScrollTl = useRef<gsap.core.Timeline>(gsap.timeline());
-  const titleTl = useRef<gsap.core.Timeline>(gsap.timeline());
+  const mainTl = useContext(FirstViewTlContext); // 親のタイムライン
+  const titleTl = useRef<gsap.core.Timeline>(gsap.timeline()); // タイトルタイムライン
+  const circleScrollTl = useRef<gsap.core.Timeline>(gsap.timeline()); // 円とスクロールテキストのタイムライン
+  const lenis = useLenis();
 
   useGSAP(
     () => {
-      if (timeline && gsapRef.current) {
-        // 初期値設定
-        gsap.set('[data-title]', { xPercent: -3, clipPath: 'inset(0 100% 0 0)' });
-        gsap.set('[data-title-before]', { opacity: 0.2 });
-        gsap.set('[data-title-after]', { clipPath: 'inset(0 100% 0 0)' });
-        gsap.set('[data-scroll]', { yPercent: 100 });
-        gsap.set('[data-circle]', { clipPath: 'circle(0% at 100% 0)' });
-
+      if (mainTl && gsapRef.current) {
         // アニメーション
-        const defaultOpt: gsap.TweenVars = { duration: 2.4, ease: easeOutExpo };
+        const defaultOpt: gsap.TweenVars = { duration: 3, ease: easeOutExpo };
 
         // 円 / スクロールテキスト
         circleScrollTl.current
           .to('[data-circle]', {
-            ...defaultOpt,
-            // duration: 2.5,
             clipPath: 'circle(40% at 100% 0)',
+            ...defaultOpt,
           })
-          .to('[data-scroll]', { ...defaultOpt, duration: 2, yPercent: 0 }, '<+0.4');
+          .to('[data-scroll]', { ...defaultOpt, duration: 2, y: 0 }, '<+0.6');
 
         // タイトル
         titleTl.current
-          .to('[data-title]', { ...defaultOpt, xPercent: 0 })
-          .to('[data-title]', { ...defaultOpt, clipPath: 'inset(0% 0% 0% 0%)' }, '<')
+          .to('[data-titles] [data-after-text]', {
+            clipPath: 'inset(0% 0% 0% 0%)',
+            ...defaultOpt,
+          })
+          .to('[data-titles]', { x: 0, ...defaultOpt }, '<+0.1')
           .to(
-            '[data-title-after]',
-            {
-              ...defaultOpt,
-              clipPath: 'inset(0% 0% 0% 0%)',
-              onComplete: () => {
-                // timeline完了後
-                gsapRef.current?.classList.add('is-loaded');
-                scrollAnimation();
-              },
-            },
-            '<+0.2'
+            '[data-titles] [data-before-text]',
+            { clipPath: 'inset(0% 0% 0% 0%)', ...defaultOpt },
+            '<+0.1'
           );
 
         // 親のタイムラインに追加
-        timeline.add(circleScrollTl.current, '<+0.3').add(titleTl.current, '<');
+        mainTl.add(circleScrollTl.current, '<+0.3').add(titleTl.current, '<');
+
+        // タイムライン完了後の処理を追加
+        mainTl.call(() => {
+          scrollAnimation();
+          requestAnimationFrame(() => {
+            // スクロールロックを解除
+            document.body.classList.remove('scroll-locked');
+            lenis?.start();
+            ScrollTrigger.refresh();
+          });
+        });
 
         // スクロールアニメーション
         const scrollAnimation = () => {
@@ -90,52 +87,13 @@ const MainVisual: React.FC<MainVisualProps> = ({ timeline }) => {
         };
       }
     },
-    { scope: gsapRef, dependencies: [timeline] }
+    { scope: gsapRef, dependencies: [mainTl, lenis] }
   );
 
   return (
-    <>
-      <section ref={gsapRef} className={styles.mainVisual}>
-        <div className={styles.frame}>
-          <div>
-            <ContentInner>
-              <HeadingText variant={HeadingTextVariant.HEADING1} className={styles.titles}>
-                <StackItems
-                  contentData="title"
-                  before={'DAIKI'}
-                  after={'DAIKI'}
-                  beforeData="title-before"
-                  afterData="title-after"
-                  className={styles.item}
-                />
-                <StackItems
-                  contentData="title"
-                  before={'HIRANO'}
-                  after={'HIRANO'}
-                  beforeData="title-before"
-                  afterData="title-after"
-                  className={styles.item}
-                />
-                <StackItems
-                  contentData="title"
-                  before={'PORTFOLIO'}
-                  after={'PORTFOLIO'}
-                  beforeData="title-before"
-                  afterData="title-after"
-                  className={styles.item}
-                />
-              </HeadingText>
-            </ContentInner>
-          </div>
-          <div data-circle className={styles.circle} />
-          <div className={clsx(styles.scrollWrap, 'clip')}>
-            <p data-scroll className={clsx(styles.scroll, bigShoulders.className)}>
-              SCROLL
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+    <section ref={gsapRef} className={styles.mainVisual}>
+      {children}
+    </section>
   );
 };
 export default MainVisual;

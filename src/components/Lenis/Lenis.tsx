@@ -6,7 +6,11 @@ import { LenisRef, ReactLenis } from 'lenis/react';
 import { LenisOptions } from 'lenis';
 import { usePathname } from 'next/navigation';
 
-export default function Lenis() {
+type LenisProps = {
+  children: React.ReactNode;
+};
+
+export default function Lenis({ children }: LenisProps) {
   const lenisRef = useRef<LenisRef>(null);
   const pathname = usePathname();
 
@@ -37,5 +41,9 @@ export default function Lenis() {
     easing: t => easeOutExpo(t),
   };
 
-  return <ReactLenis root options={options} ref={lenisRef} />;
+  return (
+    <ReactLenis root options={options} ref={lenisRef}>
+      {children}
+    </ReactLenis>
+  );
 }

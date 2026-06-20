@@ -7,10 +7,12 @@ import TechStack from './TechStack';
 import TechStackContents from './TechStackContents';
 import Closing from './Closing';
 import ClosingContents from './ClosingContents';
+import ScrollReset from '../Lenis/ScrollReset';
 
 const Index: React.FC = () => {
   return (
     <>
+      <ScrollReset />
       <FirstView />
       <About>
         <AboutContents />
